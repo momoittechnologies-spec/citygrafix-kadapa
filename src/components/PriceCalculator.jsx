@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Calculator, MessageCircle, Info, Sparkles, Check, RefreshCw, Send, ChevronRight } from 'lucide-react';
+import { Calculator, MessageCircle, Info, Sparkles, Check, Send, Layers } from 'lucide-react';
 import { PRICING_CONFIG, formatWhatsAppQuote } from '../data/pricingConfig';
 
 export default function PriceCalculator() {
@@ -136,25 +136,21 @@ export default function PriceCalculator() {
   };
 
   return (
-    <section id="calculator" className="py-20 bg-[#0a0f1d] relative overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
-
+    <section id="calculator" className="py-20 bg-slate-100/70 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-3">
-            <Calculator className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 border border-sky-300 text-sky-800 text-xs font-bold mb-3 shadow-sm">
+            <Calculator className="w-3.5 h-3.5 text-sky-600" />
             <span>Interactive Estimator</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
             Instant Flex & Printing{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-amber-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500">
               Price Calculator
             </span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             Get an exact real-time quote for your flex banner, glow board, visiting cards or customized gifts. Send it directly to WhatsApp for instant confirmation.
           </p>
         </div>
@@ -164,8 +160,8 @@ export default function PriceCalculator() {
           {/* Left Column: Product & Options Form */}
           <div className="lg:col-span-7 space-y-6">
             {/* Step 1: Select Product Category */}
-            <div className="p-6 rounded-2xl glass-card border border-white/10">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3">
                 1. Select Item or Material
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -176,23 +172,23 @@ export default function PriceCalculator() {
                       setSelectedProductId(item.id);
                       setSelectedFixedIndex(0);
                     }}
-                    className={`flex flex-col text-left p-3.5 rounded-xl border transition-all ${
+                    className={`flex flex-col text-left p-3.5 rounded-xl border-2 transition-all ${
                       selectedProductId === item.id
-                        ? 'bg-cyan-500/15 border-cyan-400/80 shadow-md shadow-cyan-950/50'
-                        : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-300'
+                        ? 'bg-sky-50/90 border-sky-500 shadow-md shadow-sky-500/10'
+                        : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700'
                     }`}
                   >
                     <div className="flex items-center justify-between w-full mb-1">
-                      <span className={`text-sm font-bold ${selectedProductId === item.id ? 'text-white' : 'text-slate-200'}`}>
+                      <span className={`text-sm font-bold ${selectedProductId === item.id ? 'text-sky-900' : 'text-slate-800'}`}>
                         {item.name.split(' (')[0]}
                       </span>
                       {item.popular && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                        <span className="text-[10px] font-extrabold px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300">
                           Popular
                         </span>
                       )}
                     </div>
-                    <span className="text-[11px] text-slate-400 line-clamp-1">
+                    <span className="text-[11px] text-slate-500 line-clamp-1">
                       {item.description}
                     </span>
                   </button>
@@ -201,8 +197,8 @@ export default function PriceCalculator() {
             </div>
 
             {/* Step 2: Dimensions & Quantity Inputs */}
-            <div className="p-6 rounded-2xl glass-card border border-white/10">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3">
                 2. Specify Size & Dimensions
               </label>
 
@@ -211,7 +207,7 @@ export default function PriceCalculator() {
                 <div className="space-y-4">
                   {/* Presets */}
                   <div>
-                    <span className="text-xs text-slate-400 mb-2 block">Quick Size Presets:</span>
+                    <span className="text-xs text-slate-500 font-semibold mb-2 block">Quick Size Presets:</span>
                     <div className="flex flex-wrap gap-2">
                       {presets.map((p, idx) => (
                         <button
@@ -220,10 +216,10 @@ export default function PriceCalculator() {
                             setWidth(p.w);
                             setHeight(p.h);
                           }}
-                          className={`text-xs px-3 py-1.5 rounded-lg border transition-all ${
+                          className={`text-xs px-3 py-1.5 rounded-lg border font-medium transition-all ${
                             width === p.w && height === p.h
-                              ? 'bg-cyan-400 text-slate-950 font-bold border-cyan-400'
-                              : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:border-slate-600'
+                              ? 'bg-sky-600 text-white font-bold border-sky-600 shadow-sm'
+                              : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                           }`}
                         >
                           {p.label}
@@ -235,7 +231,7 @@ export default function PriceCalculator() {
                   {/* Width & Height Inputs */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         Width (in Feet)
                       </label>
                       <div className="relative">
@@ -245,16 +241,16 @@ export default function PriceCalculator() {
                           max="200"
                           value={width}
                           onChange={(e) => setWidth(Math.max(1, Number(e.target.value)))}
-                          className="w-full bg-slate-900 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-white font-bold text-base focus:outline-none"
+                          className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
                         />
-                        <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-semibold">
+                        <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-bold">
                           ft
                         </span>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         Height (in Feet)
                       </label>
                       <div className="relative">
@@ -264,16 +260,16 @@ export default function PriceCalculator() {
                           max="100"
                           value={height}
                           onChange={(e) => setHeight(Math.max(1, Number(e.target.value)))}
-                          className="w-full bg-slate-900 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-white font-bold text-base focus:outline-none"
+                          className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
                         />
-                        <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-semibold">
+                        <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-bold">
                           ft
                         </span>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         Quantity (Copies)
                       </label>
                       <input
@@ -282,15 +278,15 @@ export default function PriceCalculator() {
                         max="500"
                         value={quantity}
                         onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                        className="w-full bg-slate-900 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-white font-bold text-base focus:outline-none"
+                        className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
                       />
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 p-3 bg-cyan-950/30 border border-cyan-500/20 rounded-xl text-xs text-cyan-300">
-                    <Info className="w-4 h-4 shrink-0" />
+                  <div className="flex items-center gap-2 p-3 bg-sky-50 border border-sky-200 rounded-xl text-xs text-sky-900 font-medium">
+                    <Info className="w-4 h-4 text-sky-600 shrink-0" />
                     <span>
-                      Total Area: <strong>{calculation.areaSqFt} sq. ft.</strong> (Rate: ₹{product.baseRatePerSqFt} per sq.ft)
+                      Total Area: <strong className="text-sky-700 font-bold">{calculation.areaSqFt} sq. ft.</strong> (Rate: ₹{product.baseRatePerSqFt} per sq.ft)
                     </span>
                   </div>
                 </div>
@@ -300,7 +296,7 @@ export default function PriceCalculator() {
               {product.unitType === 'letters' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-slate-300 mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
                       Number of Letters / Characters
                     </label>
                     <input
@@ -309,17 +305,17 @@ export default function PriceCalculator() {
                       max="100"
                       value={letterCount}
                       onChange={(e) => setLetterCount(Math.max(1, Number(e.target.value)))}
-                      className="w-full bg-slate-900 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-white font-bold text-base focus:outline-none"
+                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-300 mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
                       Letter Height (Inches)
                     </label>
                     <select
                       value={letterHeightInches}
                       onChange={(e) => setLetterHeightInches(Number(e.target.value))}
-                      className="w-full bg-slate-900 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-white font-bold text-base focus:outline-none"
+                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
                     >
                       <option value="6">6 Inches (Small Storefront)</option>
                       <option value="8">8 Inches (Standard Shop Fascia)</option>
@@ -334,26 +330,26 @@ export default function PriceCalculator() {
               {/* FIXED OPTIONS (Visiting Cards, Frames) */}
               {product.unitType === 'fixed' && (
                 <div className="space-y-3">
-                  <span className="text-xs text-slate-400 block">Choose Size or Paper Grade:</span>
+                  <span className="text-xs text-slate-500 font-semibold block">Choose Size or Paper Grade:</span>
                   <div className="grid grid-cols-1 gap-2">
                     {product.fixedOptions.map((opt, idx) => (
                       <button
                         key={idx}
                         onClick={() => setSelectedFixedIndex(idx)}
-                        className={`flex items-center justify-between p-3.5 rounded-xl border text-left transition-all ${
+                        className={`flex items-center justify-between p-3.5 rounded-xl border-2 text-left transition-all ${
                           selectedFixedIndex === idx
-                            ? 'bg-cyan-500/15 border-cyan-400 text-white font-bold'
-                            : 'bg-slate-900/60 border-slate-800 text-slate-300'
+                            ? 'bg-sky-50 border-sky-500 text-sky-950 font-bold'
+                            : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
                         }`}
                       >
                         <span className="text-sm">{opt.label}</span>
-                        <span className="text-sm font-extrabold text-cyan-400">₹{opt.price}</span>
+                        <span className="text-sm font-extrabold text-sky-700">₹{opt.price}</span>
                       </button>
                     ))}
                   </div>
 
                   <div className="pt-2">
-                    <label className="block text-xs font-medium text-slate-300 mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
                       Order Quantity
                     </label>
                     <input
@@ -362,7 +358,7 @@ export default function PriceCalculator() {
                       max="100"
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                      className="w-32 bg-slate-900 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-2 text-white font-bold text-base focus:outline-none"
+                      className="w-32 bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2 text-slate-900 font-bold text-base focus:outline-none"
                     />
                   </div>
                 </div>
@@ -372,7 +368,7 @@ export default function PriceCalculator() {
               {product.unitType === 'quantity' && (
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-medium text-slate-300 mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
                       Quantity of Mugs
                     </label>
                     <input
@@ -381,12 +377,12 @@ export default function PriceCalculator() {
                       max="1000"
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                      className="w-full sm:w-48 bg-slate-900 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-white font-bold text-base focus:outline-none"
+                      className="w-full sm:w-48 bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
                     />
                   </div>
 
-                  <div className="flex items-center gap-2 p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs text-amber-300">
-                    <Sparkles className="w-4 h-4 shrink-0" />
+                  <div className="flex items-center gap-2 p-3 bg-amber-50 border border-amber-300 rounded-xl text-xs text-amber-800 font-medium">
+                    <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>
                       Bulk Discount: 5+ Mugs @ ₹160/pc | 20+ Mugs @ ₹140/pc (Includes Gift Box)
                     </span>
@@ -397,8 +393,8 @@ export default function PriceCalculator() {
 
             {/* Step 3: Finishing & Add-ons */}
             {product.finishingAllowed && product.finishingAllowed.length > 0 && (
-              <div className="p-6 rounded-2xl glass-card border border-white/10">
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3">
                   3. Optional Finishing & Framing
                 </label>
                 <div className="space-y-2.5">
@@ -411,25 +407,25 @@ export default function PriceCalculator() {
                       <div
                         key={finishKey}
                         onClick={() => toggleFinishing(finishKey)}
-                        className={`flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
+                        className={`flex items-start gap-3 p-3.5 rounded-xl border-2 cursor-pointer transition-all ${
                           isChecked
-                            ? 'bg-cyan-950/40 border-cyan-400/80 text-white'
-                            : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:border-slate-700'
+                            ? 'bg-sky-50 border-sky-500 text-sky-950'
+                            : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
                         }`}
                       >
-                        <div className={`w-5 h-5 rounded-md flex items-center justify-center mt-0.5 border transition-all ${
-                          isChecked ? 'bg-cyan-500 border-cyan-400 text-slate-950' : 'border-slate-700 bg-slate-800'
+                        <div className={`w-5 h-5 rounded-md flex items-center justify-center mt-0.5 border-2 transition-all ${
+                          isChecked ? 'bg-sky-600 border-sky-600 text-white' : 'border-slate-300 bg-white'
                         }`}>
                           {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-semibold">{finish.name}</span>
-                            <span className="text-xs text-cyan-400 font-bold">
+                            <span className="text-sm font-bold">{finish.name}</span>
+                            <span className="text-xs text-sky-700 font-extrabold">
                               {finish.price ? `+₹${finish.price}` : `+₹${finish.pricePerSqFt || finish.pricePerPiece} / unit`}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-400 mt-0.5">{finish.description}</p>
+                          <p className="text-xs text-slate-500 mt-0.5">{finish.description}</p>
                         </div>
                       </div>
                     );
@@ -439,8 +435,8 @@ export default function PriceCalculator() {
             )}
 
             {/* Optional Customer Note */}
-            <div className="p-6 rounded-2xl glass-card border border-white/10">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-2">
                 4. Custom Notes (Optional)
               </label>
               <input
@@ -448,64 +444,62 @@ export default function PriceCalculator() {
                 placeholder="e.g., Urgent requirement today, Telugu text with logo..."
                 value={customerNote}
                 onChange={(e) => setCustomerNote(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 focus:border-cyan-400 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"
+                className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none"
               />
             </div>
           </div>
 
           {/* Right Column: Instant Live Quotation Box */}
           <div className="lg:col-span-5 sticky top-28">
-            <div className="p-6 sm:p-7 rounded-3xl glass-card border-2 border-cyan-500/30 shadow-2xl shadow-cyan-950/80 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
-
-              <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+            <div className="p-6 sm:p-7 rounded-3xl bg-white border-2 border-sky-300 shadow-xl shadow-sky-600/10 relative overflow-hidden">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+                  <span className="text-xs font-black uppercase tracking-wider text-sky-600">
                     Live Quotation
                   </span>
-                  <h3 className="text-lg font-bold text-white">Estimated Summary</h3>
+                  <h3 className="text-xl font-extrabold text-slate-900">Estimated Summary</h3>
                 </div>
-                <span className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span className="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-300">
                   Best Kadapa Price
                 </span>
               </div>
 
               {/* Itemized Breakdown */}
               <div className="space-y-3 text-sm mb-6">
-                <div className="flex justify-between py-1 border-b border-white/5 text-slate-300">
-                  <span className="text-slate-400">Product:</span>
-                  <span className="font-semibold text-white text-right max-w-[200px] truncate">
+                <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
+                  <span className="text-slate-500 font-medium">Product:</span>
+                  <span className="font-bold text-slate-900 text-right max-w-[200px] truncate">
                     {product.name}
                   </span>
                 </div>
 
-                <div className="flex justify-between py-1 border-b border-white/5 text-slate-300">
-                  <span className="text-slate-400">Size / Specs:</span>
-                  <span className="font-semibold text-white">
+                <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
+                  <span className="text-slate-500 font-medium">Size / Specs:</span>
+                  <span className="font-bold text-slate-900">
                     {calculation.dimensionStr}
                   </span>
                 </div>
 
                 {calculation.areaSqFt > 0 && (
-                  <div className="flex justify-between py-1 border-b border-white/5 text-slate-300">
-                    <span className="text-slate-400">Total Area:</span>
-                    <span className="font-semibold text-cyan-400">
+                  <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
+                    <span className="text-slate-500 font-medium">Total Area:</span>
+                    <span className="font-extrabold text-sky-600">
                       {calculation.areaSqFt} sq. ft.
                     </span>
                   </div>
                 )}
 
-                <div className="flex justify-between py-1 border-b border-white/5 text-slate-300">
-                  <span className="text-slate-400">Base Print Cost:</span>
-                  <span className="font-semibold text-white">
+                <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
+                  <span className="text-slate-500 font-medium">Base Print Cost:</span>
+                  <span className="font-bold text-slate-900">
                     ₹{calculation.baseTotal}
                   </span>
                 </div>
 
                 {calculation.finishingTotal > 0 && (
-                  <div className="flex justify-between py-1 border-b border-white/5 text-slate-300">
-                    <span className="text-slate-400">Finishing / Addons:</span>
-                    <span className="font-semibold text-amber-300">
+                  <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
+                    <span className="text-slate-500 font-medium">Finishing / Addons:</span>
+                    <span className="font-bold text-amber-700">
                       +₹{calculation.finishingTotal}
                     </span>
                   </div>
@@ -513,33 +507,33 @@ export default function PriceCalculator() {
               </div>
 
               {/* Total Display */}
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-900 to-cyan-950/60 border border-cyan-500/30 mb-6 text-center">
-                <span className="text-xs uppercase font-bold text-slate-400 tracking-wider">
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-sky-50 via-white to-amber-50 border-2 border-sky-200 mb-6 text-center shadow-inner">
+                <span className="text-xs uppercase font-extrabold text-slate-500 tracking-wider">
                   Total Estimated Price
                 </span>
                 <div className="flex items-center justify-center gap-1 mt-1">
-                  <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-teal-300">
+                  <span className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-rose-600 to-amber-600">
                     ₹{calculation.grandTotal}
                   </span>
-                  <span className="text-xs text-slate-400">*(Approx)</span>
+                  <span className="text-xs text-slate-400 font-bold">*(Approx)</span>
                 </div>
-                <p className="text-[11px] text-slate-400 mt-1">
-                  *Prices may vary slightly based on complex graphic design or urgent dispatch.
+                <p className="text-[11px] text-slate-500 mt-1">
+                  *Final price may vary based on custom graphic design adjustments.
                 </p>
               </div>
 
               {/* WhatsApp Action Button */}
               <button
                 onClick={handleSendWhatsApp}
-                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-base text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 shadow-xl shadow-emerald-950/70 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-base text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-xl shadow-emerald-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>Confirm & Send to WhatsApp</span>
               </button>
 
-              <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-400">
+              <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-600">
                 <span>Direct shop WhatsApp:</span>
-                <a href="tel:+917601043674" className="text-cyan-400 hover:underline font-semibold">
+                <a href="tel:+917601043674" className="text-sky-700 hover:underline font-bold">
                   +91 76010 43674
                 </a>
               </div>

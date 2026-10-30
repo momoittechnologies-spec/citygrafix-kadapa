@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageCircle, Heart, ArrowUp, Printer, Sparkles } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 
 export default function Footer({ onOpenInstallModal }) {
@@ -8,14 +8,17 @@ export default function Footer({ onOpenInstallModal }) {
   };
 
   return (
-    <footer className="bg-[#050811] border-t border-white/10 pt-16 pb-28 md:pb-16 text-slate-400 text-xs sm:text-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-slate-900 border-t border-slate-800 text-slate-400 text-xs sm:text-sm relative">
+      {/* Top CMYK calibration strip */}
+      <div className="h-1.5 w-full cmyk-top-bar" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 md:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-pink-500 to-amber-400 p-[2px]">
-                <div className="w-full h-full bg-[#070b14] rounded-[10px] flex items-center justify-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-amber-300 text-lg">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-rose-500 to-amber-400 p-[2px]">
+                <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-amber-300 text-lg">
                   CG
                 </div>
               </div>
@@ -23,8 +26,8 @@ export default function Footer({ onOpenInstallModal }) {
                 <span className="font-extrabold text-lg text-white tracking-tight block">
                   CITY GRAFIX
                 </span>
-                <span className="text-[11px] text-cyan-400 font-semibold uppercase tracking-wider">
-                  Kadapa, Andhra Pradesh
+                <span className="text-[11px] text-sky-400 font-bold uppercase tracking-wider">
+                  Seven Roads Circle, Kadapa
                 </span>
               </div>
             </div>
@@ -38,7 +41,7 @@ export default function Footer({ onOpenInstallModal }) {
                 href="https://www.instagram.com/citygrafix1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-pink-500/50 flex items-center justify-center text-pink-400 hover:scale-105 transition-all"
+                className="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 hover:border-rose-500 flex items-center justify-center text-rose-400 hover:scale-105 transition-all"
                 aria-label="Instagram"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -47,14 +50,14 @@ export default function Footer({ onOpenInstallModal }) {
                 href="https://wa.me/917601043674"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 flex items-center justify-center text-emerald-400 hover:scale-105 transition-all"
+                className="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-500 flex items-center justify-center text-emerald-400 hover:scale-105 transition-all"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
               </a>
               <a
                 href="tel:+917601043674"
-                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 flex items-center justify-center text-cyan-400 hover:scale-105 transition-all"
+                className="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 hover:border-sky-500 flex items-center justify-center text-sky-400 hover:scale-105 transition-all"
                 aria-label="Phone"
               >
                 <Phone className="w-4 h-4" />
@@ -68,12 +71,12 @@ export default function Footer({ onOpenInstallModal }) {
               Printing Services
             </h4>
             <ul className="space-y-2.5 text-xs">
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Star Flex Banners</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">3D Acrylic LED Letters</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">LED Glow Sign Boards</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">One-Way Vision Glass Film</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Rollup Standees & Arches</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Personalized Photo Mugs</a></li>
+              <li><a href="#services" className="hover:text-sky-400 transition-colors">Star Flex Banners</a></li>
+              <li><a href="#services" className="hover:text-sky-400 transition-colors">3D Acrylic LED Letters</a></li>
+              <li><a href="#services" className="hover:text-sky-400 transition-colors">LED Glow Sign Boards</a></li>
+              <li><a href="#services" className="hover:text-sky-400 transition-colors">One-Way Vision Glass Film</a></li>
+              <li><a href="#services" className="hover:text-sky-400 transition-colors">Rollup Standees & Arches</a></li>
+              <li><a href="#services" className="hover:text-sky-400 transition-colors">Personalized Photo Mugs</a></li>
             </ul>
           </div>
 
@@ -83,7 +86,7 @@ export default function Footer({ onOpenInstallModal }) {
               Quick Features
             </h4>
             <ul className="space-y-2.5 text-xs">
-              <li><a href="#calculator" className="text-cyan-400 hover:underline font-semibold">Instant Price Calculator</a></li>
+              <li><a href="#calculator" className="text-sky-400 hover:underline font-semibold">Instant Price Calculator</a></li>
               <li><a href="#portfolio" className="hover:text-white transition-colors">Kadapa Project Showcase</a></li>
               <li><a href="#why-us" className="hover:text-white transition-colors">Quality & Machine Specs</a></li>
               <li><a href="#reviews" className="hover:text-white transition-colors">5.0★ Google Reviews</a></li>
@@ -116,14 +119,14 @@ export default function Footer({ onOpenInstallModal }) {
         </div>
 
         {/* Bottom Credits & Back to Top */}
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500 text-center sm:text-left">
-            © {new Date().getFullYear()} City Grafix Kadapa. All rights reserved. Crafting bold impressions in Rayalaseema.
+            © {new Date().getFullYear()} City Grafix Kadapa. All rights reserved. Crafting vibrant impressions across Rayalaseema.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-white transition-all text-xs"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-slate-600 text-slate-400 hover:text-white transition-all text-xs"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

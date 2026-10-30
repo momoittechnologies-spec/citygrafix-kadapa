@@ -58,7 +58,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070b14] text-slate-100 flex flex-col selection:bg-cyan-500 selection:text-slate-950">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col selection:bg-sky-500 selection:text-white">
       {/* Header Navigation */}
       <Navbar
         onOpenInstallModal={() => setShowInstallModal(true)}
