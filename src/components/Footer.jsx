@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles, Code2 } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 
 export default function Footer({ onOpenInstallModal }) {
@@ -63,6 +63,14 @@ export default function Footer({ onOpenInstallModal }) {
                 <Phone className="w-4 h-4" />
               </a>
             </div>
+
+            <div className="pt-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-[11px]">
+                <Code2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                <span className="text-slate-400">Technology Partner:</span>
+                <span className="font-bold text-sky-400 tracking-wide">MOMO IT TECHNOLOGIES</span>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -119,10 +127,17 @@ export default function Footer({ onOpenInstallModal }) {
         </div>
 
         {/* Bottom Credits & Back to Top */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-500 text-center sm:text-left">
-            © {new Date().getFullYear()} City Grafix Kadapa. All rights reserved. Crafting vibrant impressions across Rayalaseema.
-          </p>
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
+            <p className="text-slate-500">
+              © {new Date().getFullYear()} City Grafix Kadapa. All rights reserved.
+            </p>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <p className="text-slate-400 flex items-center gap-1.5">
+              <span>Technology Partner:</span>
+              <span className="font-bold text-sky-400 tracking-wide">MOMO IT TECHNOLOGIES</span>
+            </p>
+          </div>
 
           <button
             onClick={scrollToTop}
