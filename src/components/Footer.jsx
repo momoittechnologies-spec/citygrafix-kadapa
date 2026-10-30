@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles, ExternalLink, Star } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 
 export default function Footer() {
@@ -27,7 +27,7 @@ export default function Footer() {
                   CITY GRAFIX
                 </span>
                 <span className="text-[11px] text-sky-400 font-bold uppercase tracking-wider">
-                  Seven Roads Circle, Kadapa
+                  Opp. Tirumala Hospital, Kadapa
                 </span>
               </div>
             </div>
@@ -89,7 +89,29 @@ export default function Footer() {
               <li><a href="#calculator" className="text-sky-400 hover:underline font-semibold">Instant Price Calculator</a></li>
               <li><a href="#portfolio" className="hover:text-white transition-colors">Kadapa Project Showcase</a></li>
               <li><a href="#why-us" className="hover:text-white transition-colors">Quality & Machine Specs</a></li>
-              <li><a href="#reviews" className="hover:text-white transition-colors">5.0★ Google Reviews</a></li>
+              <li>
+                <a
+                  href="https://www.reviewsmart.online/r/citygrafix"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-amber-400 hover:underline transition-colors flex items-center gap-1 font-semibold"
+                >
+                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                  <span>5.0★ Google Reviews</span>
+                  <ExternalLink className="w-2.5 h-2.5" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/citygrafix1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-rose-400 transition-colors flex items-center gap-1 font-semibold"
+                >
+                  <InstagramIcon className="w-3 h-3 text-rose-400" />
+                  <span>@citygrafix1 Instagram</span>
+                </a>
+              </li>
               <li><a href="#contact" className="hover:text-white transition-colors">Store Location & Map</a></li>
             </ul>
           </div>

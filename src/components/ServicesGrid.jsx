@@ -18,24 +18,24 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
             <Sparkles className="w-3.5 h-3.5 text-rose-500" />
             <span>Comprehensive Solutions</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
             Our Printing & Branding{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-amber-500 to-sky-600">
               Services
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             From monumental outdoor hoardings to delicate customized photo gifts. High precision, brilliant Japanese colors, and fast delivery in Kadapa.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none px-2 max-w-full">
           {SERVICES_CATEGORIES.map(category => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 shrink-0 ${
                 activeCategory === category.id
                   ? 'bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-md shadow-sky-600/25 scale-105'
                   : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border border-slate-200'

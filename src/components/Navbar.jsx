@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, Menu, X, Printer, Sparkles, Camera, Lock } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, Star, Sparkles, Lock } from 'lucide-react';
+import { InstagramIcon } from './Icons';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,13 +15,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Client Galleries', href: '#gallery-hub', badge: 'Photo Hub' },
-    { label: 'Price Calculator', href: '#calculator', highlight: true },
     { label: 'Services', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
     { label: 'Why Us', href: '#why-us' },
-    { label: 'Reviews', href: '#reviews' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Google Reviews', href: '#reviews', icon: 'star' },
+    { label: 'Instagram', href: '#instagram', icon: 'instagram' },
+    { label: 'Contact & Map', href: '#contact' },
   ];
 
   return (
@@ -31,8 +31,8 @@ export default function Navbar() {
       <div
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 py-3 shadow-md shadow-slate-200/50'
-            : 'bg-white/80 backdrop-blur-sm border-b border-slate-100 py-4 shadow-sm'
+            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 py-2.5 shadow-md shadow-slate-200/50'
+            : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3.5 shadow-sm'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,39 +42,34 @@ export default function Navbar() {
               <img
                 src="/logo.png"
                 alt="City Grafix Kadapa"
-                className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+                className="h-11 sm:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
               />
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
+                  <span className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
                     CITY GRAFIX
                   </span>
-                  <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-sky-100 text-sky-700 border border-sky-300 rounded">
+                  <span className="px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-sky-100 text-sky-700 border border-sky-300 rounded">
                     Kadapa
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-medium">
+                <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-slate-500 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span>Flex Printing, Signage & Photo Hub</span>
+                  <span>Flex Printing & 3D Signage Studio</span>
                 </div>
               </div>
             </a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200">
+            <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1 ${
-                    link.highlight
-                      ? 'bg-white text-sky-700 shadow-sm border border-slate-200/60 hover:text-sky-800'
-                      : link.badge
-                      ? 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
-                  }`}
+                  className="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all text-slate-600 hover:text-slate-900 hover:bg-white flex items-center gap-1.5"
                 >
-                  {link.badge && <Camera className="w-3 h-3 text-rose-500" />}
+                  {link.icon === 'star' && <Star className="w-3 h-3 text-amber-500 fill-amber-400" />}
+                  {link.icon === 'instagram' && <InstagramIcon className="w-3 h-3 text-rose-500" />}
                   <span>{link.label}</span>
                 </a>
               ))}
@@ -82,20 +77,10 @@ export default function Navbar() {
 
             {/* Direct Quick Actions */}
             <div className="hidden sm:flex items-center gap-2.5">
-              {/* Studio Admin link */}
-              <a
-                href="#admin"
-                className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-all border border-transparent hover:border-slate-200 text-xs font-bold flex items-center gap-1"
-                title="Photographer Admin Login"
-              >
-                <Lock className="w-3.5 h-3.5 text-slate-500" />
-                <span className="hidden lg:inline text-[11px]">Studio Portal</span>
-              </a>
-
               {/* Call Shop */}
               <a
                 href="tel:+917601043674"
-                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 rounded-xl transition-all border border-slate-200"
+                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 rounded-xl transition-all border border-slate-200"
               >
                 <Phone className="w-3.5 h-3.5 text-sky-600" />
                 <span>076010 43674</span>
@@ -106,21 +91,23 @@ export default function Navbar() {
                 href="https://wa.me/917601043674?text=Hi%20City%20Grafix%2C%20I%20visited%20your%20website%20and%20want%20to%20inquire%20about%20printing."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 rounded-xl shadow-md shadow-emerald-500/25 transition-all hover:scale-105"
+                className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 rounded-xl shadow-md shadow-emerald-500/25 transition-all hover:scale-105 active:scale-95"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
-                <span>WhatsApp</span>
+                <span>WhatsApp Order</span>
               </a>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex xl:hidden items-center gap-2">
+            <div className="flex lg:hidden items-center gap-2">
               <a
-                href="#admin"
-                className="p-2 text-slate-700 bg-slate-100 border border-slate-200 rounded-xl text-xs font-bold"
-                title="Studio Admin"
+                href="https://wa.me/917601043674"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-white bg-emerald-600 rounded-xl text-xs font-bold shadow-sm"
+                aria-label="WhatsApp"
               >
-                <Lock className="w-4 h-4 text-sky-600" />
+                <MessageCircle className="w-4 h-4" />
               </a>
 
               <button
@@ -128,46 +115,38 @@ export default function Navbar() {
                 className="p-2 text-slate-700 hover:text-slate-900 bg-slate-100 border border-slate-200 rounded-xl focus:outline-none"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
 
           {/* Mobile Dropdown Menu */}
           {mobileMenuOpen && (
-            <div className="xl:hidden mt-3 pt-3 pb-5 px-3 bg-white border border-slate-200 rounded-2xl shadow-xl space-y-2 animate-fadeIn">
+            <div className="lg:hidden mt-3 pt-3 pb-5 px-3 bg-white border border-slate-200 rounded-2xl shadow-xl space-y-2 animate-fadeIn">
               <div className="flex flex-col space-y-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-3 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-between ${
-                      link.highlight
-                        ? 'text-sky-700 bg-sky-50 border border-sky-200'
-                        : link.badge
-                        ? 'text-rose-700 bg-rose-50 border border-rose-200'
-                        : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
-                    }`}
+                    className="px-3 py-2.5 rounded-xl text-sm font-semibold transition-all text-slate-700 hover:text-slate-900 hover:bg-slate-50 flex items-center justify-between"
                   >
-                    <span>{link.label}</span>
-                    {link.badge && (
-                      <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-rose-600 text-white">
-                        {link.badge}
-                      </span>
-                    )}
+                    <div className="flex items-center gap-2">
+                      {link.icon === 'star' && <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />}
+                      {link.icon === 'instagram' && <InstagramIcon className="w-3.5 h-3.5 text-rose-500" />}
+                      <span>{link.label}</span>
+                    </div>
                   </a>
                 ))}
               </div>
 
               <div className="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
                 <a
-                  href="#admin"
-                  onClick={() => setMobileMenuOpen(false)}
+                  href="tel:+917601043674"
                   className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl border border-slate-200"
                 >
-                  <Lock className="w-4 h-4 text-sky-600" />
-                  <span>Studio Admin</span>
+                  <Phone className="w-4 h-4 text-sky-600" />
+                  <span>Call Shop</span>
                 </a>
                 <a
                   href="https://wa.me/917601043674?text=Hi%20City%20Grafix%2C%20I%20want%20to%20place%20an%20order"

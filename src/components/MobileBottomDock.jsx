@@ -3,7 +3,7 @@ import { Phone, MessageCircle, Calculator, MapPin } from 'lucide-react';
 
 export default function MobileBottomDock() {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-slate-200 px-3 py-2 shadow-2xl">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-slate-200 px-3 pt-2 pb-[max(8px,env(safe-area-inset-bottom))] shadow-2xl">
       <div className="grid grid-cols-4 gap-1.5 max-w-md mx-auto">
         {/* Direct Call */}
         <a

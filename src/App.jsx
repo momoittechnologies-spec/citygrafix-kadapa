@@ -6,10 +6,11 @@ import ServicesGrid from './components/ServicesGrid';
 import PortfolioGallery from './components/PortfolioGallery';
 import WhyUs from './components/WhyUs';
 import Testimonials from './components/Testimonials';
+import InstagramShowcase from './components/InstagramShowcase';
+import PhotographyHubSection from './components/PhotographyHubSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import MobileBottomDock from './components/MobileBottomDock';
-import PhotographyHubSection from './components/PhotographyHubSection';
 
 // Gallery Platform Components
 import ClientGallery from './gallery/components/ClientGallery';
@@ -102,7 +103,7 @@ export default function App() {
     );
   }
 
-  // 3. Main City Grafix Website
+  // 3. Main City Grafix Marketing Website
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col selection:bg-sky-500 selection:text-white">
       {/* Header Navigation */}
@@ -115,16 +116,6 @@ export default function App() {
         {/* Interactive Instant Cost & Size Estimator */}
         <PriceCalculator />
 
-        {/* Dedicated Photography Platform & Client Galleries Feature */}
-        <PhotographyHubSection
-          onOpenGallery={(slug) => {
-            window.location.hash = '#gallery/' + slug;
-          }}
-          onOpenAdmin={() => {
-            window.location.hash = '#admin';
-          }}
-        />
-
         {/* Filterable Services & Printing Products */}
         <ServicesGrid onSelectServiceForCalculator={handleSelectServiceForCalculator} />
 
@@ -134,8 +125,21 @@ export default function App() {
         {/* Value Proposition & Quality Standards */}
         <WhyUs />
 
-        {/* 5.0 Google Rating & Testimonials */}
+        {/* 5.0 Google Rating & Customer Feedback with ReviewSmart CTA */}
         <Testimonials />
+
+        {/* Prominent Official Instagram Showcase (@citygrafix1) */}
+        <InstagramShowcase />
+
+        {/* Dedicated Photography Platform & Client Galleries Feature */}
+        <PhotographyHubSection
+          onOpenGallery={(slug) => {
+            window.location.hash = '#gallery/' + slug;
+          }}
+          onOpenAdmin={() => {
+            window.location.hash = '#admin';
+          }}
+        />
 
         {/* Contact, Store Location & WhatsApp Form */}
         <ContactSection />
