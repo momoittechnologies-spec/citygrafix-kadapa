@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles, Code2 } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 
 export default function Footer() {
@@ -63,14 +63,6 @@ export default function Footer() {
                 <Phone className="w-4 h-4" />
               </a>
             </div>
-
-            <div className="pt-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-[11px]">
-                <Code2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-                <span className="text-slate-400">Technology Partner:</span>
-                <span className="font-bold text-sky-400 tracking-wide">MOMO IT TECHNOLOGIES</span>
-              </div>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -98,7 +90,7 @@ export default function Footer() {
               <li><a href="#portfolio" className="hover:text-white transition-colors">Kadapa Project Showcase</a></li>
               <li><a href="#why-us" className="hover:text-white transition-colors">Quality & Machine Specs</a></li>
               <li><a href="#reviews" className="hover:text-white transition-colors">5.0★ Google Reviews</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Seven Roads Location</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">Store Location & Map</a></li>
             </ul>
           </div>
 
@@ -108,7 +100,7 @@ export default function Footer() {
               Store & Workshop
             </h4>
             <p className="text-xs text-slate-300 leading-relaxed mb-3">
-              #21/135, Seven Roads Circle, opp. Tirumala hospital, Ganagapeta, Kadapa - 516001
+              #21/135, Opp. Tirumala Hospital, Beside New AF Automart Street, Kadapa, Andhra Pradesh – 516001.
             </p>
             <p className="text-xs text-slate-400 mb-1">
               <strong className="text-slate-200">Mon - Sat:</strong> 10:00 AM – 10:00 PM

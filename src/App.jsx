@@ -46,7 +46,7 @@ export default function App() {
         {/* 5.0 Google Rating & Testimonials */}
         <Testimonials />
 
-        {/* Contact, Seven Roads Location & WhatsApp Form */}
+        {/* Contact, Store Location & WhatsApp Form */}
         <ContactSection />
       </main>
 

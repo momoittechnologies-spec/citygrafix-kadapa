@@ -44,7 +44,7 @@ export default function ContactSection() {
             </span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
-            Visit our workshop at Seven Roads Circle or message us directly on WhatsApp. We are here to bring your visual branding to life.
+            Visit our workshop opp. Tirumala Hospital, Kadapa or message us directly on WhatsApp. We are here to bring your visual branding to life.
           </p>
         </div>
 
@@ -65,13 +65,12 @@ export default function ContactSection() {
                     City Grafix - Kadapa
                   </h3>
                   <p className="text-sm text-slate-700 leading-relaxed mb-4 font-medium">
-                    #21/135, Seven Roads Circle,<br />
-                    Opposite Tirumala Hospital / Palla Hospital,<br />
-                    Beside New AF Automart Street, Ganagapeta,<br />
-                    Kadapa, Andhra Pradesh - 516001
+                    #21/135, Opp. Tirumala Hospital,<br />
+                    Beside New AF Automart Street,<br />
+                    Kadapa, Andhra Pradesh – 516001.
                   </p>
                   <a
-                    href="https://maps.google.com/?q=City+Grafix+Seven+Roads+Kadapa"
+                    href="https://maps.google.com/?q=City+Grafix+Kadapa+Opp+Tirumala+Hospital"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-sky-800 bg-sky-100 border border-sky-300 hover:bg-sky-200 transition-all shadow-sm"
@@ -143,7 +142,7 @@ export default function ContactSection() {
             {/* Embedded Google Maps */}
             <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-sm h-64 w-full">
               <iframe
-                title="City Grafix Location - Seven Roads Kadapa"
+                title="City Grafix Location - Kadapa"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.3983226296316!2d78.8172363!3d14.47803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb37207604b1ea9%3A0x6b7ca2c525f00e99!2sSeven%20Roads%20Cir%2C%20Kadapa%2C%20Andhra%20Pradesh%20516001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 className="w-full h-full border-0"
                 allowFullScreen=""

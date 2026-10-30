@@ -45,9 +45,9 @@ export default function WhyUs() {
     },
     {
       icon: MapPin,
-      title: 'Central Seven Roads Landmark',
-      telugu: 'సెవెన్ రోడ్స్ సర్కిల్ మెయిన్ లొకేషన్',
-      description: 'Conveniently situated right at Seven Roads Circle, Ganagapeta (opposite Tirumala Hospital) for fast collection, review, and personal consultation.',
+      title: 'Prime Kadapa Central Landmark',
+      telugu: 'తిరుమల హాస్పిటల్ ఎదురుగా మెయిన్ లొకేషన్',
+      description: 'Conveniently located opposite Tirumala Hospital, beside New AF Automart Street, Kadapa for fast collection, review, and personal consultation.',
       bgColor: 'bg-purple-50',
       borderColor: 'border-purple-200',
       iconColor: 'text-purple-600',

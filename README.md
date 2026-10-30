@@ -1,6 +1,6 @@
 # City Grafix Kadapa - Official Modern Website
 
-A high-performance, mobile-first, modern website built for **City Grafix**, Kadapa's premier flex printing, 3D LED glow signage, digital printing, and personalized gifting studio at Seven Roads Circle, Ganagapeta, Kadapa.
+A high-performance, mobile-first, modern website built for **City Grafix**, Kadapa's premier flex printing, 3D LED glow signage, digital printing, and personalized gifting studio.
 
 ---
 
@@ -18,11 +18,11 @@ A high-performance, mobile-first, modern website built for **City Grafix**, Kada
    - Turnaround times (e.g., 2–4 hours urgent dispatch), technical specifications, and direct WhatsApp inquiry buttons for each item.
 
 3. **Showcase Portfolio Gallery (`#portfolio`)**:
-   - Filterable projects with real Kadapa client examples (Seven Roads storefronts, wedding arches, clinic glass branding, luxury business cards).
+   - Filterable projects with real Kadapa client examples (storefronts, wedding arches, clinic glass branding, luxury business cards).
    - Lightbox image zoom modal with direct WhatsApp inquiry.
 
-4. **Seven Roads Kadapa Local Hub (`#contact`)**:
-   - Precise address: #21/135, Seven Roads Circle, opp. Tirumala / Palla Hospital, beside New AF Automart street, Ganagapeta, Kadapa - 516001.
+4. **Kadapa Store & Workshop (`#contact`)**:
+   - Precise address: **#21/135, Opp. Tirumala Hospital, Beside New AF Automart Street, Kadapa, Andhra Pradesh – 516001.**
    - Direct Call: `076010 43674` / `+91 76010 43674`.
    - WhatsApp: `+91 72878 67584`.
    - Instagram: `@citygrafix1`.
