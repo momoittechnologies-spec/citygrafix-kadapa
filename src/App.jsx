@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PriceCalculator from './components/PriceCalculator';
@@ -9,43 +9,8 @@ import Testimonials from './components/Testimonials';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import MobileBottomDock from './components/MobileBottomDock';
-import PwaInstallPrompt from './components/PwaInstallPrompt';
 
 export default function App() {
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showInstallModal, setShowInstallModal] = useState(false);
-  const [isPwaInstalled, setIsPwaInstalled] = useState(false);
-
-  useEffect(() => {
-    // Check if app is launched in standalone mode (already installed)
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-    if (isStandalone) {
-      setIsPwaInstalled(true);
-    }
-
-    // Capture beforeinstallprompt event for PWA
-    const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-      console.log('[PWA] beforeinstallprompt event captured');
-    };
-
-    const handleAppInstalled = () => {
-      setIsPwaInstalled(true);
-      setDeferredPrompt(null);
-      setShowInstallModal(false);
-      console.log('[PWA] City Grafix app was installed');
-    };
-
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    window.addEventListener('appinstalled', handleAppInstalled);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      window.removeEventListener('appinstalled', handleAppInstalled);
-    };
-  }, []);
-
   const handleOpenCalculator = () => {
     const el = document.getElementById('calculator');
     if (el) {
@@ -60,10 +25,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col selection:bg-sky-500 selection:text-white">
       {/* Header Navigation */}
-      <Navbar
-        onOpenInstallModal={() => setShowInstallModal(true)}
-        isPwaInstalled={isPwaInstalled}
-      />
+      <Navbar />
 
       {/* Main Content Sections */}
       <main className="flex-1">
@@ -89,22 +51,10 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer onOpenInstallModal={() => setShowInstallModal(true)} />
+      <Footer />
 
       {/* Floating Bottom Quick-Action Dock for Mobile */}
-      <MobileBottomDock
-        onOpenInstallModal={() => setShowInstallModal(true)}
-        isPwaInstalled={isPwaInstalled}
-      />
-
-      {/* PWA Smart Installation Dialog & iOS Instructions */}
-      <PwaInstallPrompt
-        deferredPrompt={deferredPrompt}
-        showModal={showInstallModal}
-        onCloseModal={() => setShowInstallModal(false)}
-        isInstalled={isPwaInstalled}
-        onInstalled={() => setIsPwaInstalled(true)}
-      />
+      <MobileBottomDock />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, Download, Menu, X, Printer, Sparkles } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, Printer, Sparkles } from 'lucide-react';
 
-export default function Navbar({ onOpenInstallModal, isPwaInstalled }) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -60,15 +60,15 @@ export default function Navbar({ onOpenInstallModal, isPwaInstalled }) {
             </a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+            <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`px-3 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                     link.highlight
-                      ? 'text-sky-700 bg-sky-50 border border-sky-200 hover:bg-sky-100 shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                      ? 'bg-white text-sky-700 shadow-sm border border-slate-200/60 hover:text-sky-800'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
                   }`}
                 >
                   {link.label}
@@ -76,24 +76,12 @@ export default function Navbar({ onOpenInstallModal, isPwaInstalled }) {
               ))}
             </nav>
 
-            {/* Action Buttons */}
-            <div className="hidden lg:flex items-center gap-3">
-              {/* Install PWA Button */}
-              {!isPwaInstalled && (
-                <button
-                  onClick={onOpenInstallModal}
-                  className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-300 rounded-xl transition-all shadow-sm"
-                  title="Install City Grafix App"
-                >
-                  <Download className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Install App</span>
-                </button>
-              )}
-
-              {/* Direct Call */}
+            {/* Direct Quick Actions */}
+            <div className="hidden sm:flex items-center gap-3">
+              {/* Call Shop */}
               <a
                 href="tel:+917601043674"
-                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all"
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 rounded-xl transition-all border border-slate-200"
               >
                 <Phone className="w-3.5 h-3.5 text-sky-600" />
                 <span>076010 43674</span>
@@ -113,15 +101,6 @@ export default function Navbar({ onOpenInstallModal, isPwaInstalled }) {
 
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-2">
-              {!isPwaInstalled && (
-                <button
-                  onClick={onOpenInstallModal}
-                  className="p-2 text-amber-800 bg-amber-100 border border-amber-300 rounded-xl text-xs flex items-center gap-1 font-bold"
-                  aria-label="Install App"
-                >
-                  <Download className="w-4 h-4 text-amber-600" />
-                </button>
-              )}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 text-slate-700 hover:text-slate-900 bg-slate-100 border border-slate-200 rounded-xl focus:outline-none"

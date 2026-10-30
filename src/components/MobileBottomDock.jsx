@@ -1,7 +1,7 @@
 import React from 'react';
-import { Phone, MessageCircle, Calculator, Download } from 'lucide-react';
+import { Phone, MessageCircle, Calculator, MapPin } from 'lucide-react';
 
-export default function MobileBottomDock({ onOpenInstallModal, isPwaInstalled }) {
+export default function MobileBottomDock() {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-slate-200 px-3 py-2 shadow-2xl">
       <div className="grid grid-cols-4 gap-1.5 max-w-md mx-auto">
@@ -40,18 +40,16 @@ export default function MobileBottomDock({ onOpenInstallModal, isPwaInstalled })
           <span className="text-[10px] font-bold">Estimate</span>
         </a>
 
-        {/* Install PWA */}
-        <button
-          onClick={onOpenInstallModal}
+        {/* Store Location */}
+        <a
+          href="#contact"
           className="flex flex-col items-center justify-center p-1.5 rounded-xl text-amber-800 hover:text-amber-900 hover:bg-amber-50 active:scale-95 transition-all"
         >
           <div className="p-1 rounded-lg bg-amber-100 text-amber-700 mb-0.5">
-            <Download className="w-4 h-4" />
+            <MapPin className="w-4 h-4" />
           </div>
-          <span className="text-[10px] font-extrabold">
-            {isPwaInstalled ? 'App Active' : 'Install App'}
-          </span>
-        </button>
+          <span className="text-[10px] font-extrabold">Location</span>
+        </a>
       </div>
     </div>
   );

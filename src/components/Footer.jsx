@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles, Code2 } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 
-export default function Footer({ onOpenInstallModal }) {
+export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -98,14 +98,7 @@ export default function Footer({ onOpenInstallModal }) {
               <li><a href="#portfolio" className="hover:text-white transition-colors">Kadapa Project Showcase</a></li>
               <li><a href="#why-us" className="hover:text-white transition-colors">Quality & Machine Specs</a></li>
               <li><a href="#reviews" className="hover:text-white transition-colors">5.0★ Google Reviews</a></li>
-              <li>
-                <button
-                  onClick={onOpenInstallModal}
-                  className="text-amber-400 hover:underline font-semibold text-left"
-                >
-                  Install Mobile PWA App
-                </button>
-              </li>
+              <li><a href="#contact" className="hover:text-white transition-colors">Seven Roads Location</a></li>
             </ul>
           </div>
 
