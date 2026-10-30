@@ -38,13 +38,11 @@ export default function Navbar({ onOpenInstallModal, isPwaInstalled }) {
           <div className="flex items-center justify-between">
             {/* Logo & Brand */}
             <a href="#" className="flex items-center gap-3 group">
-              <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-500 via-pink-500 to-amber-400 p-[2px] shadow-sm transition-transform duration-300 group-hover:scale-105">
-                <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center overflow-hidden">
-                  <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500 text-lg">
-                    CG
-                  </span>
-                </div>
-              </div>
+              <img
+                src="/logo.png"
+                alt="City Grafix Kadapa"
+                className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+              />
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
                   <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">

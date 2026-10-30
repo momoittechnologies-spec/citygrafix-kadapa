@@ -9,6 +9,18 @@ export default function Hero({ onOpenCalculator }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto">
+          {/* Original 3D Emblem Logo */}
+          <div className="flex justify-center mb-6">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 via-rose-400 to-amber-400 rounded-full blur-md opacity-35 group-hover:opacity-70 transition duration-500"></div>
+              <img
+                src="/logo.png"
+                alt="City Grafix Kadapa Emblem Logo"
+                className="relative w-36 sm:w-44 md:w-48 h-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
+
           {/* Top CMYK & Location Pill */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
             <div className="flex items-center gap-1">

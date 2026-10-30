@@ -17,11 +17,11 @@ export default function Footer({ onOpenInstallModal }) {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-rose-500 to-amber-400 p-[2px]">
-                <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-amber-300 text-lg">
-                  CG
-                </div>
-              </div>
+              <img
+                src="/logo.png"
+                alt="City Grafix Logo"
+                className="h-14 w-auto object-contain"
+              />
               <div>
                 <span className="font-extrabold text-lg text-white tracking-tight block">
                   CITY GRAFIX

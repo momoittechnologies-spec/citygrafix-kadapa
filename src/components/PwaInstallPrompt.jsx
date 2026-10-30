@@ -56,11 +56,11 @@ export default function PwaInstallPrompt({
       {showBanner && !showModal && (
         <div className="fixed bottom-20 md:bottom-6 right-4 left-4 md:left-auto md:max-w-md z-40 bg-white border-2 border-sky-300 p-4 rounded-2xl shadow-2xl shadow-slate-900/10 animate-fadeIn">
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-rose-500 to-amber-400 p-[2px] shrink-0 shadow-sm">
-              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center font-black text-sky-700 text-sm">
-                CG
-              </div>
-            </div>
+            <img
+              src="/logo.png"
+              alt="City Grafix"
+              className="w-12 h-12 object-contain shrink-0"
+            />
             <div className="flex-1">
               <div className="flex items-center justify-between">
                 <h4 className="text-sm font-extrabold text-slate-900">Install City Grafix App</h4>
@@ -114,11 +114,11 @@ export default function PwaInstallPrompt({
             </button>
 
             <div className="text-center mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-sky-500 via-rose-500 to-amber-400 p-[2px] mx-auto mb-3 shadow-md">
-                <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center font-black text-2xl text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-amber-500">
-                  CG
-                </div>
-              </div>
+              <img
+                src="/logo.png"
+                alt="City Grafix Emblem"
+                className="w-24 h-24 object-contain mx-auto mb-3 drop-shadow-lg"
+              />
               <h3 className="text-xl font-extrabold text-slate-900">City Grafix Kadapa</h3>
               <p className="text-xs text-slate-500 font-semibold mt-1">
                 Fast, Lightweight Progressive Web App (PWA)
