@@ -1,0 +1,135 @@
+import React from 'react';
+import { MapPin, Phone, MessageCircle, Heart, ArrowUp, Printer, Sparkles } from 'lucide-react';
+import { InstagramIcon } from './Icons';
+
+export default function Footer({ onOpenInstallModal }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <footer className="bg-[#050811] border-t border-white/10 pt-16 pb-28 md:pb-16 text-slate-400 text-xs sm:text-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+          {/* Brand Col */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-pink-500 to-amber-400 p-[2px]">
+                <div className="w-full h-full bg-[#070b14] rounded-[10px] flex items-center justify-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-amber-300 text-lg">
+                  CG
+                </div>
+              </div>
+              <div>
+                <span className="font-extrabold text-lg text-white tracking-tight block">
+                  CITY GRAFIX
+                </span>
+                <span className="text-[11px] text-cyan-400 font-semibold uppercase tracking-wider">
+                  Kadapa, Andhra Pradesh
+                </span>
+              </div>
+            </div>
+
+            <p className="text-slate-400 leading-relaxed text-xs sm:text-sm max-w-sm">
+              Kadapa’s premier digital printing hub, large-format Star Flex supplier, 3D LED glow board manufacturer, and custom photo gifts studio.
+            </p>
+
+            <div className="pt-2 flex items-center gap-3">
+              <a
+                href="https://www.instagram.com/citygrafix1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-pink-500/50 flex items-center justify-center text-pink-400 hover:scale-105 transition-all"
+                aria-label="Instagram"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://wa.me/917601043674"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 flex items-center justify-center text-emerald-400 hover:scale-105 transition-all"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-4 h-4" />
+              </a>
+              <a
+                href="tel:+917601043674"
+                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 flex items-center justify-center text-cyan-400 hover:scale-105 transition-all"
+                aria-label="Phone"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
+              Printing Services
+            </h4>
+            <ul className="space-y-2.5 text-xs">
+              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Star Flex Banners</a></li>
+              <li><a href="#services" className="hover:text-cyan-400 transition-colors">3D Acrylic LED Letters</a></li>
+              <li><a href="#services" className="hover:text-cyan-400 transition-colors">LED Glow Sign Boards</a></li>
+              <li><a href="#services" className="hover:text-cyan-400 transition-colors">One-Way Vision Glass Film</a></li>
+              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Rollup Standees & Arches</a></li>
+              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Personalized Photo Mugs</a></li>
+            </ul>
+          </div>
+
+          {/* Direct Tools */}
+          <div>
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
+              Quick Features
+            </h4>
+            <ul className="space-y-2.5 text-xs">
+              <li><a href="#calculator" className="text-cyan-400 hover:underline font-semibold">Instant Price Calculator</a></li>
+              <li><a href="#portfolio" className="hover:text-white transition-colors">Kadapa Project Showcase</a></li>
+              <li><a href="#why-us" className="hover:text-white transition-colors">Quality & Machine Specs</a></li>
+              <li><a href="#reviews" className="hover:text-white transition-colors">5.0★ Google Reviews</a></li>
+              <li>
+                <button
+                  onClick={onOpenInstallModal}
+                  className="text-amber-400 hover:underline font-semibold text-left"
+                >
+                  Install Mobile PWA App
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Location & Hours */}
+          <div>
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4">
+              Store & Workshop
+            </h4>
+            <p className="text-xs text-slate-300 leading-relaxed mb-3">
+              #21/135, Seven Roads Circle, opp. Tirumala hospital, Ganagapeta, Kadapa - 516001
+            </p>
+            <p className="text-xs text-slate-400 mb-1">
+              <strong className="text-slate-200">Mon - Sat:</strong> 10:00 AM – 10:00 PM
+            </p>
+            <p className="text-xs text-slate-400">
+              <strong className="text-slate-200">Sunday:</strong> Flexible / By Appointment
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Credits & Back to Top */}
+        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-slate-500 text-center sm:text-left">
+            © {new Date().getFullYear()} City Grafix Kadapa. All rights reserved. Crafting bold impressions in Rayalaseema.
+          </p>
+
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-white transition-all text-xs"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+    </footer>
+  );
+}

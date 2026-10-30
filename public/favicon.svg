@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="50%" stop-color="#070b14" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="50" y1="50" x2="300" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="magGrad" x1="200" y1="100" x2="450" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="100%" stop-color="#db2777" />
+    </linearGradient>
+    <linearGradient id="yellowGrad" x1="100" y1="350" x2="400" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <rect width="504" height="504" x="4" y="4" rx="124" stroke="rgba(255,255,255,0.08)" stroke-width="8" />
+
+  <!-- CMYK Overlapping Creative Print Arcs -->
+  <!-- Cyan C Shape -->
+  <path d="M 340 140 C 290 90, 180 90, 130 160 C 80 230, 80 310, 140 380 C 190 430, 280 440, 330 390 C 340 380, 330 360, 315 365 C 275 405, 205 395, 170 355 C 125 305, 125 240, 165 190 C 205 140, 280 140, 320 175 C 335 188, 350 170, 340 140 Z" fill="url(#cyanGrad)" opacity="0.95" filter="url(#glow)" />
+
+  <!-- Magenta Arc & G Section -->
+  <path d="M 230 170 C 310 130, 400 170, 420 250 C 435 310, 395 380, 330 405 C 270 430, 200 410, 175 360 C 170 350, 185 340, 195 350 C 215 390, 270 405, 320 385 C 370 365, 400 310, 385 260 C 370 200, 300 170, 240 200 C 225 208, 218 185, 230 170 Z" fill="url(#magGrad)" opacity="0.9" filter="url(#glow)" />
+
+  <!-- G Crossbar / Digital Alignment Bar -->
+  <rect x="290" y="270" width="105" height="32" rx="16" fill="url(#yellowGrad)" filter="url(#glow)" />
+
+  <!-- CMYK Print Registration Dots -->
+  <circle cx="160" cy="450" r="14" fill="#06b6d4" />
+  <circle cx="210" cy="450" r="14" fill="#ec4899" />
+  <circle cx="260" cy="450" r="14" fill="#f59e0b" />
+  <circle cx="310" cy="450" r="14" fill="#1e293b" stroke="#ffffff" stroke-width="3" />
+</svg>

@@ -1,0 +1,56 @@
+{
+  "name": "City Grafix Kadapa | Flex & Signage",
+  "short_name": "City Grafix",
+  "description": "Kadapa's Premier Flex Printing, 3D LED Glow Signs & Personalized Gifts Hub",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#070b14",
+  "orientation": "any",
+  "categories": ["business", "shopping", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Price Calculator",
+      "short_name": "Calculator",
+      "description": "Calculate instant flex banner and signage costs",
+      "url": "/#calculator",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "WhatsApp Order",
+      "short_name": "Order Now",
+      "description": "Chat directly on WhatsApp to place orders",
+      "url": "https://wa.me/917601043674?text=Hi%20City%20Grafix%2C%20I%20would%20like%20to%20place%20a%20printing%20order",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Services & Works",
+      "short_name": "Services",
+      "description": "Browse flex, boards, stickers & gift printing",
+      "url": "/#services",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Find Location",
+      "short_name": "Directions",
+      "description": "Get directions to Seven Roads Circle, Kadapa",
+      "url": "/#contact",
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
+    }
+  ]
+}
