@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Calculator, MessageCircle, Star, ArrowRight, ShieldCheck, Clock, MapPin, Printer, Layers, FileText } from 'lucide-react';
+import { Sparkles, Calculator, MessageCircle, Star, ArrowRight, ShieldCheck, Clock, MapPin, Printer, Layers, FileText, Gift } from 'lucide-react';
 
 export default function Hero({ onOpenCalculator }) {
   return (
@@ -68,11 +68,19 @@ export default function Hero({ onOpenCalculator }) {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14 w-full">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3.5 mb-14 w-full">
+            <a
+              href="#custom-gifts"
+              className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 sm:py-4 rounded-2xl font-black text-xs sm:text-sm text-white bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 shadow-xl shadow-rose-600/30 transition-all hover:scale-105 active:scale-95 border border-rose-400/30"
+            >
+              <Gift className="w-4 h-4 text-white animate-bounce" />
+              <span>Customize Gifts (Cups, Tees, Frames)</span>
+            </a>
+
             <a
               href="#calculator"
               onClick={onOpenCalculator}
-              className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-2xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 shadow-xl shadow-sky-600/30 transition-all hover:scale-105 active:scale-95"
+              className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 py-3.5 sm:py-4 rounded-2xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 shadow-xl shadow-sky-600/25 transition-all hover:scale-105 active:scale-95"
             >
               <Calculator className="w-4 h-4 text-white" />
               <span>Instant Size & Order Estimator</span>
@@ -83,7 +91,7 @@ export default function Hero({ onOpenCalculator }) {
               href="https://wa.me/917287867584?text=Hi%20City%20Grafix%2C%20I%20have%20a%20ready%20design%20and%20want%20to%20inquire%20about%20printing%20services."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 rounded-2xl font-bold text-xs sm:text-sm text-slate-800 bg-white hover:bg-slate-50 border-2 border-emerald-500 shadow-md transition-all hover:scale-105 active:scale-95"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-2xl font-bold text-xs sm:text-sm text-slate-800 bg-white hover:bg-slate-50 border-2 border-emerald-500 shadow-md transition-all hover:scale-105 active:scale-95"
             >
               <MessageCircle className="w-4 h-4 text-emerald-600" />
               <span>WhatsApp Direct Order</span>

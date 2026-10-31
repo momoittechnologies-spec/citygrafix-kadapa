@@ -113,16 +113,20 @@ export const PRICING_CONFIG = {
       id: 'custom-tshirt',
       name: 'Customized Photo T-Shirt (కస్టమ్ టీ-షర్ట్స్)',
       category: 'gift',
-      unitType: 'quantity',
-      ratePerPiece: 299,
-      minQuantity: 1,
+      unitType: 'fixed',
       popular: true,
-      bulkDiscounts: [
-        { minQty: 5, rate: 260 },
-        { minQty: 25, rate: 220 },
-        { minQty: 50, rate: 190 }
+      fixedOptions: [
+        { label: 'Sublimation Round Neck (S, M, L)', price: 300 },
+        { label: 'Sublimation Collar Polo (S, M, L)', price: 400 },
+        { label: 'DTF Print Round Neck (S, M, L) - Ultra Washproof', price: 400 },
+        { label: 'DTF Print Collar Polo (S, M, L) - Ultra Washproof', price: 500 },
+        { label: 'Sublimation Round Neck (XL, XXL)', price: 350 },
+        { label: 'Sublimation Collar Polo (XL, XXL)', price: 450 },
+        { label: 'DTF Print Round Neck (XL, XXL)', price: 450 },
+        { label: 'DTF Print Collar Polo (XL, XXL)', price: 550 },
+        { label: 'Cap + Custom Photo / Logo Print', price: 300 }
       ],
-      description: 'High-definition DTF / Sublimation photo printing on premium breathable polyester / cotton t-shirts.',
+      description: 'High-definition DTF / Sublimation photo printing on breathable fabrics. Single piece to bulk event quantities.',
       finishingAllowed: []
     },
     {
@@ -130,43 +134,45 @@ export const PRICING_CONFIG = {
       name: 'Photo Pillow & Cushion (కస్టమ్ కుషన్ పిల్లో)',
       category: 'gift',
       unitType: 'fixed',
-      popular: false,
+      popular: true,
       fixedOptions: [
-        { label: 'Square Photo Cushion (12 × 12 inches)', price: 350 },
-        { label: 'Square Photo Cushion (16 × 16 inches)', price: 499 },
-        { label: 'Romantic Heart-Shaped Photo Cushion', price: 550 },
-        { label: 'Magic Reversible Sequins Photo Cushion', price: 599 }
+        { label: 'Heart or Square Standard Photo Pillow', price: 450 },
+        { label: 'Heart or Square Fancy Fur Border Pillow', price: 600 },
+        { label: 'Heart or Square Magic Reversible Sequins Pillow', price: 800 },
+        { label: 'Heart or Square L.E.D Internal Glow Pillow', price: 850 }
       ],
-      description: 'Plush micro-fiber photo pillows with vibrant, washable color fidelity. Ideal for birthdays & anniversaries.',
+      description: 'Heart or Square plush photo pillows with vibrant, washable color fidelity. Ideal for birthdays & anniversaries.',
       finishingAllowed: []
     },
     {
       id: 'custom-mug',
-      name: 'Custom Printed Mug (కస్టమ్ మగ్స్)',
+      name: 'Custom Printed Mug & Magic Cup (కస్టమ్ మగ్స్)',
       category: 'gift',
-      unitType: 'quantity',
-      ratePerPiece: 180,
-      minQuantity: 1,
+      unitType: 'fixed',
       popular: true,
-      bulkDiscounts: [
-        { minQty: 5, rate: 160 },
-        { minQty: 20, rate: 140 }
+      fixedOptions: [
+        { label: 'Plain Ceramic Photo Cup (Sparkling White AAA)', price: 350 },
+        { label: 'Inner Colour Cup (Red / Blue / Black / Yellow)', price: 450 },
+        { label: 'Heart Handle Couple Cup (Romantic Keepsake)', price: 500 },
+        { label: 'Magic Heat Reveal Cup (Appears Black, reveals on hot coffee)', price: 550 }
       ],
-      description: 'High-gloss ceramic sublimation photo mug with gift packaging. Magic mugs also available.',
-      finishingAllowed: ['magicMug']
+      description: 'High-gloss AAA ceramic sublimation photo mug with gift packaging. Ready in 1 hour.',
+      finishingAllowed: []
     },
     {
       id: 'custom-photo-frame',
-      name: 'Personalized Photo Frame (ఫోటో ఫ్రేమ్)',
+      name: 'Personalized Photo Frame & LED Art (ఫోటో ఫ్రేమ్)',
       category: 'gift',
       unitType: 'fixed',
+      popular: true,
       fixedOptions: [
-        { label: '8 x 12 inches (Table / Wall)', price: 350 },
-        { label: '12 x 18 inches (Wall Frame)', price: 650 },
-        { label: '16 x 24 inches (Grand Wall Portrait)', price: 1100 },
-        { label: '20 x 30 inches (Luxury Big Frame)', price: 1750 }
+        { label: '6 x 8 inches Desktop Table Stand Frame', price: 250 },
+        { label: '8 x 12 inches Classic A4 Wall Frame', price: 350 },
+        { label: '12 x 18 inches Family Collage Wall Frame', price: 650 },
+        { label: '16 x 24 inches Grand Portrait Wall Frame', price: 1100 },
+        { label: '12 x 18 inches Ambient LED Glow Backlit Frame', price: 1250 }
       ],
-      description: 'Synthetic wood frame + Sparkle/Matte lamination + unbreakable acrylic/glass.',
+      description: 'Synthetic wood frame + Sparkle/Matte lamination + unbreakable acrylic sheet & LED options.',
       finishingAllowed: []
     },
     {

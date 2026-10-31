@@ -42,7 +42,25 @@ A high-performance, mobile-first website and digital quotation portal built for 
    - 1-Tap **"Send Specs to WhatsApp for Best Quote"**: Directly opens WhatsApp with the formatted order specs.
    - Built for customer-provided ready designs (CDR, PSD, PDF, TIFF, or high-res JPG).
 
-2. **Google Business Profile Review Integration**:
+2. **Interactive Custom Gifting Studio (`#custom-gifts`) (ImpressKart & TheGifty Style)**:
+   - Visual customization builder with real-time 2D product mockup rendering for:
+     - **Custom Mugs & Cups**: Plain Ceramic (₹350), Inner Colour (₹450), Heart Handle (₹500), Magic Heat-Reveal (₹550).
+     - **Photo T-Shirts**: Sublimation (Round Neck ₹300 / Collar ₹400), DTF Wash-Proof (Round Neck ₹400 / Collar ₹500), XL/XXL (+₹50 extra).
+     - **Photo Frames**: Desktop 6×8" (₹250), Wall 8×12" (₹350), Collage 12×18" (₹650), Grand 16×24" (₹1,100), LED Glow 12×18" (₹1,250).
+     - **Photo Pillows**: Heart or Square Standard (₹450), Fancy Fur (₹600), Magic Sequins (₹800), LED Glow (₹850).
+     - **Caps & Merch**: Cap + High-Definition DTF Print (₹300).
+   - **Interactive Visual Mockups**:
+     - 📸 Live Photo Upload & auto-fitting onto mockups.
+     - ✍️ Custom text inscription with live font styles (Serif, Sans, Script) and color swatches.
+     - 🔥 Magic Mug hot/cold reveal test toggle.
+     - 💡 Ambient LED Glow Frame / Cushion lights ON/OFF toggle.
+     - ✨ Magic Pillow reversible sequins swipe animation.
+   - **WhatsApp Order & Approval Workflow**:
+     - Formats complete order breakdown (Product, Variant, Specs, Inscription, Quantity, Exact Total ₹).
+     - 1-Tap submission directly to WhatsApp.
+     - Workshop team verifies photo/digital proof, shares UPI QR, and begins printing upon customer approval.
+
+3. **Google Business Profile Review Integration**:
    - Direct CTA linking to the official ReviewSmart review collection portal: `https://www.reviewsmart.online/r/citygrafix`.
 
 3. **Dual Social Media Hub - Instagram & YouTube (`#social`)**:

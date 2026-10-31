@@ -107,26 +107,51 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
 
                 {/* Action Buttons */}
                 <div className="pt-4 border-t border-slate-100 flex items-center gap-2">
-                  <a
-                    href={`https://wa.me/917601043674?text=${encodeURIComponent(
-                      `Hi City Grafix, I'm interested in *${service.title}* (${service.teluguTitle}). Please share details and pricing.`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/20"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    <span>Inquire WhatsApp</span>
-                  </a>
+                  {service.category === 'gifts' ? (
+                    <>
+                      <a
+                        href="#custom-gifts"
+                        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-black text-white bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 transition-all shadow-md shadow-rose-600/25 active:scale-95"
+                      >
+                        <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                        <span>Customize & Order</span>
+                      </a>
+                      <a
+                        href={`https://wa.me/917287867584?text=${encodeURIComponent(
+                          `Hi City Grafix, I want to order *${service.title}* (${service.teluguTitle}). Please confirm availability.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-xl text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-all font-bold"
+                        title="Chat on WhatsApp"
+                      >
+                        <MessageCircle className="w-4 h-4 text-emerald-600" />
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <a
+                        href={`https://wa.me/917601043674?text=${encodeURIComponent(
+                          `Hi City Grafix, I'm interested in *${service.title}* (${service.teluguTitle}). Please share details and pricing.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/20"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>Inquire WhatsApp</span>
+                      </a>
 
-                  <a
-                    href="#calculator"
-                    onClick={() => onSelectServiceForCalculator && onSelectServiceForCalculator(service.id)}
-                    className="p-2.5 rounded-xl text-sky-700 bg-sky-50 hover:bg-sky-100 border border-sky-200 transition-all font-bold"
-                    title="Estimate in Calculator"
-                  >
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
+                      <a
+                        href="#calculator"
+                        onClick={() => onSelectServiceForCalculator && onSelectServiceForCalculator(service.id)}
+                        className="p-2.5 rounded-xl text-sky-700 bg-sky-50 hover:bg-sky-100 border border-sky-200 transition-all font-bold"
+                        title="Estimate in Calculator"
+                      >
+                        <ArrowUpRight className="w-4 h-4" />
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

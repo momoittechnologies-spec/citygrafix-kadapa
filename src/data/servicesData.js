@@ -184,21 +184,57 @@ export const SERVICES_LIST = [
   // PILLAR 3: PERSONALISED GIFTING
   // ==========================================
   {
+    id: 'photo-magic-mugs',
+    category: 'gifts',
+    title: 'Custom Photo Mugs & Magic Mugs',
+    teluguTitle: 'కస్టమ్ ఫోటో మగ్స్ & మ్యాజిక్ మగ్స్',
+    badge: 'From ₹350 | 1-Hour Dispatch',
+    tagline: 'Plain (₹350), Inner Colour (₹450), Heart Handle (₹500) & Magic Heat-Reveal (₹550)',
+    description: 'The all-time favorite personalized gift. Upload family photos, couple portraits, or corporate logos. Choose between crisp Plain White, colorful Inner Rim accents, sculpted Heart handles, or heat-activated Magic reveal mugs!',
+    features: [
+      'Plain Ceramic Cup: ₹350/- | Inner Colour Cup: ₹450/-',
+      'Heart Handle Couple Cup: ₹500/- | Magic Heat Reveal Cup: ₹550/-',
+      'Microwave & dishwasher safe AAA-grade ceramic',
+      'High-gloss scratch-resistant sublimation print with individual gift box'
+    ],
+    turnaround: '1 - 2 Hours',
+    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
+    popular: true
+  },
+  {
     id: 'customized-tshirts',
     category: 'gifts',
     title: 'Customized Photo T-Shirt Printing',
-    teluguTitle: 'కస్టమ్ టీ-షర్ట్ ప్రింటింగ్',
-    badge: 'Trendy Merch',
-    tagline: 'High-definition DTF & sublimation photo printing on premium t-shirts',
-    description: 'Personalized apparel for birthday squads, corporate teams, college reunions, promotional brand campaigns, and family celebrations. Non-cracking, stretch-resistant prints with vibrant color permanence.',
+    teluguTitle: 'కస్టమ్ టీ-షర్ట్ ప్రింటింగ్ (DTF & సబ్లిమేషన్)',
+    badge: 'From ₹300 | Single to Bulk',
+    tagline: 'DTF Printing (Collar ₹500 / Round ₹400) & Sublimation (Collar ₹400 / Round ₹300)',
+    description: 'Personalized apparel for birthday squads, corporate teams, college reunions, promotional brand campaigns, and family celebrations. Full-color stretchable prints that never fade across washes.',
     features: [
-      'Direct-to-Film (DTF) & Sublimation color technology',
-      '100% breathable cotton & sports dry-fit polyester blends',
-      'No minimum order quantity (single piece to bulk orders)',
-      'Front, back, and sleeve custom printing options'
+      'DTF Print: Collar ₹500/- | Round Neck ₹400/- (XL/XXL +₹50)',
+      'Sublimation Print: Collar ₹400/- | Round Neck ₹300/- (XL/XXL +₹50)',
+      'Sizes S, M, L, XL, XXL in 100% Cotton & Sports Dry-Fit Polyester',
+      'Front, back, and left chest pocket print placement options'
     ],
-    turnaround: '1 - 2 Days (Bulk discounts available)',
+    turnaround: '1 - 2 Days',
     image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80',
+    popular: true
+  },
+  {
+    id: 'custom-photo-frames',
+    category: 'gifts',
+    title: 'Personalized Photo Frames & LED Wall Art',
+    teluguTitle: 'కస్టమ్ ఫోటో ఫ్రేమ్స్ & ఎల్ఈడీ ఆర్ట్',
+    badge: 'From ₹250 | Luxury Moldings',
+    tagline: 'Desktop 6x8 (₹250), Wall 8x12 (₹350), Collage (₹650) & LED Glow Frame (₹1250)',
+    description: 'Transform mobile pictures into museum-grade family wall art. Framed with imported synthetic wooden moldings, moisture-barrier backings, and sparkle or velvet matte protective lamination.',
+    features: [
+      'Desktop Stand Frame (6x8"): ₹250/- | Classic Wall Frame (8x12"): ₹350/-',
+      'Family Collage Frame (12x18"): ₹650/- | Grand Portrait (16x24"): ₹1,100/-',
+      'Ambient LED Glow Backlit Frame (12x18"): ₹1,250/- with warm night lights',
+      'Termite-proof & warp-free teak wood, black, and antique gold borders'
+    ],
+    turnaround: '24 - 48 Hours',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
     popular: true
   },
   {
@@ -206,53 +242,35 @@ export const SERVICES_LIST = [
     category: 'gifts',
     title: 'Photo Cushion & Pillow Printing',
     teluguTitle: 'ఫోటో కుషన్ & పిల్లో ప్రింటింగ్',
-    badge: 'Cozy Keepsakes',
-    tagline: 'Plush velvet, satin, and magic reversible sequins photo cushions',
+    badge: 'From ₹450 | Heart & Square',
+    tagline: 'Standard (₹450), Fancy Fur (₹600), Magic Sequins (₹800) & LED Glow (₹850)',
     description: 'Turn your favorite memories into huggable keepsakes. Perfect for birthdays, romantic anniversaries, and housewarming gifts. Stuffed with ultra-soft hypoallergenic fiber and washable printed covers.',
     features: [
-      'Square (12x12", 16x16") & Romantic Heart-shaped cushions',
-      'Magic color-changing reversible sequins option',
-      'Fade-proof sublimation print that won’t peel on washing',
-      'Concealed zipper for easy cushion insert cleaning'
+      'Heart or Square Normal Pillow: ₹450/- | Fancy Fur Border Pillow: ₹600/-',
+      'Heart or Square Magic Sequins Pillow: ₹800/- (swipe to reveal)',
+      'Heart or Square L.E.D Pillow: ₹850/- with built-in internal warm lights',
+      'Ultra-soft hypoallergenic micro-fiber fill with concealed zipper'
     ],
     turnaround: 'Same Day / Next Day',
     image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80',
     popular: true
   },
   {
-    id: 'photo-magic-mugs',
+    id: 'custom-caps-merch',
     category: 'gifts',
-    title: 'Custom Photo Mugs & Magic Mugs',
-    teluguTitle: 'కస్టమ్ ఫోటో మగ్స్ & మ్యాజిక్ మగ్స్',
-    badge: 'Popular Gift',
-    tagline: 'Glossy ceramic mugs and heat-activated color-changing surprise mugs',
-    description: 'The all-time favorite personalized gift. Upload family photos, couple portraits, or corporate logos. Our Magic Mugs appear plain black when cold, and miraculously reveal your photo when hot coffee or tea is poured!',
+    title: 'Custom Cap + Logo & Photo Print',
+    teluguTitle: 'క్యాప్ + లోగో & ఫోటో ప్రింట్',
+    badge: '₹300 Fixed | Trendy Merch',
+    tagline: 'High-profile structured caps with vibrant DTF heat transfer print',
+    description: 'Custom branded caps for sports squads, college fests, corporate teams, and personal gifts. Durable structured crown with adjustable snapback closure.',
     features: [
-      'Microwave & dishwasher safe AAA-grade ceramic',
-      'Magic heat-sensitive thermochromic coating',
-      'High-gloss scratch-resistant ceramic glaze',
-      'Supplied in individual protective gift box'
+      'Complete Cap + Print: ₹300/- all inclusive',
+      'Red & White Trucker, Solid Black, Navy Blue, and Pure White',
+      'High-definition DTF heat transfer print that resists sweat & sun',
+      'No minimum order quantity (single piece to bulk event quantities)'
     ],
-    turnaround: '1 - 2 Hours',
-    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
-    popular: true
-  },
-  {
-    id: 'custom-photo-frames',
-    category: 'gifts',
-    title: 'Personalized Photo Frames & Wall Art',
-    teluguTitle: 'కస్టమ్ ఫోటో ఫ్రేమ్స్ & వాల్ ఆర్ట్',
-    badge: 'Luxury Frames',
-    tagline: 'Imported synthetic teak wood moldings with sparkle texture lamination',
-    description: 'Transform mobile pictures into museum-grade family wall art. Framed with imported synthetic wooden moldings, moisture-barrier backings, and sparkle or velvet matte protective lamination.',
-    features: [
-      'Sizes ranging from 8x12" tabletop to 24x36" grand wall frames',
-      'Sparkle crystal textured protective lamination',
-      'Termite-proof & warp-free synthetic teak wood profiles',
-      'Collage designing service with Telugu blessing text'
-    ],
-    turnaround: '24 - 48 Hours',
-    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
+    turnaround: 'Same Day / 24 Hours',
+    image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80',
     popular: true
   },
 

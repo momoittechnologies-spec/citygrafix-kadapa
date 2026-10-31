@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PriceCalculator from './components/PriceCalculator';
 import ServicesGrid from './components/ServicesGrid';
+import GiftsCustomizer from './components/GiftsCustomizer';
 import PortfolioGallery from './components/PortfolioGallery';
 import WhyUs from './components/WhyUs';
 import Testimonials from './components/Testimonials';
@@ -135,6 +136,9 @@ export default function App() {
 
         {/* Filterable Services & Printing Products */}
         <ServicesGrid onSelectServiceForCalculator={handleSelectServiceForCalculator} />
+
+        {/* ImpressKart / TheGifty Style Personalized Gifts Customizer Studio */}
+        <GiftsCustomizer />
 
         {/* Visual Work Showcase & Kadapa Projects */}
         <PortfolioGallery />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, Menu, X, Star, ChevronDown } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, Star, ChevronDown, Gift } from 'lucide-react';
 import { InstagramIcon, YouTubeIcon } from './Icons';
 import { CONTACT_NUMBERS } from '../data/contactNumbers';
 
@@ -17,6 +17,7 @@ export default function Navbar({ onOpenContact }) {
 
   const navLinks = [
     { label: 'Services', href: '#services' },
+    { label: 'Custom Gifts', href: '#custom-gifts', icon: 'gift' },
     { label: 'Portfolio', href: '#portfolio' },
     { label: 'Why Us', href: '#why-us' },
     { label: 'Google Reviews', href: '#reviews', icon: 'star' },
@@ -70,6 +71,7 @@ export default function Navbar({ onOpenContact }) {
                   className="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all text-slate-600 hover:text-slate-900 hover:bg-white flex items-center gap-1.5"
                 >
                   {link.icon === 'star' && <Star className="w-3 h-3 text-amber-500 fill-amber-400" />}
+                  {link.icon === 'gift' && <Gift className="w-3 h-3 text-rose-500" />}
                   {link.icon === 'social' && (
                     <div className="flex items-center -space-x-1">
                       <InstagramIcon className="w-3 h-3 text-rose-500" />
@@ -146,6 +148,7 @@ export default function Navbar({ onOpenContact }) {
                   >
                     <div className="flex items-center gap-2">
                       {link.icon === 'star' && <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />}
+                      {link.icon === 'gift' && <Gift className="w-3.5 h-3.5 text-rose-500" />}
                       {link.icon === 'social' && (
                         <div className="flex items-center gap-1">
                           <InstagramIcon className="w-3.5 h-3.5 text-rose-500" />
