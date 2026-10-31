@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, MessageCircle, Clock, Send, CheckCircle2, Navigation } from 'lucide-react';
 import { InstagramIcon } from './Icons';
+import { CONTACT_NUMBERS } from '../data/contactNumbers';
 
 export default function ContactSection() {
   const [name, setName] = useState('');
@@ -96,28 +97,54 @@ export default function ContactSection() {
                     Fast Response Lines
                   </h3>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                    <a
-                      href="tel:+917601043674"
-                      className="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 shadow-sm transition-all block group"
-                    >
-                      <span className="text-[11px] text-slate-500 block font-medium">Primary Shop Call:</span>
-                      <span className="text-sm font-extrabold text-slate-900 tracking-wide group-hover:text-sky-700">
-                        076010 43674
-                      </span>
-                    </a>
+                  <div className="space-y-2.5 mb-4">
+                    {CONTACT_NUMBERS.map((contact) => (
+                      <div
+                        key={contact.id}
+                        className="p-3 sm:p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 hover:border-slate-300 transition-all"
+                      >
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-extrabold text-slate-900 tracking-wide">
+                              {contact.display}
+                            </span>
+                            <span
+                              className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${
+                                contact.supportsCall
+                                  ? 'bg-sky-100 text-sky-800 border border-sky-200'
+                                  : 'bg-amber-100 text-amber-800 border border-amber-200'
+                              }`}
+                            >
+                              {contact.badge}
+                            </span>
+                          </div>
+                          <span className="text-[11px] text-slate-500 font-medium block">
+                            {contact.label} {contact.note ? `• ${contact.note}` : ''}
+                          </span>
+                        </div>
 
-                    <a
-                      href="https://wa.me/917287867584"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-emerald-300 shadow-sm transition-all block group"
-                    >
-                      <span className="text-[11px] text-slate-500 block font-medium">WhatsApp & Support:</span>
-                      <span className="text-sm font-extrabold text-emerald-700 tracking-wide">
-                        +91 72878 67584
-                      </span>
-                    </a>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          {contact.supportsCall && (
+                            <a
+                              href={contact.callHref}
+                              className="inline-flex items-center gap-1 px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-all shadow-sm"
+                            >
+                              <Phone className="w-3 h-3 text-sky-400" />
+                              <span>Call</span>
+                            </a>
+                          )}
+                          <a
+                            href={contact.whatsappHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm shadow-emerald-500/20"
+                          >
+                            <MessageCircle className="w-3 h-3" />
+                            <span>WhatsApp</span>
+                          </a>
+                        </div>
+                      </div>
+                    ))}
                   </div>
 
                   <div className="flex items-center gap-4 text-xs text-slate-600 font-semibold">

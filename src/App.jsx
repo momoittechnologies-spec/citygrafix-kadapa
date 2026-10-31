@@ -11,6 +11,7 @@ import PhotographyHubSection from './components/PhotographyHubSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import MobileBottomDock from './components/MobileBottomDock';
+import ContactMenuDropdown from './components/ContactMenuDropdown';
 
 // Gallery Platform Components
 import ClientGallery from './gallery/components/ClientGallery';
@@ -19,7 +20,16 @@ import { getEventBySlug, subscribeToStorage } from './gallery/services/gallerySt
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState({ view: 'home', slug: null });
+  const [contactModal, setContactModal] = useState({ isOpen: false, tab: 'all' });
   const [, setStorageTick] = useState(0);
+
+  const handleOpenContact = (tab = 'all') => {
+    setContactModal({ isOpen: true, tab });
+  };
+
+  const handleCloseContact = () => {
+    setContactModal((prev) => ({ ...prev, isOpen: false }));
+  };
 
   useEffect(() => {
     return subscribeToStorage(() => {
@@ -114,7 +124,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col selection:bg-sky-500 selection:text-white">
       {/* Header Navigation */}
-      <Navbar />
+      <Navbar onOpenContact={handleOpenContact} />
 
       {/* Main Content Sections */}
       <main className="flex-1">
@@ -149,14 +159,21 @@ export default function App() {
         />
 
         {/* Contact, Store Location & WhatsApp Form */}
-        <ContactSection />
+        <ContactSection onOpenContact={handleOpenContact} />
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenContact={handleOpenContact} />
 
       {/* Floating Bottom Quick-Action Dock for Mobile */}
-      <MobileBottomDock />
+      <MobileBottomDock onOpenContact={handleOpenContact} />
+
+      {/* Call & WhatsApp Dropdown / Drawer Modal */}
+      <ContactMenuDropdown
+        isOpen={contactModal.isOpen}
+        initialTab={contactModal.tab}
+        onClose={handleCloseContact}
+      />
     </div>
   );
 }
