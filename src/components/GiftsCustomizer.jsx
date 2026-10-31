@@ -18,13 +18,50 @@ import {
   Lightbulb,
   Tag,
   PhoneCall,
-  Palette
+  Palette,
+  ZoomIn,
+  Move,
+  CheckCircle2,
+  Smile
 } from 'lucide-react';
 import {
   GIFT_CATEGORIES,
   GIFT_PRODUCTS,
   formatGiftWhatsAppOrder
 } from '../data/giftCustomizerData';
+import RealProductMockup3D from './RealProductMockup3D';
+
+// Curated Sample Photos for instant 1-click preview
+const SAMPLE_PRESETS = [
+  {
+    id: 'couple',
+    label: 'Couple',
+    emoji: '💑',
+    url: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80',
+    defaultText: 'Forever & Always ❤️'
+  },
+  {
+    id: 'birthday',
+    label: 'Birthday',
+    emoji: '🎂',
+    url: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80',
+    defaultText: 'Happy Birthday! 🎉'
+  },
+  {
+    id: 'family',
+    label: 'Family',
+    emoji: '👨‍👩‍👧',
+    url: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80',
+    defaultText: 'Sweet Memories ✨'
+  },
+  {
+    id: 'brand',
+    label: 'Logo/Store',
+    emoji: '🏢',
+    url: 'https://images.unsplash.com/photo-1572945550744-570424749b95?auto=format&fit=crop&w=600&q=80',
+    defaultText: 'City Grafix Kadapa'
+  }
+];
 
 export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
   const [activeCategory, setActiveCategory] = useState(preselectedCategory);
@@ -32,13 +69,18 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
   // Customization States
   const [selectedVariantId, setSelectedVariantId] = useState('plain');
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [selectedPresetId, setSelectedPresetId] = useState('couple');
   const [customText, setCustomText] = useState('With Love ❤️');
-  const [fontFamily, setFontFamily] = useState('font-serif');
+  const [fontFamily, setFontFamily] = useState('italic font-serif');
   const [textColor, setTextColor] = useState('#ffffff');
   const [quantity, setQuantity] = useState(1);
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerNotes, setCustomerNotes] = useState('');
+
+  // 3D Image Fine-Tuning Controls
+  const [imageZoom, setImageZoom] = useState(100);
+  const [imagePositionY, setImagePositionY] = useState(0);
 
   // Category-specific states
   // Cups
@@ -70,6 +112,8 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
   // Handle Category Change
   const handleCategorySwitch = (catId) => {
     setActiveCategory(catId);
+    setImageZoom(100);
+    setImagePositionY(0);
     if (catId === 'cups') {
       setSelectedVariantId('plain');
     } else if (catId === 'frames') {
@@ -90,6 +134,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
       const reader = new FileReader();
       reader.onload = (event) => {
         setUploadedImage(event.target.result);
+        setSelectedPresetId(null);
       };
       reader.readAsDataURL(file);
     }
@@ -181,7 +226,14 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
       variantName: variantDisplayName,
       subOptions: subOptionsSummary,
       customText: customText.trim() || null,
-      fontStyle: fontFamily === 'font-serif' ? 'Serif Elegant' : fontFamily === 'font-sans' ? 'Modern Sans' : 'Script Signature',
+      fontStyle:
+        fontFamily === 'font-serif'
+          ? 'Serif Elegant'
+          : fontFamily === 'font-sans'
+          ? 'Modern Sans'
+          : fontFamily === 'italic font-serif'
+          ? 'Romantic Calligraphy'
+          : 'Bold Display',
       textColor,
       quantity,
       unitPrice,
@@ -196,8 +248,12 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
     window.open(targetUrl, '_blank', 'noopener,noreferrer');
   };
 
-  // Fallback demo sample image when user hasn't uploaded yet
-  const sampleDisplayImage = uploadedImage || 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80';
+  // Resolve current active image (either user uploaded or selected preset)
+  const sampleDisplayImage = useMemo(() => {
+    if (uploadedImage) return uploadedImage;
+    const preset = SAMPLE_PRESETS.find((p) => p.id === selectedPresetId);
+    return preset?.url || SAMPLE_PRESETS[0].url;
+  }, [uploadedImage, selectedPresetId]);
 
   return (
     <section id="custom-gifts" className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-white to-sky-50/40 text-slate-800 relative overflow-hidden border-y border-slate-200/80">
@@ -211,7 +267,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black uppercase tracking-wider mb-4 shadow-sm backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-rose-500" />
-            <span>Interactive Custom Gifting Studio (Light Mode)</span>
+            <span>Interactive 3D Gifting Studio (Light Theme)</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
             Customize & Order{' '}
@@ -220,7 +276,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
             </span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-base leading-relaxed font-medium">
-            Personalize photo mugs, DTF t-shirts, synthetic wood frames, plush cushions, and caps with your own pictures and names. Preview live on realistic 3D mockups, calculate exact workshop prices, and submit your order directly to our WhatsApp!
+            Personalize photo mugs, DTF t-shirts, synthetic wood frames, plush cushions, and caps with your own pictures and names. Preview live on realistic 3D mockups with dynamic angles, calculate exact workshop prices, and submit your order directly to our WhatsApp!
           </p>
 
           {/* Kadapa Workshop Rate Guarantee */}
@@ -255,338 +311,143 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* ========================================================= */}
-          {/* LEFT: 3D LIGHT MOCKUP PREVIEW CANVAS */}
+          {/* LEFT: PHOTOREALISTIC 3D LIGHT MOCKUP CANVAS & CONTROLS */}
           {/* ========================================================= */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <div className="bg-white/95 border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.06)] relative overflow-hidden backdrop-blur-xl">
+            <div className="bg-white/95 border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.06)] relative overflow-hidden backdrop-blur-xl">
               
               {/* Product Badge Pill */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <span className="px-3 py-1 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200">
-                    Live 3D Mockup
+                    Live 3D View
                   </span>
                   <span className="text-[11px] font-bold text-slate-500 hidden sm:inline">
                     {productConfig.teluguTitle}
                   </span>
                 </div>
                 
-                {/* Instant Calculated Badge */}
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-300 font-black text-sm shadow-sm">
-                  <span>₹{unitPrice}/-</span>
+                <span className="text-xs text-slate-400 font-bold flex items-center gap-1">
+                  <Smile className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Interactive Studio</span>
+                </span>
+              </div>
+
+              {/* Photorealistic 3D Mockup Component with Angles & Parallax */}
+              <RealProductMockup3D
+                activeCategory={activeCategory}
+                productConfig={productConfig}
+                selectedVariantId={selectedVariantId}
+                selectedInnerColor={selectedInnerColor}
+                isMagicHot={isMagicHot}
+                setIsMagicHot={setIsMagicHot}
+                tshirtPrintType={tshirtPrintType}
+                tshirtNeckStyle={tshirtNeckStyle}
+                tshirtSize={tshirtSize}
+                tshirtColor={tshirtColor}
+                tshirtPlacement={tshirtPlacement}
+                frameBorder={frameBorder}
+                isFrameLedOn={isFrameLedOn}
+                setIsFrameLedOn={setIsFrameLedOn}
+                pillowShape={pillowShape}
+                pillowColor={pillowColor}
+                isPillowLedOn={isPillowLedOn}
+                setIsPillowLedOn={setIsPillowLedOn}
+                isPillowSequinsRevealed={isPillowSequinsRevealed}
+                setIsPillowSequinsRevealed={setIsPillowSequinsRevealed}
+                capColor={capColor}
+                sampleDisplayImage={sampleDisplayImage}
+                customText={customText}
+                fontFamily={fontFamily}
+                textColor={textColor}
+                unitPrice={unitPrice}
+                imageZoom={imageZoom}
+                imagePositionY={imagePositionY}
+              />
+
+              {/* Interactive Image Fine-Tuning Tools (Zoom & Position) */}
+              <div className="mt-5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                    <ZoomIn className="w-3.5 h-3.5 text-sky-600" />
+                    <span>Photo Scaling & Placement</span>
+                  </span>
+                  <span className="text-xs font-black text-sky-700">{imageZoom}%</span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <input
+                    type="range"
+                    min="75"
+                    max="150"
+                    value={imageZoom}
+                    onChange={(e) => setImageZoom(Number(e.target.value))}
+                    className="w-full accent-rose-600 cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                  />
+                  <div className="flex items-center gap-1 shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => setImagePositionY((y) => Math.max(-25, y - 5))}
+                      className="p-1 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 text-[10px] font-bold shadow-2xs"
+                      title="Nudge Photo Up"
+                    >
+                      ▲ Up
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setImagePositionY(0)}
+                      className="p-1 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 text-[10px] font-bold shadow-2xs"
+                      title="Center Photo"
+                    >
+                      Center
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setImagePositionY((y) => Math.min(25, y + 5))}
+                      className="p-1 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 text-[10px] font-bold shadow-2xs"
+                      title="Nudge Photo Down"
+                    >
+                      ▼ Down
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              {/* Mockup Canvas Container */}
-              <div className="relative w-full aspect-square max-w-[360px] mx-auto bg-gradient-to-b from-slate-100 via-slate-50 to-slate-100 rounded-2xl border border-slate-200/90 flex items-center justify-center p-6 overflow-hidden shadow-inner group">
-                
-                {/* 1. MUG MOCKUP VIEW */}
-                {activeCategory === 'cups' && (
-                  <div className="relative w-56 h-64 flex items-center justify-center transition-all duration-300">
-                    {/* Ceramic Mug Body */}
-                    <div
-                      className="relative w-44 h-56 rounded-b-[40px] rounded-t-lg shadow-2xl overflow-hidden flex flex-col items-center justify-center border-t-8 border-slate-200 bg-white"
-                      style={{
-                        boxShadow: '0 20px 40px -10px rgba(0,0,0,0.15), 0 0 15px rgba(0,0,0,0.05)'
-                      }}
-                    >
-                      {/* Inner Rim Color Accent */}
-                      {selectedVariantId === 'inner-colour' && (
-                        <div
-                          className="absolute top-0 left-0 right-0 h-4 border-b border-black/10 transition-colors"
-                          style={{
-                            backgroundColor:
-                              productConfig.innerColors.find((c) => c.id === selectedInnerColor)?.hex || '#dc2626'
-                          }}
-                        />
-                      )}
-
-                      {/* Photo Wrap Zone */}
-                      <div className="relative w-36 h-40 rounded-xl overflow-hidden border border-slate-200 shadow-sm flex items-center justify-center bg-slate-100">
-                        {/* Magic Mug Cover Effect */}
-                        {selectedVariantId === 'magic' && !isMagicHot ? (
-                          <div className="absolute inset-0 bg-slate-900 flex flex-col items-center justify-center p-4 text-center z-20 transition-opacity">
-                            <Flame className="w-6 h-6 text-amber-400 mb-1" />
-                            <span className="text-[10px] font-bold text-slate-300 leading-tight">
-                              Cold Cup (Black)
-                              <br />
-                              <strong className="text-amber-400">Pour hot drink to reveal!</strong>
-                            </span>
-                          </div>
-                        ) : null}
-
-                        <img
-                          src={sampleDisplayImage}
-                          alt="Custom Upload Preview"
-                          className="w-full h-full object-cover"
-                        />
-
-                        {/* Custom Text Inscription Overlay */}
-                        {customText.trim() && (
-                          <div className="absolute bottom-2 inset-x-2 text-center z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                            <span
-                              className={`text-xs sm:text-sm font-black leading-tight block truncate ${fontFamily}`}
-                              style={{ color: textColor }}
-                            >
-                              {customText}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Ceramic Mug Handle */}
-                    {selectedVariantId === 'heart-handle' ? (
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-20 rounded-r-3xl border-8 border-rose-500 -z-1 flex items-center justify-center shadow-lg transform rotate-6">
-                        <Heart className="w-4 h-4 text-rose-500 fill-rose-500 absolute -right-2" />
-                      </div>
-                    ) : (
-                      <div
-                        className="absolute right-1 top-1/2 -translate-y-1/2 w-12 h-24 rounded-r-full border-8 border-slate-200 -z-1 shadow-lg"
-                        style={{
-                          borderColor:
-                            selectedVariantId === 'inner-colour'
-                              ? productConfig.innerColors.find((c) => c.id === selectedInnerColor)?.hex || '#ffffff'
-                              : '#ffffff'
+              {/* Instant 1-Click Sample Photo Presets (Try Before Uploading) */}
+              <div className="mt-4 pt-3 border-t border-slate-100">
+                <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 block mb-2">
+                  Try with Sample Pictures:
+                </span>
+                <div className="grid grid-cols-4 gap-2">
+                  {SAMPLE_PRESETS.map((preset) => {
+                    const isSelected = !uploadedImage && selectedPresetId === preset.id;
+                    return (
+                      <button
+                        key={preset.id}
+                        type="button"
+                        onClick={() => {
+                          setUploadedImage(null);
+                          setSelectedPresetId(preset.id);
+                          setCustomText(preset.defaultText);
                         }}
-                      />
-                    )}
-                  </div>
-                )}
-
-                {/* 2. T-SHIRT MOCKUP VIEW */}
-                {activeCategory === 'tshirts' && (
-                  <div className="relative w-64 h-64 flex items-center justify-center">
-                    <div
-                      className="relative w-56 h-60 rounded-3xl shadow-2xl flex flex-col items-center justify-start pt-6 border border-slate-300/60 overflow-hidden transition-colors"
-                      style={{
-                        backgroundColor:
-                          productConfig.colors.find((c) => c.id === tshirtColor)?.hex || '#0f172a'
-                      }}
-                    >
-                      {tshirtNeckStyle === 'collar' ? (
-                        <div className="w-20 h-7 border-b-4 border-l-4 border-r-4 border-white/40 rounded-b-2xl bg-black/20 flex items-center justify-center">
-                          <span className="text-[8px] uppercase tracking-widest text-white font-black">POLO</span>
-                        </div>
-                      ) : (
-                        <div className="w-16 h-5 rounded-b-full border-b-2 border-white/30 bg-black/20" />
-                      )}
-
-                      <div className="relative mt-4 w-32 h-36 rounded-lg border-2 border-dashed border-white/30 flex flex-col items-center justify-center overflow-hidden bg-black/20 shadow-inner">
-                        <img
-                          src={sampleDisplayImage}
-                          alt="T-Shirt Print Preview"
-                          className="w-full h-full object-cover"
-                        />
-                        {customText.trim() && (
-                          <div className="absolute bottom-1 inset-x-1 text-center bg-black/60 py-0.5 rounded backdrop-blur-sm">
-                            <span
-                              className={`text-[10px] font-black leading-none block truncate ${fontFamily}`}
-                              style={{ color: textColor }}
-                            >
-                              {customText}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="absolute top-2 right-2 text-[8px] font-extrabold px-1.5 py-0.5 rounded bg-white/30 text-white backdrop-blur-sm">
-                        {tshirtSize}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* 3. PHOTO FRAME MOCKUP VIEW */}
-                {activeCategory === 'frames' && (
-                  <div className="relative w-56 h-64 flex items-center justify-center">
-                    {selectedVariantId === 'led-12x18' && isFrameLedOn && (
-                      <div className="absolute -inset-4 rounded-3xl bg-amber-400/35 blur-xl pointer-events-none animate-pulse" />
-                    )}
-
-                    <div
-                      className={`relative w-48 h-60 rounded-xl p-3 shadow-2xl flex flex-col items-center justify-center border-8 transition-colors ${
-                        productConfig.borderStyles.find((b) => b.id === frameBorder)?.borderClass || 'border-slate-900 bg-slate-950'
-                      }`}
-                      style={{
-                        borderColor:
-                          productConfig.borderStyles.find((b) => b.id === frameBorder)?.hex || '#09090b'
-                      }}
-                    >
-                      <div className="relative w-full h-full rounded bg-slate-100 overflow-hidden shadow-inner flex items-center justify-center">
-                        <img
-                          src={sampleDisplayImage}
-                          alt="Photo Frame Preview"
-                          className="w-full h-full object-cover"
-                        />
-
-                        <div className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/60 text-[8px] font-black text-amber-300">
-                          ✨ Sparkle Laminated
-                        </div>
-
-                        {customText.trim() && (
-                          <div className="absolute bottom-2 inset-x-2 text-center bg-black/60 py-1 rounded backdrop-blur-sm">
-                            <span
-                              className={`text-xs font-black block truncate ${fontFamily}`}
-                              style={{ color: textColor }}
-                            >
-                              {customText}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* 4. PILLOW / CUSHION MOCKUP VIEW */}
-                {activeCategory === 'pillows' && (
-                  <div className="relative w-64 h-64 flex items-center justify-center">
-                    {selectedVariantId === 'led' && isPillowLedOn && (
-                      <div className="absolute -inset-3 rounded-full bg-rose-400/35 blur-2xl pointer-events-none animate-pulse" />
-                    )}
-
-                    {pillowShape === 'heart' ? (
-                      <div
-                        className="relative w-52 h-48 flex items-center justify-center transition-all"
-                        style={{
-                          filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.2))'
-                        }}
+                        className={`p-1.5 rounded-xl border text-center transition-all ${
+                          isSelected
+                            ? 'bg-rose-50 border-rose-500 shadow-sm'
+                            : 'bg-white border-slate-200 hover:bg-slate-50'
+                        }`}
                       >
-                        <Heart
-                          className="w-52 h-48 transition-colors"
-                          style={{
-                            color: productConfig.colors.find((c) => c.id === pillowColor)?.hex || '#dc2626',
-                            fill: productConfig.colors.find((c) => c.id === pillowColor)?.hex || '#dc2626'
-                          }}
-                        />
-
-                        <div className="absolute w-28 h-28 rounded-full overflow-hidden border-2 border-white/80 shadow-lg">
-                          {selectedVariantId === 'magic' && !isPillowSequinsRevealed ? (
-                            <div className="w-full h-full bg-amber-400 flex flex-col items-center justify-center p-2 text-center text-slate-900 font-bold text-[9px]">
-                              <span>✨ Sequins Hidden</span>
-                              <span className="text-[7px]">Brush to Reveal</span>
-                            </div>
-                          ) : (
-                            <img
-                              src={sampleDisplayImage}
-                              alt="Heart Pillow Preview"
-                              className="w-full h-full object-cover"
-                            />
-                          )}
-                        </div>
-                      </div>
-                    ) : (
-                      <div
-                        className="relative w-52 h-52 rounded-3xl shadow-2xl p-4 flex items-center justify-center border-4 border-white/40"
-                        style={{
-                          backgroundColor:
-                            productConfig.colors.find((c) => c.id === pillowColor)?.hex || '#dc2626'
-                        }}
-                      >
-                        <div className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-white/60 shadow-inner">
-                          {selectedVariantId === 'magic' && !isPillowSequinsRevealed ? (
-                            <div className="w-full h-full bg-amber-400 flex flex-col items-center justify-center p-2 text-center text-slate-900 font-bold text-[10px]">
-                              <span>✨ Magic Sequins Covered</span>
-                            </div>
-                          ) : (
-                            <img
-                              src={sampleDisplayImage}
-                              alt="Square Pillow Preview"
-                              className="w-full h-full object-cover"
-                            />
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* 5. CAP MOCKUP VIEW */}
-                {activeCategory === 'caps' && (
-                  <div className="relative w-64 h-60 flex flex-col items-center justify-center">
-                    <div
-                      className="w-48 h-36 rounded-t-full shadow-2xl flex flex-col items-center justify-center relative border border-slate-300"
-                      style={{
-                        backgroundColor:
-                          productConfig.colors.find((c) => c.id === capColor)?.hex || '#ef4444'
-                      }}
-                    >
-                      <div className="w-24 h-16 rounded border border-dashed border-white/40 flex items-center justify-center overflow-hidden bg-black/20">
-                        <img
-                          src={sampleDisplayImage}
-                          alt="Cap Logo Preview"
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                      {customText.trim() && (
-                        <span className="text-[9px] font-black text-white mt-1 drop-shadow">
-                          {customText}
+                        <span className="text-sm block">{preset.emoji}</span>
+                        <span className="text-[10px] font-bold text-slate-700 block truncate">
+                          {preset.label}
                         </span>
-                      )}
-                    </div>
-                    <div className="w-56 h-10 rounded-b-full bg-slate-900 shadow-xl border-t border-slate-700" />
-                  </div>
-                )}
-              </div>
-
-              {/* Special Interactive Effect Toggles under Mockup */}
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
-                {activeCategory === 'cups' && selectedVariantId === 'magic' && (
-                  <button
-                    type="button"
-                    onClick={() => setIsMagicHot(!isMagicHot)}
-                    className={`py-1.5 px-3 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all ${
-                      isMagicHot
-                        ? 'bg-amber-400 text-slate-950 font-black shadow-sm'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                    }`}
-                  >
-                    <Flame className="w-3.5 h-3.5 text-amber-600" />
-                    <span>{isMagicHot ? '🔥 Pouring Hot Coffee (Revealed)' : '❄️ Cold Cup (Hidden)'}</span>
-                  </button>
-                )}
-
-                {activeCategory === 'frames' && selectedVariantId === 'led-12x18' && (
-                  <button
-                    type="button"
-                    onClick={() => setIsFrameLedOn(!isFrameLedOn)}
-                    className={`py-1.5 px-3 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all ${
-                      isFrameLedOn
-                        ? 'bg-amber-400 text-slate-950 font-black shadow-sm'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                    }`}
-                  >
-                    <Lightbulb className="w-3.5 h-3.5 text-amber-600" />
-                    <span>{isFrameLedOn ? '💡 LED Lights ON' : '🌑 LED Lights OFF'}</span>
-                  </button>
-                )}
-
-                {activeCategory === 'pillows' && selectedVariantId === 'magic' && (
-                  <button
-                    type="button"
-                    onClick={() => setIsPillowSequinsRevealed(!isPillowSequinsRevealed)}
-                    className="py-1.5 px-3 rounded-xl text-xs font-bold flex items-center gap-1.5 bg-amber-400 text-slate-950 font-black shadow-sm"
-                  >
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>{isPillowSequinsRevealed ? '✨ Swipe to Hide Photo' : '✨ Swipe to Reveal Photo'}</span>
-                  </button>
-                )}
-
-                {activeCategory === 'pillows' && selectedVariantId === 'led' && (
-                  <button
-                    type="button"
-                    onClick={() => setIsPillowLedOn(!isPillowLedOn)}
-                    className="py-1.5 px-3 rounded-xl text-xs font-bold flex items-center gap-1.5 bg-rose-500 text-white font-black shadow-sm"
-                  >
-                    <Lightbulb className="w-3.5 h-3.5" />
-                    <span>{isPillowLedOn ? '💡 Cushion LED ON' : '🌑 Cushion LED OFF'}</span>
-                  </button>
-                )}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Photo Upload Action Box */}
-              <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col gap-3">
+              <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col gap-2.5">
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -595,14 +456,14 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                   className="hidden"
                 />
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
                     className="flex-1 py-3 px-4 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white text-xs sm:text-sm font-black flex items-center justify-center gap-2 shadow-lg shadow-sky-600/25 active:scale-95 transition-all"
                   >
                     <Upload className="w-4 h-4" />
-                    <span>{uploadedImage ? 'Replace Photo' : 'Upload Your Photo / Logo'}</span>
+                    <span>{uploadedImage ? 'Replace with Another Photo' : 'Upload Your Photo / Logo'}</span>
                   </button>
 
                   {uploadedImage && (
@@ -619,9 +480,29 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
 
                 <p className="text-[11px] text-slate-500 text-center font-medium">
                   {uploadedImage
-                    ? '✅ Photo loaded! Original high-res picture will be confirmed on WhatsApp.'
-                    : '📸 Pick any photo from your phone or PC to see how it looks!'}
+                    ? '✅ Custom photo loaded! Original high-res picture will be confirmed on WhatsApp.'
+                    : '📸 Pick any photo from your phone or PC to see instant realistic preview!'}
                 </p>
+              </div>
+
+              {/* Customer Happiness Standards Bar */}
+              <div className="mt-5 pt-4 border-t border-slate-200/90 grid grid-cols-2 gap-2 text-[10px] font-semibold text-slate-600">
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>AAA High-Gloss Ceramic</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Fade-Proof Wash Quality</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Microwave Safe Coating</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>WhatsApp Proof Approval</span>
+                </div>
               </div>
 
             </div>
@@ -672,7 +553,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                             ₹{variant.price}/-
                           </span>
                         </div>
-                        <p className="text-[11px] text-slate-600 leading-snug">
+                        <p className="text-[11px] text-slate-600 leading-snug font-medium">
                           {variant.desc}
                         </p>
                       </div>
@@ -707,7 +588,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                                 {pt.badge}
                               </span>
                             </div>
-                            <p className="text-[11px] text-slate-600">{pt.desc}</p>
+                            <p className="text-[11px] text-slate-600 font-medium">{pt.desc}</p>
                             <div className="mt-2 text-xs font-black text-emerald-700">
                               Collar: ₹{pt.collarPrice} | Round Neck: ₹{pt.roundNeckPrice}
                             </div>
@@ -774,6 +655,34 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                       })}
                     </div>
                   </div>
+
+                  <div>
+                    <label className="text-xs font-bold text-slate-700 block mb-2">
+                      4. T-Shirt Color:
+                    </label>
+                    <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                      {productConfig.colors.map((c) => (
+                        <button
+                          key={c.id}
+                          type="button"
+                          onClick={() => setTshirtColor(c.id)}
+                          className={`py-2 px-1 rounded-xl border flex flex-col items-center gap-1 transition-all ${
+                            tshirtColor === c.id
+                              ? 'bg-white border-slate-900 ring-2 ring-rose-500 shadow-sm'
+                              : 'bg-slate-50 border-slate-200'
+                          }`}
+                        >
+                          <span
+                            className="w-4 h-4 rounded-full border border-slate-300"
+                            style={{ backgroundColor: c.hex }}
+                          />
+                          <span className="text-[9px] font-bold text-slate-700 truncate w-full text-center">
+                            {c.name}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
 
@@ -806,7 +715,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                               ₹{variant.price}/-
                             </span>
                           </div>
-                          <p className="text-[10px] text-slate-600">{variant.desc}</p>
+                          <p className="text-[10px] text-slate-600 font-medium">{variant.desc}</p>
                         </div>
                       );
                     })}
@@ -890,10 +799,38 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                                 ₹{v.price}/-
                               </span>
                             </div>
-                            <p className="text-[10px] text-slate-600">{v.desc}</p>
+                            <p className="text-[10px] text-slate-600 font-medium">{v.desc}</p>
                           </div>
                         );
                       })}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-bold text-slate-700 block mb-2">
+                      3. Pillow Fabric Color:
+                    </label>
+                    <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                      {productConfig.colors.map((c) => (
+                        <button
+                          key={c.id}
+                          type="button"
+                          onClick={() => setPillowColor(c.id)}
+                          className={`py-2 px-1 rounded-xl border flex flex-col items-center gap-1 transition-all ${
+                            pillowColor === c.id
+                              ? 'bg-white border-slate-900 ring-2 ring-rose-500 shadow-sm'
+                              : 'bg-slate-50 border-slate-200'
+                          }`}
+                        >
+                          <span
+                            className="w-4 h-4 rounded-full border border-slate-300"
+                            style={{ backgroundColor: c.hex }}
+                          />
+                          <span className="text-[9px] font-bold text-slate-700 truncate w-full text-center">
+                            {c.name}
+                          </span>
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -905,7 +842,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                   <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                     <div>
                       <h4 className="font-extrabold text-sm text-slate-900">{productConfig.title}</h4>
-                      <p className="text-xs text-slate-600">{productConfig.description}</p>
+                      <p className="text-xs text-slate-600 font-medium">{productConfig.description}</p>
                     </div>
                     <span className="text-xl font-black text-emerald-700 bg-emerald-50 px-3 py-1 rounded-xl border border-emerald-200">
                       ₹{productConfig.price}/-
@@ -956,70 +893,70 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                   onChange={(e) => setCustomText(e.target.value)}
                   placeholder="e.g. Happy Birthday Suresh / Best Mom / Royal Couple"
                   maxLength={50}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-2xl py-3 px-4 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 font-semibold focus:bg-white"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-2xl py-3 px-4 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 font-semibold focus:bg-white shadow-2xs"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-[11px] font-bold text-slate-600 block mb-1.5">
-                    Font Style:
+                    Font Typography Style:
                   </label>
                   <div className="grid grid-cols-3 gap-2">
                     <button
                       type="button"
-                      onClick={() => setFontFamily('font-serif')}
-                      className={`py-1.5 px-2 rounded-xl text-xs font-serif border ${
-                        fontFamily === 'font-serif'
-                          ? 'bg-rose-600 border-rose-600 text-white font-bold'
-                          : 'bg-slate-50 border-slate-200 text-slate-700'
-                      }`}
-                    >
-                      Serif
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setFontFamily('font-sans')}
-                      className={`py-1.5 px-2 rounded-xl text-xs font-sans font-bold border ${
-                        fontFamily === 'font-sans'
-                          ? 'bg-rose-600 border-rose-600 text-white'
-                          : 'bg-slate-50 border-slate-200 text-slate-700'
-                      }`}
-                    >
-                      Sans
-                    </button>
-                    <button
-                      type="button"
                       onClick={() => setFontFamily('italic font-serif')}
-                      className={`py-1.5 px-2 rounded-xl text-xs italic font-serif border ${
+                      className={`py-2 px-2 rounded-xl text-xs italic font-serif border transition-all ${
                         fontFamily === 'italic font-serif'
-                          ? 'bg-rose-600 border-rose-600 text-white font-bold'
-                          : 'bg-slate-50 border-slate-200 text-slate-700'
+                          ? 'bg-rose-600 border-rose-600 text-white font-black shadow-sm'
+                          : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-white'
                       }`}
                     >
-                      Script
+                      Script Calligraphy
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFontFamily('font-sans font-black tracking-tight')}
+                      className={`py-2 px-2 rounded-xl text-xs font-sans font-black border transition-all ${
+                        fontFamily.includes('font-sans')
+                          ? 'bg-rose-600 border-rose-600 text-white shadow-sm'
+                          : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-white'
+                      }`}
+                    >
+                      Modern Bold
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFontFamily('font-serif')}
+                      className={`py-2 px-2 rounded-xl text-xs font-serif border transition-all ${
+                        fontFamily === 'font-serif'
+                          ? 'bg-rose-600 border-rose-600 text-white font-bold shadow-sm'
+                          : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-white'
+                      }`}
+                    >
+                      Classic Serif
                     </button>
                   </div>
                 </div>
 
                 <div>
                   <label className="text-[11px] font-bold text-slate-600 block mb-1.5">
-                    Text Color:
+                    Text Heat-Press Color:
                   </label>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 pt-1">
                     {[
-                      { name: 'White', hex: '#ffffff' },
-                      { name: 'Gold', hex: '#facc15' },
-                      { name: 'Red', hex: '#ef4444' },
-                      { name: 'Black', hex: '#09090b' },
-                      { name: 'Blue', hex: '#38bdf8' }
+                      { name: 'Pure White', hex: '#ffffff' },
+                      { name: 'Warm Gold', hex: '#facc15' },
+                      { name: 'Ruby Red', hex: '#ef4444' },
+                      { name: 'Jet Black', hex: '#09090b' },
+                      { name: 'Sky Blue', hex: '#38bdf8' }
                     ].map((col) => (
                       <button
                         key={col.hex}
                         type="button"
                         onClick={() => setTextColor(col.hex)}
-                        className={`w-7 h-7 rounded-full border-2 transition-transform ${
-                          textColor === col.hex ? 'scale-110 border-slate-900 ring-2 ring-rose-500' : 'border-slate-300'
+                        className={`w-8 h-8 rounded-full border-2 transition-transform shadow-sm ${
+                          textColor === col.hex ? 'scale-115 border-slate-900 ring-2 ring-rose-500' : 'border-slate-300'
                         }`}
                         style={{ backgroundColor: col.hex }}
                         title={col.name}
@@ -1081,7 +1018,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     placeholder="Your Name (e.g. Ramesh Reddy)"
-                    className="w-full bg-slate-950/80 border border-slate-700 rounded-xl py-2 px-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-slate-950/80 border border-slate-700 rounded-xl py-2.5 px-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-medium"
                   />
                 </div>
                 <div>
@@ -1090,7 +1027,7 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
                     value={customerNotes}
                     onChange={(e) => setCustomerNotes(e.target.value)}
                     placeholder="Special request (e.g. urgent delivery/gift box)"
-                    className="w-full bg-slate-950/80 border border-slate-700 rounded-xl py-2 px-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-slate-950/80 border border-slate-700 rounded-xl py-2.5 px-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-medium"
                   />
                 </div>
               </div>
