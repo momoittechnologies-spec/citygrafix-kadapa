@@ -14,19 +14,26 @@ A high-performance, mobile-first website and digital quotation portal built for 
    - Municipal layout & village map plotting on heavy bond paper or tracing paper/cloth.
    - High-resolution wide-format scanning up to A0 with direct WhatsApp/email dispatch.
 
-2. **Flex Printing & 3D Signage (`#services?tab=flex`)**:
-   - Star Flex (హై-క్వాలిటీ స్టార్ ఫ్లెక్స్), Normal Flex, Backlit Flex & Frontlit Hoardings.
-   - 3D Acrylic LED glow sign boards, ACP router cut signs & steel channel letters.
-   - Vinyl printing & One-Way Vision window graphic film.
+2. **Flex Printing, Arches & Outdoor Signage (`#services?tab=flex`)**:
+   - **Arch Flex (ఆర్చ్ ఫ్లెక్స్)**: Grand welcome arches for weddings, showroom launches & temple fests with iron frame fabrication.
+   - **Hoarding Flex (హోర్డింగ్ ఫ్లెక్స్)**: Heavy GSM roadside billboards and national highway flexes with brass eyelets.
+   - **Lighting Board (లైటింగ్ బోర్డులు)**: LED glow light boxes and illuminated storefront signboards.
+   - Star Flex (హై-క్వాలిటీ స్టార్ ఫ్లెక్స్), Backlit Flex, and 3D Acrylic LED Letters.
 
-3. **Personalised Gifts & Frames (`#services?tab=gifts`)**:
-   - Photo Mugs & heat-reactive Magic Mugs.
-   - Premium synthetic & wooden photo frames (A4 to 12×18").
-   - Photo cushions & pillows (12×12", 16×16", Heart shape, Magic sequin).
-   - Customized T-shirt photo printing with breathable sublimation ink.
-   - Corporate, birthday, anniversary & return gifts.
+3. **Auto Publicity & Commercial Offset Printing (`#services?tab=publicity`)**:
+   - **Auto Publicity (ఆటో పబ్లిసిటీ)**: Mobile advertising across Kadapa on auto-rickshaw hoods, passenger back panels & sound vans.
+   - **Pamphlets & Flyers (పాంప్లెట్లు & కరపత్రాలు)**: Bulk multi-colour offset printing for newspaper inserts and door-to-door distribution.
+   - **Bill Books & Receipts (బిల్ బుక్స్)**: Carbonless duplicate (1+1) and triplicate (1+2) NCR numbered business invoice pads.
+   - **Visiting Cards (విజిటింగ్ కార్డ్స్)**: 1000 Pcs wholesale pack on 350 GSM imported cardstock with matte, gloss & spot UV finishes.
 
-4. **Stickers & Rigid Boards (`#services?tab=boards`)**:
+4. **Personalised Gifts & Frames (`#services?tab=gifts`)**:
+   - **Mug Printing (మగ్స్ ప్రింటింగ్)**: Plain (₹350), Inner Colour (₹450), Heart Handle (₹500), and Magic Heat-Reveal (₹550) mugs.
+   - **Photo Frames (ఫోటో ఫ్రేమ్స్)**: Desktop 6×8" (₹250), Wall 8×12" (₹350), Collage 12×18" (₹650), Grand 16×24" (₹1,100), LED Glow (₹1,250).
+   - **Photo Pillows (పిల్లో ప్రింటింగ్)**: Heart or Square normal (₹450), Fancy Fur (₹600), Magic Sequins (₹800), LED internal glow (₹850).
+   - **T-Shirt Printing (టీ-షర్ట్ ప్రింటింగ్)**: DTF wash-proof (Round ₹400 / Collar ₹500) and Sublimation (Round ₹300 / Collar ₹400).
+   - **Caps & Merch (క్యాప్ ప్రింటింగ్)**: Cap + DTF heat transfer print (₹300).
+
+5. **Stickers & Rigid Boards (`#services?tab=boards`)**:
    - 3mm & 5mm Sunboard / PVC Foam Board direct mounting.
    - Die-cut vinyl stickers, product labels & vehicle graphics.
    - Art boards, promotional display stands & corporate wall branding.

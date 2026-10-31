@@ -274,8 +274,12 @@ export default function ContactSection() {
                       <option value="One-Way Vision Glass Film">One-Way Vision Glass Film</option>
                       <option value="Art Board & Display Signage">Display Signage & Art Boards</option>
                     </optgroup>
-                    <optgroup label="Commercial & Ready Files">
-                      <option value="Visiting Cards (1000 pcs)">Visiting Cards (1000 pcs Offset)</option>
+                    <optgroup label="Commercial, Publicity & Offset">
+                      <option value="Auto Publicity & Mobile Rickshaw Branding">Auto Publicity & Rickshaw Advertising (ఆటో పబ్లిసిటీ)</option>
+                      <option value="Arch Flex Welcome Arches">Arch Flex (ఈవెంట్ స్వాగత తోరణాలు)</option>
+                      <option value="Pamphlets & Flyers (Multi-Colour Offset)">Pamphlets & Flyers (పాంప్లెట్లు / కరపత్రాలు)</option>
+                      <option value="Bill Books & Invoices (Carbonless NCR)">Bill Books & Receipt Books (బిల్ బుక్స్)</option>
+                      <option value="Visiting Cards (1000 pcs)">Visiting Cards (1000 pcs Commercial Offset)</option>
                       <option value="Print Ready Customer Design File">Printing from My Ready Design File (CDR/PSD/PDF/JPG)</option>
                     </optgroup>
                   </select>

@@ -3,9 +3,10 @@
 
 export const SERVICES_CATEGORIES = [
   { id: 'all', label: 'All Services' },
-  { id: 'xerox', label: 'Jumbo Xerox & Plans', badge: 'A0 - A4' },
-  { id: 'flex', label: 'Flex & Sign Boards', badge: 'Outdoor' },
-  { id: 'gifts', label: 'Personalised Gifts', badge: 'Mugs & T-Shirts' },
+  { id: 'flex', label: 'Flex, Arches & Hoardings', badge: 'Outdoor' },
+  { id: 'publicity', label: 'Auto Publicity & Offset', badge: 'Cards, Bills & Flyers' },
+  { id: 'xerox', label: 'Jumbo Xerox & CAD Plans', badge: 'A0 - A4' },
+  { id: 'gifts', label: 'Personalised Gifts', badge: 'Mugs, Tees & Frames' },
   { id: 'boards', label: 'Stickers & Boards', badge: 'Sunboard' }
 ];
 
@@ -105,8 +106,62 @@ export const SERVICES_LIST = [
   },
 
   // ==========================================
-  // PILLAR 2: FLEX PRINTING & SIGN BOARDS
+  // PILLAR 2: FLEX, ARCHES, HOARDINGS & SIGN BOARDS
   // ==========================================
+  {
+    id: 'arch-flex-printing',
+    category: 'flex',
+    title: 'Arch Flex Printing & Welcome Arches',
+    teluguTitle: 'ఆర్చ్ ఫ్లెక్స్ ప్రింటింగ్ (స్వాగత తోరణాలు)',
+    badge: 'Events & Weddings',
+    tagline: 'Grand entrance welcome arches for weddings, temple fests & inaugurations',
+    description: 'Custom fabricated grand entrance arch flexes for weddings, VIP welcome stages, political rallies, temple Brahmotsavams, and commercial showroom launches across Kadapa. Built with heavy MS iron frames and high-gloss Star Flex.',
+    features: [
+      'Custom grand arch spans: 20ft × 10ft, 30ft × 15ft, up to 50ft arches',
+      'Heavy-duty welded MS iron arch framework & wooden beeding',
+      'High-gloss Star Flex with vivid Telugu typography & floral motifs',
+      'Complete on-site erection and night spotlighting available'
+    ],
+    turnaround: 'Same Day Express Dispatch',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
+    popular: true
+  },
+  {
+    id: 'hoarding-flex-printing',
+    category: 'flex',
+    title: 'Hoarding Flex & Highway Billboards',
+    teluguTitle: 'హోర్డింగ్ ఫ్లెక్స్ & హైవే బిల్ బోర్డ్స్',
+    badge: 'Mass Outdoor Reach',
+    tagline: 'Massive roadside hoardings & national highway advertising billboards',
+    description: 'Dominate Kadapa skyline with colossal roadside hoardings. Heavy GSM frontlit and backlit flex materials built to withstand intense monsoon winds, dust storms, and extreme summer sun without tearing or fading.',
+    features: [
+      'High wind-resistant heavy GSM industrial outdoor flex',
+      'Fade-resistant weatherproof eco-solvent inks for multi-month life',
+      'Heavy brass eyelets (రింగులు) & high-tensile nylon rope ties',
+      'High-speed roll-to-roll printing for urgent election & event campaigns'
+    ],
+    turnaround: '2 - 4 Hours Fast Dispatch',
+    image: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80',
+    popular: true
+  },
+  {
+    id: 'led-glow-boards',
+    category: 'flex',
+    title: 'Lighting Board & LED Glow Sign Boards',
+    teluguTitle: 'లైటింగ్ బోర్డులు & ఎల్ఈడీ గ్లో సైన్ బోర్డ్స్',
+    badge: 'Day & Night Glow',
+    tagline: 'Heavy-gauge steel light boxes with uniform edge-to-edge illumination',
+    description: 'The classic high-visibility lighting board trusted by pharmacies, grocery stores, restaurants, and retail showrooms across Kadapa. Built with anti-rust treated iron frames, high-lumen waterproof LED arrays, and backlit flex.',
+    features: [
+      'Anti-corrosion powder coated iron framework & ACP sheet borders',
+      'High-lumen waterproof IP67 LED internal arrays',
+      'Uniform light distribution without dark spots or flickering',
+      'Complete on-site mounting & electrical wiring across Kadapa'
+    ],
+    turnaround: '2 - 3 Days',
+    image: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80',
+    popular: true
+  },
   {
     id: 'star-flex',
     category: 'flex',
@@ -114,7 +169,7 @@ export const SERVICES_LIST = [
     teluguTitle: 'స్టార్ ఫ్లెక్స్ బ్యానర్ ప్రింటింగ్',
     badge: 'Best Seller',
     tagline: 'High-gloss premium finish with vibrant, sun-resistant colors',
-    description: 'Our flagship outdoor advertising medium. Engineered with heavy GSM substrate to deliver eye-popping CMYK fidelity that stays vibrant even under Kadapa’s intense summer heat. Perfect for shop fronts, political events, and grand wedding arches.',
+    description: 'Our flagship outdoor advertising medium. Engineered with heavy GSM substrate to deliver eye-popping CMYK fidelity that stays vibrant even under Kadapa’s intense summer heat. Perfect for shop fronts, political events, and grand wedding flexes.',
     features: [
       'Heavy GSM thick tear-resistant fabric',
       'High-gloss coating for richer contrast',
@@ -143,40 +198,80 @@ export const SERVICES_LIST = [
     image: 'https://images.unsplash.com/photo-1572945550744-570424749b95?auto=format&fit=crop&w=800&q=80',
     popular: true
   },
+
+  // ==========================================
+  // PILLAR 3: AUTO PUBLICITY, OFFSET & COMMERCIAL PRINTING
+  // ==========================================
   {
-    id: 'led-glow-boards',
-    category: 'flex',
-    title: 'LED Glow Sign Boards & Backlit Flex',
-    teluguTitle: 'ఎల్ఈడీ గ్లో సైన్ బోర్డులు & బ్యాక్‌లిట్ ఫ్లెక్స్',
-    badge: 'Retail Standard',
-    tagline: 'Heavy-gauge steel light boxes with uniform edge-to-edge glow',
-    description: 'The classic high-visibility sign board trusted by pharmacies, grocery stores, restaurants, and retail showrooms across Kadapa. Built with anti-rust treated iron frames and backlit flex or polycarbonate face.',
+    id: 'auto-publicity-branding',
+    category: 'publicity',
+    title: 'Auto Publicity & Mobile Rickshaw Advertising',
+    teluguTitle: 'ఆటో పబ్లిసిటీ & వెహికల్ బ్రాండింగ్',
+    badge: 'High Impact Publicity',
+    tagline: 'Auto hood flex, passenger back panel advertising & mobile sound campaign vans',
+    description: 'Take your message straight to every street, galli, and bus stand in Kadapa town and surrounding mandals. Auto publicity provides unstoppable mobile visibility for movie releases, school admissions, hospital camps, and store grand openings.',
     features: [
-      'Anti-corrosion powder coated iron framework',
-      'High-lumen waterproof LED internal arrays',
-      'Uniform light distribution without dark spots',
-      'Complete on-site mounting across Kadapa'
+      'Auto-rickshaw front hood flex and rear passenger panel boards',
+      'Sound vehicle publicity flex framing & megaphone mounting',
+      'Tear-resistant, water-proof heavy vinyl & Star Flex banners',
+      'Fleet branding packages for 5 to 50+ autos across Kadapa district'
     ],
-    turnaround: '2 - 3 Days',
-    image: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80',
+    turnaround: 'Same Day / 24 Hours',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80',
     popular: true
   },
   {
-    id: 'hoardings-political-banners',
-    category: 'flex',
-    title: 'Hoardings & Promotional Banners',
-    teluguTitle: 'హోర్డింగ్స్ & పొలిటికల్ ఫ్లెక్స్ బ్యానర్లు',
-    badge: 'Mass Outdoor Reach',
-    tagline: 'Grand roadside hoardings, political rally flexes & event arches',
-    description: 'High-impact outdoor branding for grand inaugurations, political campaigns, festival celebrations, and commercial roadside hoardings across Kadapa district.',
+    id: 'pamphlets-flyers-printing',
+    category: 'publicity',
+    title: 'Pamphlets, Leaflets & Flyers Multi-Colour Printing',
+    teluguTitle: 'పాంప్లెట్లు, కరపత్రాలు & ఫ్లైయర్స్',
+    badge: 'Bulk Direct Marketing',
+    tagline: 'High-speed multi-colour offset printing for newspaper inserts & door-to-door publicity',
+    description: 'Reach thousands of households across Kadapa overnight. We print eye-catching promotional pamphlets and flyers on 70 GSM to 130 GSM art paper with sharp Telugu typography and brilliant color contrast.',
     features: [
-      'Heavy-duty welded MS iron square pipe frames',
-      'Brass eyelets (రింగులు) & strong rope reinforcement',
-      'Wind-resistant mesh & heavy frontlit flex options',
-      'Rapid express printing for urgent rallies & events'
+      'A4, A5, and 1/8th Demy sheet dimensions in single / multi-color',
+      'Single side or double side full-color offset printing',
+      'Bulk wholesale pricing from 1,000 to 50,000+ copies',
+      'Ideal for coaching centers, supermarkets, medical camps & festive offers'
     ],
-    turnaround: 'Express (2 - 4 Hours)',
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
+    turnaround: '24 - 48 Hours',
+    image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80',
+    popular: true
+  },
+  {
+    id: 'bill-books-invoices',
+    category: 'publicity',
+    title: 'Custom Bill Books, Invoices & Receipt Pads',
+    teluguTitle: 'బిల్ బుక్స్, రసీదు పుస్తకాలు & క్యాష్ మెమోలు',
+    badge: 'Business Stationery',
+    tagline: 'Numbered duplicate & triplicate carbonless (NCR) business invoice books',
+    description: 'Essential business stationery custom designed with your shop name, logo, GSTIN, UPI payment QR, and terms. Printed on premium carbonless copy paper so you never have to deal with messy carbon paper.',
+    features: [
+      '1+1 (Duplicate) and 1+2 (Triplicate) carbonless NCR paper',
+      'Sequential red machine numbering & clean perforated tear-lines',
+      'Heavy hardboard binding with wraparound protective flap',
+      'Single color (Blue/Red/Black) or premium multi-color headers'
+    ],
+    turnaround: '2 - 3 Days',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
+    popular: true
+  },
+  {
+    id: 'visiting-cards-commercial',
+    category: 'publicity',
+    title: 'Visiting Cards & Corporate Business Cards',
+    teluguTitle: 'విజిటింగ్ కార్డ్స్ (1000 Pcs హోల్‌సేల్ ప్యాక్)',
+    badge: '1000 Pcs Wholesale Pack',
+    tagline: '350 GSM imported cardstock with velvet matte, gloss & spot UV coatings',
+    description: 'Make a commanding first impression with premium business cards. Printed on heavy 350 GSM art cardstock on high-precision commercial offset presses with smooth edge trimming.',
+    features: [
+      'Standard 1000 cards commercial offset package at wholesale rates',
+      'Velvety Soft-Touch Matte, High-Gloss, and Raised Spot UV finishes',
+      'Single side or double side full-color HD offset reproduction',
+      'Rounded corner die-cutting options for executive presentation'
+    ],
+    turnaround: '2 - 3 Days',
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80',
     popular: true
   },
 

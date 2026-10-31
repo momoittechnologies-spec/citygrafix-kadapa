@@ -187,6 +187,74 @@ export const PRICING_CONFIG = {
       ],
       description: 'High-quality 4-color offset printing on imported card stock with sharp finish.',
       finishingAllowed: []
+    },
+    {
+      id: 'arch-flex',
+      name: 'Arch Flex & Welcome Arches (ఆర్చ్ ఫ్లెక్స్)',
+      category: 'flex',
+      unitType: 'area',
+      baseRatePerSqFt: 22,
+      popular: true,
+      description: 'Grand entrance welcome arch flex for weddings, showroom launches & temple fests with iron frame fabrication.',
+      minCharge: 800,
+      finishingAllowed: ['eyelets', 'frame', 'woodBeeding']
+    },
+    {
+      id: 'hoarding-flex',
+      name: 'Hoarding Flex (హోర్డింగ్ ఫ్లెక్స్ - Billboards)',
+      category: 'flex',
+      unitType: 'area',
+      baseRatePerSqFt: 20,
+      popular: true,
+      description: 'Heavy GSM tear-resistant flex for large roadside hoardings and national highway billboards.',
+      minCharge: 500,
+      finishingAllowed: ['eyelets', 'frame']
+    },
+    {
+      id: 'auto-publicity',
+      name: 'Auto Publicity & Vehicle Branding (ఆటో పబ్లిసిటీ)',
+      category: 'offset',
+      unitType: 'fixed',
+      popular: true,
+      fixedOptions: [
+        { label: 'Auto Rickshaw Hood Flex + Rear Board (Single Auto)', price: 450 },
+        { label: 'Fleet Package: 5 Autos Complete Branding', price: 2100 },
+        { label: 'Fleet Package: 10 Autos Mega Campaign', price: 3900 },
+        { label: 'Sound Campaign Van / Sound Auto Flex Set', price: 1200 }
+      ],
+      description: 'High-mobility mobile advertising across Kadapa town & rural mandals on auto-rickshaws and campaign vehicles.',
+      finishingAllowed: []
+    },
+    {
+      id: 'pamphlets-flyers',
+      name: 'Pamphlets & Flyers Multi-Colour (పాంప్లెట్లు)',
+      category: 'offset',
+      unitType: 'fixed',
+      popular: true,
+      fixedOptions: [
+        { label: 'A5 Single Side Multi-Colour (1000 Copies)', price: 950 },
+        { label: 'A5 Double Side Multi-Colour (1000 Copies)', price: 1650 },
+        { label: 'A4 Single Side Multi-Colour (1000 Copies)', price: 1750 },
+        { label: 'A4 Double Side Multi-Colour (1000 Copies)', price: 2950 },
+        { label: 'Newspaper Insert Pamphlets (5000 Copies Bulk)', price: 3800 }
+      ],
+      description: 'Bulk high-speed multi-colour offset printing on art paper for newspaper distribution & door-to-door sales.',
+      finishingAllowed: []
+    },
+    {
+      id: 'bill-books',
+      name: 'Bill Books & Invoices (బిల్ బుక్స్ & రసీదులు)',
+      category: 'offset',
+      unitType: 'fixed',
+      popular: true,
+      fixedOptions: [
+        { label: 'Duplicate 1+1 Carbonless NCR (5 Books - 50 sets/book)', price: 850 },
+        { label: 'Duplicate 1+1 Carbonless NCR (10 Books Wholesale)', price: 1550 },
+        { label: 'Triplicate 1+2 Carbonless NCR (5 Books - 50 sets/book)', price: 1250 },
+        { label: 'Triplicate 1+2 Carbonless NCR (10 Books Wholesale)', price: 2300 }
+      ],
+      description: 'Custom numbered duplicate & triplicate carbonless business invoice books with GSTIN and shop branding.',
+      finishingAllowed: []
     }
   ],
   finishingOptions: {
