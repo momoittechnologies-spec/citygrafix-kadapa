@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import MobileBottomDock from './components/MobileBottomDock';
 import ContactMenuDropdown from './components/ContactMenuDropdown';
 import PageBreadcrumb from './components/PageBreadcrumb';
+import TextMarquee from './components/TextMarquee';
 
 // Gallery Platform Components
 import ClientGallery from './gallery/components/ClientGallery';
@@ -169,6 +170,9 @@ export default function App() {
           <div className="space-y-0">
             {/* Hero Banner */}
             <Hero onOpenCalculator={() => navigateTo('calculator')} />
+
+            {/* Kinetic Text Marquee Ticker (CMYK Printing Capabilities & Guarantees) */}
+            <TextMarquee />
 
             {/* 11 CORE WORKSHOP CAPABILITIES TEASER RIBBON (3D Light Mode) */}
             <section className="py-16 bg-white border-y border-slate-200/80 relative">
@@ -380,6 +384,7 @@ export default function App() {
               category="Catalog"
               onBackHome={() => navigateTo('')}
             />
+            <TextMarquee />
             <ServicesGrid onSelectServiceForCalculator={() => navigateTo('calculator')} />
           </div>
         )}
