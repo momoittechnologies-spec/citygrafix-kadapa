@@ -33,7 +33,7 @@ export default function Navbar({ onOpenContact }) {
         className={`transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 py-2.5 shadow-md shadow-slate-200/50'
-            : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3.5 shadow-sm'
+            : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3 shadow-sm'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,7 +43,7 @@ export default function Navbar({ onOpenContact }) {
               <img
                 src="/logo.png"
                 alt="City Grafix Kadapa"
-                className="h-11 sm:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+                className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
               />
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
@@ -61,8 +61,8 @@ export default function Navbar({ onOpenContact }) {
               </div>
             </a>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200">
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200/80">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
@@ -76,48 +76,46 @@ export default function Navbar({ onOpenContact }) {
               ))}
             </nav>
 
-            {/* Direct Quick Actions: Call & WhatsApp with Dropdown */}
-            <div className="hidden sm:flex items-center gap-2">
-              {/* Call Shop Dropdown Trigger */}
+            {/* Desktop Unified Single CTA: Call / WhatsApp Dropdown */}
+            <div className="hidden sm:flex items-center">
               <button
                 type="button"
-                onClick={() => onOpenContact && onOpenContact('calls')}
-                className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/90 rounded-xl transition-all border border-slate-200/90 shadow-sm active:scale-95 group"
-                title="View calling numbers"
+                onClick={() => onOpenContact && onOpenContact('all')}
+                className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 hover:to-emerald-900 text-white font-bold text-xs shadow-md shadow-slate-900/10 hover:shadow-lg hover:scale-[1.02] active:scale-95 transition-all border border-slate-700/60 group"
+                title="Call or WhatsApp our 3 direct lines"
               >
-                <div className="w-5 h-5 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center">
-                  <Phone className="w-3 h-3" />
+                <div className="flex items-center -space-x-1.5">
+                  <div className="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 border border-sky-400/40 flex items-center justify-center shadow-sm">
+                    <Phone className="w-3 h-3" />
+                  </div>
+                  <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 flex items-center justify-center shadow-sm">
+                    <MessageCircle className="w-3 h-3" />
+                  </div>
                 </div>
-                <div className="text-left">
-                  <span className="block leading-none text-[11px] font-extrabold text-slate-800">Call Us</span>
+                <div className="text-left flex flex-col">
+                  <span className="text-[11px] font-black text-white leading-tight flex items-center gap-1">
+                    Call / WhatsApp
+                    <ChevronDown className="w-3 h-3 text-emerald-400 group-hover:translate-y-0.5 transition-transform" />
+                  </span>
+                  <span className="text-[9px] text-slate-300 font-semibold leading-none">
+                    3 Direct Lines
+                  </span>
                 </div>
-                <ChevronDown className="w-3 h-3 text-slate-400 group-hover:text-slate-600 transition-transform group-hover:translate-y-0.5" />
-              </button>
-
-              {/* WhatsApp Dropdown Trigger */}
-              <button
-                type="button"
-                onClick={() => onOpenContact && onOpenContact('whatsapp')}
-                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 rounded-xl shadow-md shadow-emerald-500/25 transition-all hover:scale-[1.02] active:scale-95 group"
-                title="View WhatsApp numbers"
-              >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>WhatsApp Order</span>
-                <ChevronDown className="w-3 h-3 text-emerald-200 group-hover:translate-y-0.5 transition-transform" />
               </button>
             </div>
 
-            {/* Mobile Header Buttons */}
+            {/* Mobile Header Quick Actions */}
             <div className="flex sm:hidden items-center gap-2">
               <button
                 type="button"
                 onClick={() => onOpenContact && onOpenContact('all')}
-                className="flex items-center gap-1.5 py-1.5 px-2.5 text-white bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl text-xs font-extrabold shadow-sm active:scale-95"
-                aria-label="Call and WhatsApp Lines"
+                className="flex items-center gap-1.5 py-1.5 px-3 rounded-xl bg-gradient-to-r from-slate-900 to-emerald-900 text-white text-xs font-black shadow-sm active:scale-95 border border-slate-700/60"
+                aria-label="Call & WhatsApp Direct Lines"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span className="text-[11px]">Contact</span>
-                <ChevronDown className="w-3 h-3 text-emerald-200" />
+                <Phone className="w-3 h-3 text-sky-400" />
+                <span className="text-slate-500 font-normal">/</span>
+                <MessageCircle className="w-3 h-3 text-emerald-400" />
+                <ChevronDown className="w-2.5 h-2.5 text-slate-400" />
               </button>
 
               <button
