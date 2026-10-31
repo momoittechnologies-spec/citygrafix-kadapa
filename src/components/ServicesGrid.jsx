@@ -29,7 +29,7 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold mb-3 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold mb-3 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-rose-500" />
             <span>Complete Printing & Advertising Studio</span>
           </div>
@@ -44,37 +44,37 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
           </p>
         </div>
 
-        {/* 11 SIGNATURE SERVICES SHOWCASE GRID (FROM OFFICIAL POSTER) */}
-        <div className="mb-14 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl p-6 sm:p-8 text-white border border-slate-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+        {/* 11 SIGNATURE SERVICES SHOWCASE GRID (FROM OFFICIAL POSTER) - 3D LIGHT THEME */}
+        <div className="mb-14 bg-gradient-to-br from-white via-sky-50/50 to-indigo-50/40 rounded-3xl p-6 sm:p-8 text-slate-800 border-2 border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/25 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-200/25 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 justify-between pb-8 mb-8 border-b border-slate-800">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 justify-between pb-8 mb-8 border-b border-slate-200">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 mb-2">
-                <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/30">
+                <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-rose-100 text-rose-700 border border-rose-300">
                   Official Workshop Capabilities
                 </span>
-                <span className="text-xs text-slate-400 font-semibold">
+                <span className="text-xs text-slate-500 font-bold">
                   11 Core Print & Publicity Solutions
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-2">
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">
                 All-In-One Printing & Outdoor Advertising Hub
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                 We operate heavy roll-to-roll plotters and in-house iron welding fabrication to deliver rapid turnaround across Kadapa at direct workshop wholesale rates. Click any service to view full specifications!
               </p>
             </div>
 
             {/* Industrial Machinery Badge */}
-            <div className="shrink-0 flex items-center gap-3 bg-slate-900/90 border border-slate-700/80 p-3.5 rounded-2xl shadow-inner">
+            <div className="shrink-0 flex items-center gap-3 bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-sky-500 to-rose-500 flex items-center justify-center text-white shadow-md">
                 <Printer className="w-6 h-6" />
               </div>
               <div className="text-left">
-                <span className="text-xs font-black text-white block">Heavy Industrial Machinery</span>
-                <span className="text-[11px] text-emerald-400 font-semibold block">Same-Day Express Production</span>
+                <span className="text-xs font-black text-slate-900 block">Heavy Industrial Machinery</span>
+                <span className="text-[11px] text-emerald-600 font-extrabold block">Same-Day Express Production</span>
               </div>
             </div>
           </div>
@@ -90,23 +90,23 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
                   const el = document.getElementById('catalog-cards');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="group p-3 rounded-2xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-600 transition-all text-left flex flex-col justify-between hover:scale-[1.02] active:scale-95 shadow-sm"
+                className="group p-3 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-sky-400 transition-all text-left flex flex-col justify-between hover:scale-[1.02] active:scale-95 shadow-sm hover:shadow-md"
               >
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-lg">{item.icon}</span>
-                    <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 group-hover:text-rose-400 transition-colors">
+                    <span className="text-xl">{item.icon}</span>
+                    <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 group-hover:bg-sky-100 group-hover:text-sky-700 transition-colors">
                       Explore
                     </span>
                   </div>
-                  <h4 className="text-xs font-black text-white group-hover:text-amber-300 transition-colors tracking-tight">
+                  <h4 className="text-xs font-black text-slate-900 group-hover:text-sky-700 transition-colors tracking-tight">
                     {item.name}
                   </h4>
-                  <span className="text-[10px] font-bold text-rose-400 block mb-1">
+                  <span className="text-[10px] font-bold text-rose-600 block mb-1">
                     {item.telugu}
                   </span>
                 </div>
-                <p className="text-[10px] text-slate-400 line-clamp-2 leading-tight">
+                <p className="text-[10px] text-slate-500 line-clamp-2 leading-tight font-medium">
                   {item.desc}
                 </p>
               </button>
@@ -114,16 +114,16 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
           </div>
 
           {/* Quick Notice */}
-          <div className="mt-6 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
+          <div className="mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-600">
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>Customer provides ready-to-print designs in <strong>CDR, PSD, PDF, TIFF, or high-res JPG</strong> format.</span>
             </div>
             <a
               href="https://wa.me/917287867584?text=Hi%20City%20Grafix%2C%20I%20want%20to%20order%20printing%20services.%20Please%20share%20details."
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-bold text-emerald-400 hover:underline flex items-center gap-1"
+              className="text-xs font-bold text-emerald-700 hover:underline flex items-center gap-1"
             >
               <span>Instant WhatsApp Inquiry</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -212,7 +212,7 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
                   {service.category === 'gifts' ? (
                     <>
                       <a
-                        href="#custom-gifts"
+                        href="#/custom-gifts"
                         className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-black text-white bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 transition-all shadow-md shadow-rose-600/25 active:scale-95"
                       >
                         <Sparkles className="w-3.5 h-3.5 text-amber-300" />
@@ -245,7 +245,7 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
                       </a>
 
                       <a
-                        href="#calculator"
+                        href="#/calculator"
                         onClick={() => onSelectServiceForCalculator && onSelectServiceForCalculator(service.id)}
                         className="p-2.5 rounded-xl text-sky-700 bg-sky-50 hover:bg-sky-100 border border-sky-200 transition-all font-bold"
                         title="Estimate in Calculator"

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, Menu, X, Star, ChevronDown, Gift } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, Star, ChevronDown, Gift, Calculator } from 'lucide-react';
 import { InstagramIcon, YouTubeIcon } from './Icons';
 import { CONTACT_NUMBERS } from '../data/contactNumbers';
 
-export default function Navbar({ onOpenContact }) {
+export default function Navbar({ onOpenContact, currentView = 'home' }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,13 +16,14 @@ export default function Navbar({ onOpenContact }) {
   }, []);
 
   const navLinks = [
-    { label: 'Services', href: '#services' },
-    { label: 'Custom Gifts', href: '#custom-gifts', icon: 'gift' },
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Why Us', href: '#why-us' },
-    { label: 'Google Reviews', href: '#reviews', icon: 'star' },
-    { label: 'Social & Videos', href: '#social', icon: 'social' },
-    { label: 'Contact & Map', href: '#contact' },
+    { id: 'services', label: 'Services', href: '#/services' },
+    { id: 'custom-gifts', label: 'Custom Gifts', href: '#/custom-gifts', icon: 'gift' },
+    { id: 'calculator', label: 'Estimator', href: '#/calculator', icon: 'calculator' },
+    { id: 'portfolio', label: 'Portfolio', href: '#/portfolio' },
+    { id: 'why-us', label: 'Why Us', href: '#/why-us' },
+    { id: 'reviews', label: 'Reviews', href: '#/reviews', icon: 'star' },
+    { id: 'social', label: 'Social Hub', href: '#/social', icon: 'social' },
+    { id: 'contact', label: 'Contact', href: '#/contact' },
   ];
 
   return (
@@ -40,7 +41,7 @@ export default function Navbar({ onOpenContact }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo & Brand */}
-            <a href="#" className="flex items-center gap-3 group">
+            <a href="#/" className="flex items-center gap-3 group">
               <img
                 src="/logo.png"
                 alt="City Grafix Kadapa"
@@ -48,7 +49,7 @@ export default function Navbar({ onOpenContact }) {
               />
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
+                  <span className="font-black text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
                     CITY GRAFIX
                   </span>
                   <span className="px-1.5 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-sky-100 text-sky-700 border border-sky-300 rounded">
@@ -62,25 +63,33 @@ export default function Navbar({ onOpenContact }) {
               </div>
             </a>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200/80">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all text-slate-600 hover:text-slate-900 hover:bg-white flex items-center gap-1.5"
-                >
-                  {link.icon === 'star' && <Star className="w-3 h-3 text-amber-500 fill-amber-400" />}
-                  {link.icon === 'gift' && <Gift className="w-3 h-3 text-rose-500" />}
-                  {link.icon === 'social' && (
-                    <div className="flex items-center -space-x-1">
-                      <InstagramIcon className="w-3 h-3 text-rose-500" />
-                      <YouTubeIcon className="w-3 h-3 text-red-600" />
-                    </div>
-                  )}
-                  <span>{link.label}</span>
-                </a>
-              ))}
+            {/* Desktop Navigation Links with Active Page Highlighting */}
+            <nav className="hidden xl:flex items-center gap-1 bg-slate-100/90 p-1.5 rounded-2xl border border-slate-200/90 shadow-inner">
+              {navLinks.map((link) => {
+                const isActive = currentView === link.id;
+                return (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                      isActive
+                        ? 'bg-white text-slate-900 shadow-sm border border-slate-200/80 scale-[1.02]'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
+                    }`}
+                  >
+                    {link.icon === 'star' && <Star className="w-3 h-3 text-amber-500 fill-amber-400" />}
+                    {link.icon === 'gift' && <Gift className="w-3 h-3 text-rose-500" />}
+                    {link.icon === 'calculator' && <Calculator className="w-3 h-3 text-sky-600" />}
+                    {link.icon === 'social' && (
+                      <div className="flex items-center -space-x-1">
+                        <InstagramIcon className="w-3 h-3 text-rose-500" />
+                        <YouTubeIcon className="w-3 h-3 text-red-600" />
+                      </div>
+                    )}
+                    <span>{link.label}</span>
+                  </a>
+                );
+              })}
             </nav>
 
             {/* Desktop Unified Single CTA: Call / WhatsApp Dropdown */}
@@ -137,28 +146,47 @@ export default function Navbar({ onOpenContact }) {
 
           {/* Mobile Hamburger Drawer */}
           {mobileMenuOpen && (
-            <div className="lg:hidden mt-3 pt-3 pb-5 px-3 bg-white border border-slate-200 rounded-2xl shadow-xl space-y-3 animate-fadeIn">
+            <div className="xl:hidden mt-3 pt-3 pb-5 px-3 bg-white border border-slate-200 rounded-2xl shadow-xl space-y-3 animate-fadeIn">
               <div className="flex flex-col space-y-1">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="px-3 py-2 rounded-xl text-xs font-bold transition-all text-slate-700 hover:text-slate-900 hover:bg-slate-50 flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-2">
-                      {link.icon === 'star' && <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />}
-                      {link.icon === 'gift' && <Gift className="w-3.5 h-3.5 text-rose-500" />}
-                      {link.icon === 'social' && (
-                        <div className="flex items-center gap-1">
-                          <InstagramIcon className="w-3.5 h-3.5 text-rose-500" />
-                          <YouTubeIcon className="w-3.5 h-3.5 text-red-600" />
-                        </div>
-                      )}
-                      <span>{link.label}</span>
-                    </div>
-                  </a>
-                ))}
+                <a
+                  href="#/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-3 py-2 rounded-xl text-xs font-black transition-all flex items-center justify-between ${
+                    currentView === 'home'
+                      ? 'bg-sky-50 text-sky-800 border border-sky-200'
+                      : 'text-slate-700 hover:bg-slate-50'
+                  }`}
+                >
+                  <span>Home</span>
+                </a>
+                {navLinks.map((link) => {
+                  const isActive = currentView === link.id;
+                  return (
+                    <a
+                      key={link.id}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-between ${
+                        isActive
+                          ? 'bg-sky-50 text-sky-800 border border-sky-200 font-black'
+                          : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        {link.icon === 'star' && <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />}
+                        {link.icon === 'gift' && <Gift className="w-3.5 h-3.5 text-rose-500" />}
+                        {link.icon === 'calculator' && <Calculator className="w-3.5 h-3.5 text-sky-600" />}
+                        {link.icon === 'social' && (
+                          <div className="flex items-center gap-1">
+                            <InstagramIcon className="w-3.5 h-3.5 text-rose-500" />
+                            <YouTubeIcon className="w-3.5 h-3.5 text-red-600" />
+                          </div>
+                        )}
+                        <span>{link.label}</span>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
 
               {/* Call & WhatsApp Official Numbers List inside Hamburger */}
@@ -188,7 +216,7 @@ export default function Navbar({ onOpenContact }) {
                           {contact.badge}
                         </span>
                       </div>
-                      <span className="text-[10px] text-slate-500 block leading-tight">
+                      <span className="text-[10px] text-slate-500 block leading-tight font-medium">
                         {contact.label}
                       </span>
                     </div>
