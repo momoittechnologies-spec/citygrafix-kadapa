@@ -26,7 +26,8 @@ export default function LightboxModal({
   const handleDownloadSingle = () => {
     const a = document.createElement('a');
     a.href = photo.url;
-    a.download = `${photo.title || 'photo'}.jpg`;
+    const isWebp = photo.url && (photo.url.includes('image/webp') || photo.url.endsWith('.webp'));
+    a.download = `${photo.title || 'photo'}.${isWebp ? 'webp' : 'jpg'}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

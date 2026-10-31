@@ -15,10 +15,17 @@ import MobileBottomDock from './components/MobileBottomDock';
 // Gallery Platform Components
 import ClientGallery from './gallery/components/ClientGallery';
 import AdminDashboard from './gallery/components/AdminDashboard';
-import { getEventBySlug } from './gallery/services/galleryStorage';
+import { getEventBySlug, subscribeToStorage } from './gallery/services/galleryStorage';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState({ view: 'home', slug: null });
+  const [, setStorageTick] = useState(0);
+
+  useEffect(() => {
+    return subscribeToStorage(() => {
+      setStorageTick((t) => t + 1);
+    });
+  }, []);
 
   // Hash-based router listener
   useEffect(() => {

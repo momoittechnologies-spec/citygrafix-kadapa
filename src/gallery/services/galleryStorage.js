@@ -1,10 +1,76 @@
 // Gallery Storage & State Service
-// Supports local browser persistence (for instant zero-setup demo)
-// + Cloudflare R2 / Supabase SQL schema integration
+// Powered by High-Capacity IndexedDB for large photo sets + LocalStorage fallback
+// Includes Cloudflare R2 / Supabase SQL schema integration reference
 
 import { DEFAULT_EVENTS } from '../data/defaultEvents';
+import {
+  saveEventsToIndexedDB,
+  loadEventsFromIndexedDB,
+  getStorageEstimate,
+} from './indexedDbStorage';
 
 const STORAGE_KEY = 'citygrafix_gallery_events_v1';
+
+// In-memory cache for ultra-fast, zero-latency synchronous access
+let memoryCache = null;
+const listeners = new Set();
+
+function notifyListeners() {
+  listeners.forEach((fn) => {
+    try {
+      fn(memoryCache);
+    } catch (e) {
+      console.warn('[GalleryStorage] Listener notification error:', e);
+    }
+  });
+}
+
+export function subscribeToStorage(callback) {
+  listeners.add(callback);
+  return () => listeners.delete(callback);
+}
+
+// Initial synchronous hydration from localStorage
+function initMemoryCache() {
+  if (memoryCache) return memoryCache;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      memoryCache = JSON.parse(raw);
+    } else {
+      memoryCache = DEFAULT_EVENTS;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_EVENTS));
+      } catch {
+        // Ignore quota on init
+      }
+    }
+  } catch (err) {
+    console.error('[GalleryStorage] Error loading from localStorage:', err);
+    memoryCache = DEFAULT_EVENTS;
+  }
+
+  // Asynchronously hydrate from IndexedDB to load full-capacity records
+  if (typeof window !== 'undefined') {
+    loadEventsFromIndexedDB()
+      .then((idbEvents) => {
+        if (idbEvents && idbEvents.length > 0) {
+          memoryCache = idbEvents;
+          notifyListeners();
+        } else if (memoryCache) {
+          // Seed IndexedDB with initial events
+          saveEventsToIndexedDB(memoryCache);
+        }
+      })
+      .catch((err) => {
+        console.warn('[GalleryStorage] IndexedDB hydration note:', err);
+      });
+  }
+
+  return memoryCache;
+}
+
+export { getStorageEstimate };
 
 export const SQL_SCHEMA_REFERENCE = `
 -- Run this in your Supabase SQL Editor when ready for multi-device cloud sync:
@@ -38,24 +104,41 @@ CREATE TABLE photos (
 `;
 
 export function getStoredEvents() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_EVENTS));
-      return DEFAULT_EVENTS;
-    }
-    return JSON.parse(raw);
-  } catch (err) {
-    console.error('[GalleryStorage] Error loading events:', err);
-    return DEFAULT_EVENTS;
-  }
+  return initMemoryCache();
 }
 
 export function saveEvents(events) {
+  memoryCache = events;
+  notifyListeners();
+
+  // 1. Primary High-Capacity Store: IndexedDB (Gigabytes quota)
+  saveEventsToIndexedDB(events).catch((err) => {
+    console.error('[GalleryStorage] Failed saving to IndexedDB:', err);
+  });
+
+  // 2. Secondary Fast Store: LocalStorage with QuotaExceeded protection
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-  } catch (err) {
-    console.error('[GalleryStorage] Error saving events:', err);
+  } catch (quotaErr) {
+    console.warn('[GalleryStorage] LocalStorage quota reached. High-res images safely stored in IndexedDB.');
+    // Save lightweight metadata-only version to localStorage if quota is tight
+    try {
+      const lightweight = events.map((e) => ({
+        ...e,
+        photos: (e.photos || []).map((p) => ({
+          id: p.id,
+          title: p.title,
+          category: p.category,
+          thumbUrl: p.thumbUrl, // keep small micro-thumb
+          url: p.thumbUrl, // fallback pointer
+          width: p.width,
+          height: p.height,
+        })),
+      }));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(lightweight));
+    } catch {
+      // If even lightweight exceeds, IndexedDB holds the authoritative data
+    }
   }
 }
 
@@ -90,8 +173,8 @@ export function createEvent(newEventData) {
     photos: newEventData.photos || [],
   };
 
-  events.unshift(event);
-  saveEvents(events);
+  const updatedEvents = [event, ...events];
+  saveEvents(updatedEvents);
   return event;
 }
 
@@ -105,7 +188,7 @@ export function extendEventExpiry(eventId, additionalDays = 180) {
   baseDate.setDate(baseDate.getDate() + additionalDays);
 
   events[index].expiresAt = baseDate.toISOString();
-  saveEvents(events);
+  saveEvents([...events]);
   return events[index];
 }
 
@@ -118,7 +201,7 @@ export function addPhotosToEvent(eventId, newPhotos) {
   if (!events[index].coverImage && newPhotos[0]?.url) {
     events[index].coverImage = newPhotos[0].url;
   }
-  saveEvents(events);
+  saveEvents([...events]);
   return events[index];
 }
 
@@ -128,7 +211,7 @@ export function deletePhotoFromEvent(eventId, photoId) {
   if (index === -1) return null;
 
   events[index].photos = events[index].photos.filter((p) => p.id !== photoId);
-  saveEvents(events);
+  saveEvents([...events]);
   return events[index];
 }
 

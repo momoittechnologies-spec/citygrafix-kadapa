@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Camera, Eye, Lock, Clock, Heart, Download, Share2, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
-import { getStoredEvents, checkExpiryStatus } from '../gallery/services/galleryStorage';
+import { getStoredEvents, checkExpiryStatus, subscribeToStorage } from '../gallery/services/galleryStorage';
 
 export default function PhotographyHubSection({ onOpenGallery, onOpenAdmin }) {
-  const events = getStoredEvents().slice(0, 3);
+  const [events, setEvents] = useState(getStoredEvents);
+
+  useEffect(() => {
+    return subscribeToStorage((updated) => {
+      if (updated) setEvents(updated);
+    });
+  }, []);
+
+  const displayEvents = events.slice(0, 3);
 
   return (
     <section id="gallery-hub" className="py-24 bg-gradient-to-b from-slate-900 to-slate-950 text-white relative overflow-hidden">
@@ -110,7 +118,7 @@ export default function PhotographyHubSection({ onOpenGallery, onOpenAdmin }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {events.map((evt) => {
+            {displayEvents.map((evt) => {
               const expiry = checkExpiryStatus(evt.expiresAt);
               return (
                 <div

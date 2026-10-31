@@ -53,7 +53,7 @@ export default function FavoritesTray({
         try {
           const resp = await fetch(photo.url);
           const blob = await resp.blob();
-          const ext = photo.url.includes('.webp') ? 'webp' : 'jpg';
+          const ext = photo.url.includes('.webp') || photo.url.includes('image/webp') ? 'webp' : 'jpg';
           folder.file(`${i + 1}-${(photo.title || 'photo').replace(/\s+/g, '_')}.${ext}`, blob);
         } catch (fetchErr) {
           console.warn('Could not fetch photo for ZIP:', photo.url, fetchErr);
