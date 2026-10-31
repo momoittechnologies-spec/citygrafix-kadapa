@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, MessageCircle, Clock, Send, CheckCircle2, Navigation } from 'lucide-react';
-import { InstagramIcon } from './Icons';
+import { InstagramIcon, YouTubeIcon } from './Icons';
 import { CONTACT_NUMBERS } from '../data/contactNumbers';
 
 export default function ContactSection() {
@@ -147,7 +147,7 @@ export default function ContactSection() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-4 text-xs text-slate-600 font-semibold">
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 font-semibold">
                     <div className="flex items-center gap-1.5">
                       <Clock className="w-4 h-4 text-sky-600" />
                       <span>10:00 AM – 10:00 PM</span>
@@ -160,6 +160,15 @@ export default function ContactSection() {
                     >
                       <InstagramIcon className="w-4 h-4 text-rose-500" />
                       <span>@citygrafix1</span>
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@Citygrafix1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-red-600 hover:underline font-bold"
+                    >
+                      <YouTubeIcon className="w-4 h-4 text-red-500" />
+                      <span>@Citygrafix1</span>
                     </a>
                   </div>
                 </div>

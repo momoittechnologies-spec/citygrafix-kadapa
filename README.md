@@ -45,8 +45,9 @@ A high-performance, mobile-first website and digital quotation portal built for 
 2. **Google Business Profile Review Integration**:
    - Direct CTA linking to the official ReviewSmart review collection portal: `https://www.reviewsmart.online/r/citygrafix`.
 
-3. **Dedicated Instagram Profile Showcase (`#instagram`)**:
-   - Highlights `@citygrafix1` with verified social proof and 1-tap link to explore the portfolio feed.
+3. **Dual Social Media Hub - Instagram & YouTube (`#social`)**:
+   - Showcases `@citygrafix1` on Instagram and `@Citygrafix1` on YouTube side-by-side with 1-tap links to stream workshop tours, LED glow tests, and live printing reels.
+   - Eliminates misleading mock/dummy posts, providing direct authentic links to active social video feeds.
 
 4. **Client Photography Proofing Hub (`#gallery-hub`) & Admin Portal**:
    - Dedicated photography gallery system for wedding & event photographers.

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, Menu, X, Star, ChevronDown } from 'lucide-react';
-import { InstagramIcon } from './Icons';
+import { InstagramIcon, YouTubeIcon } from './Icons';
 import { CONTACT_NUMBERS } from '../data/contactNumbers';
 
 export default function Navbar({ onOpenContact }) {
@@ -20,7 +20,7 @@ export default function Navbar({ onOpenContact }) {
     { label: 'Portfolio', href: '#portfolio' },
     { label: 'Why Us', href: '#why-us' },
     { label: 'Google Reviews', href: '#reviews', icon: 'star' },
-    { label: 'Instagram', href: '#instagram', icon: 'instagram' },
+    { label: 'Social & Videos', href: '#social', icon: 'social' },
     { label: 'Contact & Map', href: '#contact' },
   ];
 
@@ -70,7 +70,12 @@ export default function Navbar({ onOpenContact }) {
                   className="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all text-slate-600 hover:text-slate-900 hover:bg-white flex items-center gap-1.5"
                 >
                   {link.icon === 'star' && <Star className="w-3 h-3 text-amber-500 fill-amber-400" />}
-                  {link.icon === 'instagram' && <InstagramIcon className="w-3 h-3 text-rose-500" />}
+                  {link.icon === 'social' && (
+                    <div className="flex items-center -space-x-1">
+                      <InstagramIcon className="w-3 h-3 text-rose-500" />
+                      <YouTubeIcon className="w-3 h-3 text-red-600" />
+                    </div>
+                  )}
                   <span>{link.label}</span>
                 </a>
               ))}
@@ -141,7 +146,12 @@ export default function Navbar({ onOpenContact }) {
                   >
                     <div className="flex items-center gap-2">
                       {link.icon === 'star' && <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />}
-                      {link.icon === 'instagram' && <InstagramIcon className="w-3.5 h-3.5 text-rose-500" />}
+                      {link.icon === 'social' && (
+                        <div className="flex items-center gap-1">
+                          <InstagramIcon className="w-3.5 h-3.5 text-rose-500" />
+                          <YouTubeIcon className="w-3.5 h-3.5 text-red-600" />
+                        </div>
+                      )}
                       <span>{link.label}</span>
                     </div>
                   </a>

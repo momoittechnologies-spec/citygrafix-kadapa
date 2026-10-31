@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, MessageCircle, ArrowUp, Printer, Sparkles, ExternalLink, Star } from 'lucide-react';
-import { InstagramIcon } from './Icons';
+import { InstagramIcon, YouTubeIcon } from './Icons';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -45,6 +45,15 @@ export default function Footer() {
                 aria-label="Instagram"
               >
                 <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.youtube.com/@Citygrafix1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 hover:border-red-500 flex items-center justify-center text-red-500 hover:scale-105 transition-all"
+                aria-label="YouTube Channel"
+              >
+                <YouTubeIcon className="w-4 h-4" />
               </a>
               <a
                 href="https://wa.me/917601043674"
@@ -110,6 +119,17 @@ export default function Footer() {
                 >
                   <InstagramIcon className="w-3 h-3 text-rose-400" />
                   <span>@citygrafix1 Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/@Citygrafix1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-400 transition-colors flex items-center gap-1 font-semibold"
+                >
+                  <YouTubeIcon className="w-3 h-3 text-red-500" />
+                  <span>@Citygrafix1 YouTube</span>
                 </a>
               </li>
               <li><a href="#contact" className="hover:text-white transition-colors">Store Location & Map</a></li>
