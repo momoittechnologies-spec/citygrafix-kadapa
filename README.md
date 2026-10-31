@@ -35,10 +35,12 @@ A high-performance, mobile-first website and digital quotation portal built for 
 
 ## ⚙️ Interactive Features
 
-1. **Instant Print Price Estimator (`#calculator`)**:
-   - Real-time calculation engine with customizable dimensions (feet / inches / quantity / letter counts).
+1. **Instant Print Size & Order Estimator (`#calculator`)**:
+   - Interactive specification engine with customizable dimensions (feet / inches / quantity / letter counts).
    - Supports Jumbo Xerox (A0–A3), Star Flex, LED Glow Boards, Sunboards, Custom T-Shirts, Photo Cushions, Visiting Cards, and Mugs.
-   - 1-Tap **"Confirm & Send to WhatsApp"**: Formats selections into an instant WhatsApp quote sent directly to `+91 76010 43674`.
+   - Zero hardcoded public pricing—generates a clean specification for direct wholesale quote confirmation.
+   - 1-Tap **"Send Specs to WhatsApp for Best Quote"**: Directly opens WhatsApp with the formatted order specs.
+   - Built for customer-provided ready designs (CDR, PSD, PDF, TIFF, or high-res JPG).
 
 2. **Google Business Profile Review Integration**:
    - Direct CTA linking to the official ReviewSmart review collection portal: `https://www.reviewsmart.online/r/citygrafix`.

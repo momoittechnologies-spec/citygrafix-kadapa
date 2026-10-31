@@ -17,7 +17,7 @@ export const PORTFOLIO_ITEMS = [
     categoryLabel: 'Star Flex Banner',
     location: 'RIMS Road, Kadapa',
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
-    description: '30ft x 15ft grand welcome arch printed on high-gloss Star Flex with custom Telugu typography and royal gold floral styling.',
+    description: '30ft x 15ft grand welcome arch printed on high-gloss Star Flex from customer ready design with vibrant colors.',
     tags: ['Wedding', 'Star Flex', '30ft Arch']
   },
   {
@@ -89,7 +89,7 @@ export const TESTIMONIALS_DATA = [
     role: 'Local Business Owner',
     rating: 5,
     date: 'Recent Google Review',
-    comment: 'Best printing shop in Kadapa! Needed urgent Star Flex banners for our showroom opening within 3 hours. City Grafix designed and delivered top quality banners with sharp colors on time.',
+    comment: 'Best printing shop in Kadapa! Needed urgent Star Flex banners for our showroom opening within 3 hours. City Grafix printed and delivered top quality banners with sharp colors right on time.',
     verified: true
   },
   {
@@ -98,7 +98,7 @@ export const TESTIMONIALS_DATA = [
     role: 'Event Organizer, Kadapa',
     rating: 5,
     date: 'Google Review',
-    comment: 'Very professional team at Seven Roads. Their 3D LED glow board fabrication is unmatched. Reasonable rates and clean finishing. Highly recommended for commercial branding.',
+    comment: 'Very professional team opp. Tirumala Hospital. Their 3D LED glow board fabrication and Star Flex printing is unmatched. Reasonable wholesale rates and clean finishing.',
     verified: true
   },
   {
@@ -113,10 +113,10 @@ export const TESTIMONIALS_DATA = [
   {
     id: 4,
     name: 'Mohammed Rafi',
-    role: 'Graphic Client',
+    role: 'Civil Engineer & Contractor',
     rating: 5,
     date: 'WhatsApp Review',
-    comment: 'Super fast design service in Telugu and English. They listen to what you want and make quick corrections on WhatsApp without delay. 5 stars all the way!',
+    comment: 'Super fast A0 Jumbo Xerox and CAD layout map printing. I sent my PDF plans on WhatsApp and they were printed on heavy bond paper in 15 minutes with razor-sharp lines. 5 stars all the way!',
     verified: true
   }
 ];

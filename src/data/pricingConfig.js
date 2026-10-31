@@ -224,7 +224,7 @@ export const PRICING_CONFIG = {
 };
 
 /**
- * Generate a pre-formatted WhatsApp quote string
+ * Generate a pre-formatted WhatsApp quote string without hardcoded prices
  */
 export function formatWhatsAppQuote({
   productName,
@@ -232,21 +232,20 @@ export function formatWhatsAppQuote({
   quantity,
   sqFt,
   finishingNames,
-  estimatedPrice,
   customerNotes
 }) {
   const lines = [
-    `*📋 NEW PRINTING ESTIMATE REQUEST - CITY GRAFIX*`,
+    `*📋 NEW PRINTING INQUIRY - CITY GRAFIX KADAPA*`,
     `----------------------------------------`,
     `*Product:* ${productName}`,
-    dimensions ? `*Size/Option:* ${dimensions}` : null,
+    dimensions ? `*Size / Specs:* ${dimensions}` : null,
     sqFt ? `*Total Area:* ${sqFt} sq. ft.` : null,
     quantity ? `*Quantity:* ${quantity}` : null,
-    finishingNames && finishingNames.length > 0 ? `*Finishing/Addons:* ${finishingNames.join(', ')}` : null,
-    `*Approx. Estimate:* ₹${estimatedPrice}`,
+    finishingNames && finishingNames.length > 0 ? `*Finishing / Addons:* ${finishingNames.join(', ')}` : null,
+    `*Design File:* Customer has ready-to-print design (CDR / PSD / PDF / JPG)`,
     customerNotes ? `*Customer Note:* ${customerNotes}` : null,
     `----------------------------------------`,
-    `Hello City Grafix, I generated this estimate on your website and would like to confirm my order/discuss design! 🎨`
+    `Hello City Grafix, please share your best wholesale rate and turnaround time for this specification! 🖨️`
   ].filter(Boolean);
 
   return encodeURIComponent(lines.join('\n'));

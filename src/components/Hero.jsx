@@ -52,9 +52,9 @@ export default function Hero({ onOpenCalculator }) {
           <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-4 text-[11px] sm:text-xs font-bold text-slate-700 bg-slate-100/90 px-4 py-2 rounded-2xl border border-slate-200 shadow-sm">
             <span>Quality Printing</span>
             <span className="text-slate-400">•</span>
-            <span>Creative Designing</span>
+            <span>Customer Ready Files</span>
             <span className="text-slate-400">•</span>
-            <span>Affordable Prices</span>
+            <span>Affordable Wholesale Rates</span>
             <span className="text-slate-400">•</span>
             <span>On-Time Delivery</span>
           </div>
@@ -64,7 +64,7 @@ export default function Hero({ onOpenCalculator }) {
             కడపలో మీ నమ్మకమైన ప్రింటింగ్ & జంబో జిరాక్స్ పార్ట్నర్
           </p>
           <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto mb-9 leading-relaxed font-medium">
-            Your one-stop destination for <span className="text-sky-700 font-bold bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200">A0–A4 Jumbo Xerox</span>, high-speed <span className="text-indigo-700 font-bold bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200">CAD Blueprint Plans</span>, <span className="text-rose-700 font-bold bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200">Star Flex Banners</span>, glowing <span className="text-amber-700 font-bold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">3D Acrylic LED Letters</span>, Sunboards, Custom T-Shirts, and Photo Gifts.
+            Bring your ready-to-print design files for rapid, high-definition printing: <span className="text-sky-700 font-bold bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200">A0–A4 Jumbo Xerox</span>, high-speed <span className="text-indigo-700 font-bold bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200">CAD Blueprint Plans</span>, <span className="text-rose-700 font-bold bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200">Star Flex Banners</span>, glowing <span className="text-amber-700 font-bold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">3D Acrylic LED Letters</span>, Sunboards, Custom T-Shirts, and Photo Gifts.
           </p>
 
           {/* Action Buttons */}
@@ -75,12 +75,12 @@ export default function Hero({ onOpenCalculator }) {
               className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-2xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 shadow-xl shadow-sky-600/30 transition-all hover:scale-105 active:scale-95"
             >
               <Calculator className="w-4 h-4 text-white" />
-              <span>Instant Price Calculator</span>
+              <span>Instant Size & Order Estimator</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </a>
 
             <a
-              href="https://wa.me/917601043674?text=Hi%20City%20Grafix%2C%20I%20want%20to%20inquire%20about%20printing%20or%20Jumbo%20Xerox%20services."
+              href="https://wa.me/917287867584?text=Hi%20City%20Grafix%2C%20I%20have%20a%20ready%20design%20and%20want%20to%20inquire%20about%20printing%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 rounded-2xl font-bold text-xs sm:text-sm text-slate-800 bg-white hover:bg-slate-50 border-2 border-emerald-500 shadow-md transition-all hover:scale-105 active:scale-95"

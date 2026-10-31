@@ -86,7 +86,7 @@ export default function Footer() {
               Quick Features
             </h4>
             <ul className="space-y-2.5 text-xs">
-              <li><a href="#calculator" className="text-sky-400 hover:underline font-semibold">Instant Price Calculator</a></li>
+              <li><a href="#calculator" className="text-sky-400 hover:underline font-semibold">Instant Size & Order Estimator</a></li>
               <li><a href="#portfolio" className="hover:text-white transition-colors">Kadapa Project Showcase</a></li>
               <li><a href="#why-us" className="hover:text-white transition-colors">Quality & Machine Specs</a></li>
               <li>

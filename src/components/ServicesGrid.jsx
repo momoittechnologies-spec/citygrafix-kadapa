@@ -25,7 +25,7 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
             </span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            From monumental outdoor hoardings to delicate customized photo gifts. High precision, brilliant Japanese colors, and fast delivery in Kadapa.
+            From monumental outdoor hoardings to delicate customized photo gifts. High precision, brilliant fade-resistant colors, and fast delivery in Kadapa from your ready-to-print designs.
           </p>
         </div>
 

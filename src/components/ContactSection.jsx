@@ -265,9 +265,9 @@ export default function ContactSection() {
                       <option value="One-Way Vision Glass Film">One-Way Vision Glass Film</option>
                       <option value="Art Board & Display Signage">Display Signage & Art Boards</option>
                     </optgroup>
-                    <optgroup label="Commercial & Design">
+                    <optgroup label="Commercial & Ready Files">
                       <option value="Visiting Cards (1000 pcs)">Visiting Cards (1000 pcs Offset)</option>
-                      <option value="Urgent Graphic Designing">Urgent Graphic Design Work</option>
+                      <option value="Print Ready Customer Design File">Printing from My Ready Design File (CDR/PSD/PDF/JPG)</option>
                     </optgroup>
                   </select>
                 </div>

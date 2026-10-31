@@ -118,7 +118,7 @@ export const SERVICES_LIST = [
     features: [
       'Heavy GSM thick tear-resistant fabric',
       'High-gloss coating for richer contrast',
-      'UV-protected Japanese eco-solvent inks',
+      'UV-protected all-weather eco-solvent inks',
       'Available in any dimension (up to 100+ feet)'
     ],
     turnaround: 'Same Day Dispatch (2 - 4 Hours)',

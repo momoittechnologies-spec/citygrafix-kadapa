@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Zap, Palette, Award, MapPin, Wrench } from 'lucide-react';
+import { ShieldCheck, Zap, FileCheck, Award, MapPin, Wrench } from 'lucide-react';
 
 export default function WhyUs() {
   const advantages = [
@@ -7,7 +7,7 @@ export default function WhyUs() {
       icon: Zap,
       title: 'Same-Day Express Dispatch',
       telugu: 'అర్జెంట్ ప్రింటింగ్ సర్వీస్',
-      description: 'Have an urgent event or grand opening? We design, print, and finish Star Flex banners within 2 to 4 hours with no compromise on quality.',
+      description: 'Have an urgent event or grand opening? Provide your ready-to-print design (CDR, PSD, PDF, or high-res JPG), and we will print, eyelet, and finish your Star Flex banners within 2 to 4 hours with uncompromised quality.',
       bgColor: 'bg-amber-50',
       borderColor: 'border-amber-200',
       iconColor: 'text-amber-600',
@@ -15,19 +15,19 @@ export default function WhyUs() {
     },
     {
       icon: ShieldCheck,
-      title: 'Japanese UV & Eco-Solvent Inks',
-      telugu: 'సూర్యరశ్మికి రంగు చెరగని నాణ్యత',
-      description: 'Specially formulated inks that do not fade or crack under Kadapa’s harsh summer sun and rain, maintaining vivid brand colors year-round.',
+      title: 'Fade-Resistant UV & Weatherproof Inks',
+      telugu: 'సూర్యరశ్మికి రంగు చెరగని క్వాలిటీ ప్రింటింగ్',
+      description: 'Specially formulated fade-resistant outdoor inks that do not crack or wash out under Kadapa’s intense summer heat, dust, and rain, maintaining vivid brand colors year-round.',
       bgColor: 'bg-sky-50',
       borderColor: 'border-sky-200',
       iconColor: 'text-sky-600',
       badgeColor: 'bg-sky-100 text-sky-800'
     },
     {
-      icon: Palette,
-      title: 'Expert Telugu & English Designers',
-      telugu: 'తెలుగు & ఇంగ్లీష్ గ్రాఫిక్ డిజైనింగ్',
-      description: 'Our experienced in-house graphic designers create eye-catching festival banners, political flexes, and corporate logos tailored to your vision.',
+      icon: FileCheck,
+      title: 'Customer Ready-Design Printing Support',
+      telugu: 'కస్టమర్ రెడీ డిజైన్ ప్రింటింగ్ & సపోర్ట్',
+      description: 'Customers provide their own ready-made designs. We accept all standard formats—CorelDRAW (.cdr), Photoshop (.psd), PDF, TIFF, or high-res JPG—with pre-flight sizing and resolution checks for razor-sharp printing.',
       bgColor: 'bg-rose-50',
       borderColor: 'border-rose-200',
       iconColor: 'text-rose-600',
@@ -37,7 +37,7 @@ export default function WhyUs() {
       icon: Award,
       title: 'Wholesale Direct Workshop Rates',
       telugu: 'రీజనబుల్ హోల్‌సేల్ ధరలు',
-      description: 'Zero third-party commissions. We operate our own large-format machines and sign board fabrication unit to offer the most competitive rates.',
+      description: 'Zero third-party commissions. We operate our own large-format printing machines and sign board fabrication unit to offer the most competitive wholesale rates.',
       bgColor: 'bg-emerald-50',
       borderColor: 'border-emerald-200',
       iconColor: 'text-emerald-600',
@@ -79,8 +79,8 @@ export default function WhyUs() {
               City Grafix
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Backed by a 5.0★ Google customer rating, we merge creative graphic artistry with commercial grade printing machinery.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Backed by a 5.0★ Google customer rating, we operate modern commercial printing machinery, wide-format Jumbo Xerox plotters, and specialized sign fabrication.
           </p>
         </div>
 
@@ -100,10 +100,11 @@ export default function WhyUs() {
                   <h3 className="text-lg font-extrabold text-slate-900 mb-1">
                     {adv.title}
                   </h3>
-                  <span className={`text-xs font-bold px-2 py-0.5 rounded inline-block mb-3 ${adv.badgeColor}`}>
+                  <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold mb-3 ${adv.badgeColor}`}>
                     {adv.telugu}
                   </span>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+
+                  <p className="text-sm text-slate-700 leading-relaxed font-medium">
                     {adv.description}
                   </p>
                 </div>

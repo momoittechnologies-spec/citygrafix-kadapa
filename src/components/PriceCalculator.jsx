@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Calculator, MessageCircle, Info, Sparkles, Check, Send, Layers } from 'lucide-react';
+import { Sliders, MessageCircle, Info, Sparkles, Check, Send, Layers, FileCheck, CheckCircle2 } from 'lucide-react';
 import { PRICING_CONFIG, formatWhatsAppQuote } from '../data/pricingConfig';
 
 export default function PriceCalculator() {
@@ -34,9 +34,8 @@ export default function PriceCalculator() {
     { label: '20 × 10 ft (Grand Stage)', w: 20, h: 10 },
   ];
 
-  // Calculation Logic
-  const calculation = useMemo(() => {
-    let baseTotal = 0;
+  // Specification Summary Logic
+  const specification = useMemo(() => {
     let areaSqFt = 0;
     let dimensionStr = '';
 
@@ -46,68 +45,36 @@ export default function PriceCalculator() {
       const qty = Math.max(1, Number(quantity) || 1);
       areaSqFt = w * h * qty;
       dimensionStr = `${w}ft × ${h}ft (Qty: ${qty})`;
-      baseTotal = areaSqFt * product.baseRatePerSqFt;
-      if (baseTotal < product.minCharge * qty) {
-        baseTotal = product.minCharge * qty;
-      }
     } else if (product.unitType === 'letters') {
       const letters = Math.max(1, Number(letterCount) || 1);
       const heightInches = Math.max(2, Number(letterHeightInches) || 2);
       dimensionStr = `${letters} Letters @ ${heightInches} inch height`;
-      baseTotal = letters * heightInches * product.baseRatePerInchLetter;
-      if (baseTotal < product.minCharge) {
-        baseTotal = product.minCharge;
-      }
     } else if (product.unitType === 'quantity') {
       const qty = Math.max(1, Number(quantity) || 1);
       dimensionStr = `${qty} piece${qty > 1 ? 's' : ''}`;
-      let rate = product.ratePerPiece;
-      if (product.bulkDiscounts) {
-        for (const discount of product.bulkDiscounts) {
-          if (qty >= discount.minQty) {
-            rate = discount.rate;
-          }
-        }
-      }
-      baseTotal = qty * rate;
     } else if (product.unitType === 'fixed') {
       const opt = product.fixedOptions[selectedFixedIndex] || product.fixedOptions[0];
       const qty = Math.max(1, Number(quantity) || 1);
       dimensionStr = `${opt.label} (Qty: ${qty})`;
-      baseTotal = opt.price * qty;
     }
 
-    // Calculate Finishings
-    let finishingTotal = 0;
+    // Applied Finishings
     const finishingAppliedNames = [];
-
     if (product.finishingAllowed) {
       product.finishingAllowed.forEach(finishKey => {
         if (selectedFinishings[finishKey]) {
           const config = PRICING_CONFIG.finishingOptions[finishKey];
           if (config) {
-            finishingAppliedNames.push(config.name);
-            if (config.price) {
-              finishingTotal += config.price * (Number(quantity) || 1);
-            } else if (config.pricePerSqFt && areaSqFt > 0) {
-              finishingTotal += config.pricePerSqFt * areaSqFt;
-            } else if (config.pricePerPiece && product.unitType === 'quantity') {
-              finishingTotal += config.pricePerPiece * (Number(quantity) || 1);
-            }
+            finishingAppliedNames.push(config.name.split(' (')[0]);
           }
         }
       });
     }
 
-    const grandTotal = Math.round(baseTotal + finishingTotal);
-
     return {
       areaSqFt: Math.round(areaSqFt * 10) / 10,
       dimensionStr,
-      baseTotal: Math.round(baseTotal),
-      finishingTotal: Math.round(finishingTotal),
       finishingAppliedNames,
-      grandTotal
     };
   }, [product, width, height, quantity, letterCount, letterHeightInches, selectedFixedIndex, selectedFinishings]);
 
@@ -123,15 +90,14 @@ export default function PriceCalculator() {
   const handleSendWhatsApp = () => {
     const encoded = formatWhatsAppQuote({
       productName: product.name,
-      dimensions: calculation.dimensionStr,
+      dimensions: specification.dimensionStr,
       quantity: product.unitType !== 'fixed' && product.unitType !== 'quantity' ? quantity : null,
-      sqFt: calculation.areaSqFt > 0 ? calculation.areaSqFt : null,
-      finishingNames: calculation.finishingAppliedNames,
-      estimatedPrice: calculation.grandTotal,
+      sqFt: specification.areaSqFt > 0 ? specification.areaSqFt : null,
+      finishingNames: specification.finishingAppliedNames,
       customerNotes: customerNote.trim() || null
     });
 
-    const url = `https://wa.me/917601043674?text=${encoded}`;
+    const url = `https://wa.me/917287867584?text=${encoded}`;
     window.open(url, '_blank');
   };
 
@@ -140,19 +106,27 @@ export default function PriceCalculator() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 border border-sky-300 text-sky-800 text-xs font-bold mb-3 shadow-sm">
-            <Calculator className="w-3.5 h-3.5 text-sky-600" />
-            <span>Interactive Estimator</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100 border border-sky-300 text-sky-800 text-xs font-bold mb-3 shadow-sm">
+            <Sliders className="w-3.5 h-3.5 text-sky-600" />
+            <span>Interactive Size & Spec Configurator</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
             Instant Flex & Printing{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500">
-              Price Calculator
+              Order & Size Estimator
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Get an exact real-time quote for your flex banner, glow board, visiting cards or customized gifts. Send it directly to WhatsApp for instant confirmation.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Configure your exact dimensions, material grade, and finishing preferences. Instantly generate a formatted specification to receive our best direct wholesale quotation on WhatsApp.
           </p>
+
+          {/* Customer Ready-Design Notice Banner */}
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium">
+            <FileCheck className="w-4 h-4 text-amber-600 shrink-0" />
+            <span>
+              <strong>Note:</strong> We print customer-provided ready designs (CDR, PSD, PDF, TIFF, or high-res JPG).
+            </span>
+          </div>
         </div>
 
         {/* Calculator Grid */}
@@ -207,7 +181,7 @@ export default function PriceCalculator() {
                 <div className="space-y-4">
                   {/* Presets */}
                   <div>
-                    <span className="text-xs text-slate-500 font-semibold mb-2 block">Quick Size Presets:</span>
+                    <span className="text-xs text-slate-500 font-semibold mb-2 block">Quick Standard Sizes:</span>
                     <div className="flex flex-wrap gap-2">
                       {presets.map((p, idx) => (
                         <button
@@ -286,7 +260,7 @@ export default function PriceCalculator() {
                   <div className="flex items-center gap-2 p-3 bg-sky-50 border border-sky-200 rounded-xl text-xs text-sky-900 font-medium">
                     <Info className="w-4 h-4 text-sky-600 shrink-0" />
                     <span>
-                      Total Area: <strong className="text-sky-700 font-bold">{calculation.areaSqFt} sq. ft.</strong> (Rate: ₹{product.baseRatePerSqFt} per sq.ft)
+                      Total Calculated Area: <strong className="text-sky-700 font-bold">{specification.areaSqFt} sq. ft.</strong> across {quantity} banner{quantity > 1 ? 's' : ''}.
                     </span>
                   </div>
                 </div>
@@ -327,10 +301,10 @@ export default function PriceCalculator() {
                 </div>
               )}
 
-              {/* FIXED OPTIONS (Visiting Cards, Frames) */}
+              {/* FIXED OPTIONS (Jumbo Xerox, Visiting Cards, Frames) */}
               {product.unitType === 'fixed' && (
                 <div className="space-y-3">
-                  <span className="text-xs text-slate-500 font-semibold block">Choose Size or Paper Grade:</span>
+                  <span className="text-xs text-slate-500 font-semibold block">Choose Size or Print Specification:</span>
                   <div className="grid grid-cols-1 gap-2">
                     {product.fixedOptions.map((opt, idx) => (
                       <button
@@ -343,7 +317,9 @@ export default function PriceCalculator() {
                         }`}
                       >
                         <span className="text-sm">{opt.label}</span>
-                        <span className="text-sm font-extrabold text-sky-700">₹{opt.price}</span>
+                        <span className="text-xs font-bold text-sky-700 uppercase tracking-wider bg-sky-100 px-2 py-0.5 rounded">
+                          Selected
+                        </span>
                       </button>
                     ))}
                   </div>
@@ -355,7 +331,7 @@ export default function PriceCalculator() {
                     <input
                       type="number"
                       min="1"
-                      max="100"
+                      max="1000"
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
                       className="w-32 bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2 text-slate-900 font-bold text-base focus:outline-none"
@@ -364,12 +340,12 @@ export default function PriceCalculator() {
                 </div>
               )}
 
-              {/* QUANTITY BASED (Mugs) */}
+              {/* QUANTITY BASED (Mugs, T-Shirts) */}
               {product.unitType === 'quantity' && (
                 <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                      Quantity of Mugs
+                      Order Quantity (Units)
                     </label>
                     <input
                       type="number"
@@ -384,7 +360,7 @@ export default function PriceCalculator() {
                   <div className="flex items-center gap-2 p-3 bg-amber-50 border border-amber-300 rounded-xl text-xs text-amber-800 font-medium">
                     <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>
-                      Bulk Discount: 5+ Mugs @ ₹160/pc | 20+ Mugs @ ₹140/pc (Includes Gift Box)
+                      Bulk wholesale discounts available for event orders & corporate gifting.
                     </span>
                   </div>
                 </div>
@@ -421,8 +397,8 @@ export default function PriceCalculator() {
                         <div className="flex-1">
                           <div className="flex items-center justify-between">
                             <span className="text-sm font-bold">{finish.name}</span>
-                            <span className="text-xs text-sky-700 font-extrabold">
-                              {finish.price ? `+₹${finish.price}` : `+₹${finish.pricePerSqFt || finish.pricePerPiece} / unit`}
+                            <span className="text-[10px] text-sky-800 font-bold uppercase tracking-wider bg-sky-100 px-2 py-0.5 rounded">
+                              Optional Addon
                             </span>
                           </div>
                           <p className="text-xs text-slate-500 mt-0.5">{finish.description}</p>
@@ -434,14 +410,14 @@ export default function PriceCalculator() {
               </div>
             )}
 
-            {/* Optional Customer Note */}
+            {/* Step 4: Custom Notes */}
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
               <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-2">
-                4. Custom Notes (Optional)
+                4. Custom Notes & Ready Design Format (Optional)
               </label>
               <input
                 type="text"
-                placeholder="e.g., Urgent requirement today, Telugu text with logo..."
+                placeholder="e.g., CDR file ready, urgent delivery needed today, with eyelets..."
                 value={customerNote}
                 onChange={(e) => setCustomerNote(e.target.value)}
                 className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none"
@@ -449,94 +425,88 @@ export default function PriceCalculator() {
             </div>
           </div>
 
-          {/* Right Column: Instant Live Quotation Box */}
+          {/* Right Column: Order Specification Summary & WhatsApp Action */}
           <div className="lg:col-span-5 sticky top-28">
             <div className="p-6 sm:p-7 rounded-3xl bg-white border-2 border-sky-300 shadow-xl shadow-sky-600/10 relative overflow-hidden">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
                 <div>
                   <span className="text-xs font-black uppercase tracking-wider text-sky-600">
-                    Live Quotation
+                    Live Specification
                   </span>
-                  <h3 className="text-xl font-extrabold text-slate-900">Estimated Summary</h3>
+                  <h3 className="text-xl font-extrabold text-slate-900">Order Summary</h3>
                 </div>
                 <span className="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  Best Kadapa Price
+                  Direct Workshop Quote
                 </span>
               </div>
 
-              {/* Itemized Breakdown */}
+              {/* Itemized Specification Breakdown */}
               <div className="space-y-3 text-sm mb-6">
                 <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                  <span className="text-slate-500 font-medium">Product:</span>
+                  <span className="text-slate-500 font-medium">Selected Item:</span>
                   <span className="font-bold text-slate-900 text-right max-w-[200px] truncate">
                     {product.name}
                   </span>
                 </div>
 
                 <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                  <span className="text-slate-500 font-medium">Size / Specs:</span>
+                  <span className="text-slate-500 font-medium">Size / Dimensions:</span>
                   <span className="font-bold text-slate-900">
-                    {calculation.dimensionStr}
+                    {specification.dimensionStr}
                   </span>
                 </div>
 
-                {calculation.areaSqFt > 0 && (
+                {specification.areaSqFt > 0 && (
                   <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
                     <span className="text-slate-500 font-medium">Total Area:</span>
                     <span className="font-extrabold text-sky-600">
-                      {calculation.areaSqFt} sq. ft.
+                      {specification.areaSqFt} sq. ft.
+                    </span>
+                  </div>
+                )}
+
+                {specification.finishingAppliedNames.length > 0 && (
+                  <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
+                    <span className="text-slate-500 font-medium">Finishing:</span>
+                    <span className="font-bold text-amber-700 text-right max-w-[180px]">
+                      {specification.finishingAppliedNames.join(', ')}
                     </span>
                   </div>
                 )}
 
                 <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                  <span className="text-slate-500 font-medium">Base Print Cost:</span>
-                  <span className="font-bold text-slate-900">
-                    ₹{calculation.baseTotal}
+                  <span className="text-slate-500 font-medium">Design File:</span>
+                  <span className="font-bold text-emerald-700">
+                    Customer Ready Design
                   </span>
                 </div>
-
-                {calculation.finishingTotal > 0 && (
-                  <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                    <span className="text-slate-500 font-medium">Finishing / Addons:</span>
-                    <span className="font-bold text-amber-700">
-                      +₹{calculation.finishingTotal}
-                    </span>
-                  </div>
-                )}
               </div>
 
-              {/* Total Display */}
-              <div className="p-5 rounded-2xl bg-gradient-to-br from-sky-50 via-white to-amber-50 border-2 border-sky-200 mb-6 text-center shadow-inner">
-                <span className="text-xs uppercase font-extrabold text-slate-500 tracking-wider">
-                  Total Estimated Price
-                </span>
-                <div className="flex items-center justify-center gap-1 mt-1">
-                  <span className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-rose-600 to-amber-600">
-                    ₹{calculation.grandTotal}
-                  </span>
-                  <span className="text-xs text-slate-400 font-bold">*(Approx)</span>
+              {/* High-Impact WhatsApp Quote Box (Replaces price total) */}
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white mb-6 text-center shadow-lg border border-slate-700">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-2">
+                  <MessageCircle className="w-5 h-5" />
                 </div>
-                <p className="text-[11px] text-slate-500 mt-1">
-                  *Final price may vary based on custom graphic design adjustments.
+                <h4 className="text-sm font-extrabold text-white">
+                  Get Direct Best Wholesale Price
+                </h4>
+                <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">
+                  Send this exact specification to City Grafix on WhatsApp to receive the direct workshop rate with zero middlemen.
                 </p>
               </div>
 
               {/* WhatsApp Action Button */}
               <button
                 onClick={handleSendWhatsApp}
-                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-base text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-xl shadow-emerald-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-sm sm:text-base text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-xl shadow-emerald-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 <MessageCircle className="w-5 h-5" />
-                <span>Confirm & Send to WhatsApp</span>
+                <span>Send Specs to WhatsApp for Best Quote</span>
               </button>
 
-              <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-600">
-                <span>Direct shop WhatsApp:</span>
-                <a href="tel:+917601043674" className="text-sky-700 hover:underline font-bold">
-                  +91 76010 43674
-                </a>
-              </div>
+              <p className="text-[10px] text-slate-500 text-center mt-3 leading-tight">
+                *City Grafix provides commercial printing and fabrication from customer-supplied ready design files (CDR, PSD, PDF, JPG).
+              </p>
             </div>
           </div>
         </div>
