@@ -13,6 +13,26 @@ export const PRICING_CONFIG = {
       finishingAllowed: ['eyelets', 'frame', 'woodBeeding']
     },
     {
+      id: 'jumbo-xerox',
+      name: 'Jumbo Xerox & CAD Plan (జంబో జిరాక్స్ A0-A3)',
+      category: 'xerox',
+      unitType: 'fixed',
+      popular: true,
+      fixedOptions: [
+        { label: 'A0 Colour Plan / Map (841 × 1189 mm)', price: 220 },
+        { label: 'A0 Black & White Xerox / Drawing', price: 90 },
+        { label: 'A1 Colour Engineering Drawing (594 × 841 mm)', price: 140 },
+        { label: 'A1 Black & White Architectural Plan', price: 60 },
+        { label: 'A2 Colour Layout Plan (420 × 594 mm)', price: 90 },
+        { label: 'A2 Black & White Plan', price: 40 },
+        { label: 'A3 High-Speed Colour Xerox', price: 25 },
+        { label: 'A0 Tracing Paper / Drafting Cloth Print', price: 320 },
+        { label: 'Large Document Scanning to PDF (A0/A1)', price: 80 }
+      ],
+      description: 'A0-A4 colour & B/W jumbo photocopy, municipal layout maps, engineering blueprints & large document scanning.',
+      finishingAllowed: []
+    },
+    {
       id: 'normal-flex',
       name: 'Normal Flex Banner (నార్మల్ ఫ్లెక్స్)',
       category: 'flex',
@@ -35,13 +55,24 @@ export const PRICING_CONFIG = {
       finishingAllowed: ['frame']
     },
     {
+      id: 'sunboard-foam-board',
+      name: 'Sunboard & PVC Foam Board (సన్‌బోర్డ్ ప్రింటింగ్)',
+      category: 'board',
+      unitType: 'area',
+      baseRatePerSqFt: 65,
+      popular: true,
+      description: '3mm / 5mm rigid sunboard with waterproof high-resolution vinyl mount for showroom displays and wall branding.',
+      minCharge: 150,
+      finishingAllowed: ['lamination']
+    },
+    {
       id: 'vinyl-sticker',
-      name: 'Vinyl Sticker & Frosted Sheet (వినైల్ స్టిక్కర్)',
+      name: 'Vinyl Sticker & Product Labels (వినైల్ స్టిక్కర్)',
       category: 'sticker',
       unitType: 'area',
       baseRatePerSqFt: 38,
       popular: true,
-      description: 'Self-adhesive waterproof vinyl for shop boards, glass doors, walls & vehicle branding.',
+      description: 'Self-adhesive waterproof vinyl for shop boards, product labels, walls & vehicle branding.',
       minCharge: 120,
       finishingAllowed: ['lamination', 'foamBoardMount']
     },
@@ -79,16 +110,34 @@ export const PRICING_CONFIG = {
       finishingAllowed: []
     },
     {
-      id: 'visiting-cards',
-      name: 'Visiting Cards (విజిటింగ్ కార్డ్స్ - 1000 pcs)',
-      category: 'offset',
-      unitType: 'fixed',
-      fixedOptions: [
-        { label: 'Normal Matte (1000 Cards)', price: 750 },
-        { label: '350 GSM Gloss Lamination (1000 Cards)', price: 950 },
-        { label: 'Velvet Soft Touch + Spot UV (1000 Cards)', price: 1650 }
+      id: 'custom-tshirt',
+      name: 'Customized Photo T-Shirt (కస్టమ్ టీ-షర్ట్స్)',
+      category: 'gift',
+      unitType: 'quantity',
+      ratePerPiece: 299,
+      minQuantity: 1,
+      popular: true,
+      bulkDiscounts: [
+        { minQty: 5, rate: 260 },
+        { minQty: 25, rate: 220 },
+        { minQty: 50, rate: 190 }
       ],
-      description: 'High-quality 4-color offset printing on imported card stock with sharp finish.',
+      description: 'High-definition DTF / Sublimation photo printing on premium breathable polyester / cotton t-shirts.',
+      finishingAllowed: []
+    },
+    {
+      id: 'photo-cushion-pillow',
+      name: 'Photo Pillow & Cushion (కస్టమ్ కుషన్ పిల్లో)',
+      category: 'gift',
+      unitType: 'fixed',
+      popular: false,
+      fixedOptions: [
+        { label: 'Square Photo Cushion (12 × 12 inches)', price: 350 },
+        { label: 'Square Photo Cushion (16 × 16 inches)', price: 499 },
+        { label: 'Romantic Heart-Shaped Photo Cushion', price: 550 },
+        { label: 'Magic Reversible Sequins Photo Cushion', price: 599 }
+      ],
+      description: 'Plush micro-fiber photo pillows with vibrant, washable color fidelity. Ideal for birthdays & anniversaries.',
       finishingAllowed: []
     },
     {
@@ -98,6 +147,7 @@ export const PRICING_CONFIG = {
       unitType: 'quantity',
       ratePerPiece: 180,
       minQuantity: 1,
+      popular: true,
       bulkDiscounts: [
         { minQty: 5, rate: 160 },
         { minQty: 20, rate: 140 }
@@ -117,6 +167,19 @@ export const PRICING_CONFIG = {
         { label: '20 x 30 inches (Luxury Big Frame)', price: 1750 }
       ],
       description: 'Synthetic wood frame + Sparkle/Matte lamination + unbreakable acrylic/glass.',
+      finishingAllowed: []
+    },
+    {
+      id: 'visiting-cards',
+      name: 'Visiting Cards (విజిటింగ్ కార్డ్స్ - 1000 pcs)',
+      category: 'offset',
+      unitType: 'fixed',
+      fixedOptions: [
+        { label: 'Normal Matte (1000 Cards)', price: 750 },
+        { label: '350 GSM Gloss Lamination (1000 Cards)', price: 950 },
+        { label: 'Velvet Soft Touch + Spot UV (1000 Cards)', price: 1650 }
+      ],
+      description: 'High-quality 4-color offset printing on imported card stock with sharp finish.',
       finishingAllowed: []
     }
   ],
@@ -176,7 +239,7 @@ export function formatWhatsAppQuote({
     `*📋 NEW PRINTING ESTIMATE REQUEST - CITY GRAFIX*`,
     `----------------------------------------`,
     `*Product:* ${productName}`,
-    dimensions ? `*Size:* ${dimensions}` : null,
+    dimensions ? `*Size/Option:* ${dimensions}` : null,
     sqFt ? `*Total Area:* ${sqFt} sq. ft.` : null,
     quantity ? `*Quantity:* ${quantity}` : null,
     finishingNames && finishingNames.length > 0 ? `*Finishing/Addons:* ${finishingNames.join(', ')}` : null,

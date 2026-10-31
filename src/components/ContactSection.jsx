@@ -5,7 +5,7 @@ import { InstagramIcon } from './Icons';
 export default function ContactSection() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [serviceRequired, setServiceRequired] = useState('Star Flex Banner');
+  const [serviceRequired, setServiceRequired] = useState('Jumbo Xerox & Plan Printing (A0-A4)');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
@@ -20,7 +20,7 @@ export default function ContactSection() {
       `*Service Required:* ${serviceRequired}`,
       message ? `*Message:* ${message}` : '',
       `-----------------------------`,
-      `Please let me know the quote and design procedure.`
+      `Please let me know the quote and turnaround procedure.`
     ].filter(Boolean).join('\n');
 
     const whatsappUrl = `https://wa.me/917601043674?text=${encodeURIComponent(query)}`;
@@ -44,7 +44,7 @@ export default function ContactSection() {
             </span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
-            Visit our workshop opp. Tirumala Hospital, Kadapa or message us directly on WhatsApp. We are here to bring your visual branding to life.
+            Visit our printing studio opp. Tirumala Hospital, Kadapa or message us directly on WhatsApp. We are here to bring your visual branding and large format drawings to life.
           </p>
         </div>
 
@@ -163,7 +163,7 @@ export default function ContactSection() {
                   Send Your Project Details
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
-                  Fill in your requirements below to instantly generate a WhatsApp message to our team.
+                  Select your service below to instantly generate a pre-formatted WhatsApp message to our team.
                 </p>
               </div>
 
@@ -204,22 +204,44 @@ export default function ContactSection() {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                    Service Required
+                    Service Required *
                   </label>
                   <select
                     value={serviceRequired}
                     onChange={(e) => setServiceRequired(e.target.value)}
                     className="w-full bg-white border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 font-semibold focus:outline-none"
                   >
-                    <option value="Star Flex Banner">Star Flex Banner (హై-గ్లోస్ బ్యానర్)</option>
-                    <option value="3D Acrylic LED Letters">3D Acrylic LED Letters (3D అక్రిలిక్ బోర్డ్)</option>
-                    <option value="LED Glow Sign Board">LED Glow Sign Board (లైట్ బోర్డ్)</option>
-                    <option value="Vinyl Sticker / Frosted Film">Vinyl Sticker / Frosted Film (స్టిక్కర్స్)</option>
-                    <option value="One-Way Vision Glass Film">One-Way Vision Glass Film (గ్లాస్ బ్రాండింగ్)</option>
-                    <option value="Custom Photo Frames">Custom Photo Frames (ఫోటో ఫ్రేమ్స్)</option>
-                    <option value="Custom Ceramic / Magic Mugs">Custom Mugs (కస్టమ్ మగ్స్)</option>
-                    <option value="Visiting Cards (1000 pcs)">Visiting Cards (విజిటింగ్ కార్డ్స్)</option>
-                    <option value="Urgent Graphic Design">Urgent Graphic Design (డిజైనింగ్ వర్క్)</option>
+                    <optgroup label="1. Jumbo Xerox & Plans">
+                      <option value="Jumbo Xerox (A0, A1, A2, A3, A4)">Jumbo Xerox - Colour & B/W (A0-A4)</option>
+                      <option value="Engineering & Architectural CAD Drawings">Engineering & Architectural Drawings</option>
+                      <option value="Municipal Layout & Village Map Printing">Municipal Layouts & Village Maps</option>
+                      <option value="Tracing Paper & Tracing Cloth Printing">Tracing Paper & Tracing Cloth</option>
+                      <option value="Large Format Document Scanning">Large Format Scanning to PDF</option>
+                    </optgroup>
+                    <optgroup label="2. Flex & Sign Boards">
+                      <option value="Star Flex Banner Printing">Star Flex Banner (హై-గ్లోస్ ఫ్లెక్స్)</option>
+                      <option value="Backlit & Frontlit Flex">Backlit / Frontlit Flex Printing</option>
+                      <option value="3D Acrylic LED Letters">3D Acrylic LED Letter Board</option>
+                      <option value="LED Glow Sign Board">LED Glow Sign Board (లైట్ బోర్డ్)</option>
+                      <option value="Hoardings & Political Banners">Hoarding / Political Flex Arch</option>
+                    </optgroup>
+                    <optgroup label="3. Personalised Gifts">
+                      <option value="Customized Photo T-Shirt Printing">Customized Photo T-Shirts</option>
+                      <option value="Photo Cushion & Pillow Printing">Photo Cushion / Pillow Printing</option>
+                      <option value="Photo Mugs & Magic Mugs">Photo Mugs & Magic Mugs</option>
+                      <option value="Personalized Photo Frames">Custom Photo Frames & Collage</option>
+                      <option value="Corporate & Wedding Return Gifts">Corporate & Return Gifts</option>
+                    </optgroup>
+                    <optgroup label="4. Stickers & Boards">
+                      <option value="Sunboard & PVC Foam Board">Sunboard & PVC Foam Board (సన్‌బోర్డ్)</option>
+                      <option value="Vinyl Stickers & Product Labels">Vinyl Stickers & Product Labels</option>
+                      <option value="One-Way Vision Glass Film">One-Way Vision Glass Film</option>
+                      <option value="Art Board & Display Signage">Display Signage & Art Boards</option>
+                    </optgroup>
+                    <optgroup label="Commercial & Design">
+                      <option value="Visiting Cards (1000 pcs)">Visiting Cards (1000 pcs Offset)</option>
+                      <option value="Urgent Graphic Designing">Urgent Graphic Design Work</option>
+                    </optgroup>
                   </select>
                 </div>
 
@@ -229,7 +251,7 @@ export default function ContactSection() {
                   </label>
                   <textarea
                     rows="3"
-                    placeholder="Mention dimensions (e.g. 10x4 ft), event date, Telugu text details, etc."
+                    placeholder="Mention dimensions (e.g. A0 map, 10x4 ft flex, 50 T-shirts), event date, etc."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full bg-white border-2 border-slate-200 focus:border-sky-500 rounded-xl p-4 text-sm text-slate-900 font-medium focus:outline-none resize-none"
