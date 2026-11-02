@@ -44,7 +44,7 @@ export default function Hero({ onOpenCalculator }) {
   }, []);
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-sky-50/40">
+    <section className="relative pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 overflow-hidden bg-gradient-to-b from-slate-950/90 via-slate-50 to-sky-50/40">
       
       {/* ========================================================
           BACKGROUND VISUAL: ADVANCED PRINTING & WORKSHOP ATMOSPHERE
@@ -54,41 +54,44 @@ export default function Hero({ onOpenCalculator }) {
         <img
           src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=2000&q=85"
           alt="Advanced Commercial Printing Machinery & Workshop Floor"
-          className="w-full h-full object-cover object-center scale-105 opacity-[0.20] mix-blend-multiply filter contrast-125 saturate-125 transition-transform duration-1000"
+          className="w-full h-full object-cover object-center scale-105 opacity-[0.25] mix-blend-multiply filter contrast-125 saturate-125 transition-transform duration-1000"
           loading="eager"
         />
 
+        {/* Top Dark Navigation Vignette (Khoon Ka Rishta Transparent Header Integration) */}
+        <div className="absolute inset-x-0 top-0 h-40 sm:h-48 bg-gradient-to-b from-slate-950/90 via-slate-950/55 to-transparent z-0" />
+
         {/* Precision CAD / Halftone Matrix Grid */}
         <div 
-          className="absolute inset-0 opacity-[0.12] mix-blend-color-burn"
+          className="absolute inset-0 opacity-[0.10] mix-blend-color-burn"
           style={{
             backgroundImage: `radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.2) 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
 
-        {/* Intelligent Multi-Stop Light Glassmorphism Overlays (Guarantees 100% Text Readability) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/96 via-white/88 to-white/97 backdrop-blur-[1px]" />
+        {/* Intelligent Multi-Stop Light Glassmorphism Overlays for Hero Content */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/88 to-white/98 backdrop-blur-[0.5px]" />
 
         {/* CMYK Spectral Color Bleeds & Ambient Lighting Halos */}
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[1100px] 2xl:w-[1500px] h-[550px] bg-gradient-to-r from-cyan-400/18 via-rose-500/16 via-amber-400/16 to-sky-500/18 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[1100px] 2xl:w-[1500px] h-[550px] bg-gradient-to-r from-cyan-400/18 via-rose-500/16 via-amber-400/16 to-sky-500/18 rounded-full blur-[130px] pointer-events-none" />
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-400/20 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute top-1/3 -right-32 w-96 h-96 bg-rose-400/20 rounded-full blur-[100px] pointer-events-none" />
       </div>
 
       {/* Micro CMYK Calibration & Registration Marks (Subtle Industrial Printshop Accent) */}
-      <div className="absolute top-20 left-6 lg:left-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-400/80 pointer-events-none select-none z-10">
+      <div className="absolute top-24 left-6 lg:left-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-300/80 pointer-events-none select-none z-10">
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-cyan-400 shadow-xs" />C</span>
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-rose-500 shadow-xs" />M</span>
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-400 shadow-xs" />Y</span>
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-slate-900 shadow-xs" />K</span>
-        <span className="text-slate-300 ml-1">|</span>
+        <span className="text-slate-400 ml-1">|</span>
         <span className="tracking-widest uppercase">1440 DPI • HEAVY ROLL PLOTTERS</span>
       </div>
 
-      <div className="absolute top-20 right-6 lg:right-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-400/80 pointer-events-none select-none z-10">
+      <div className="absolute top-24 right-6 lg:right-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-300/80 pointer-events-none select-none z-10">
         <span className="tracking-widest uppercase">⊕ PRECISION REGISTRATION</span>
-        <span className="text-slate-300">|</span>
+        <span className="text-slate-400">|</span>
         <span>JAPANESE UV INKS</span>
       </div>
 

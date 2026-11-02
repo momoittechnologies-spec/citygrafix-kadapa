@@ -14,6 +14,9 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // When on the homepage and at the top, the navigation floats seamlessly over the hero background
+  const isHeroTransparent = currentView === 'home' && !isScrolled;
+
   // Page Tabs matching the Khoon Ka Rishta desktop navigation aesthetic
   const navTabs = [
     { id: 'home', label: 'Home', href: '#/' },
@@ -27,14 +30,16 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 select-none">
       {/* CMYK Printing Industry Color Calibration Bar */}
       <div className="h-1 w-full cmyk-top-bar" />
 
-      {/* Main Header Bar - Full Screen Width Layout with Balanced Padding */}
+      {/* Main Header Bar - Full-Width Transparent or Semi-Transparent Integration */}
       <div
         className={`w-full transition-all duration-300 ${
-          isScrolled
+          isHeroTransparent
+            ? 'bg-transparent py-4 sm:py-5 border-b border-white/10'
+            : isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 py-2.5 shadow-sm'
             : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3.5 shadow-2xs'
         }`}
@@ -43,57 +48,90 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
           <div className="flex items-center justify-between gap-4 xl:gap-8">
             
             {/* =========================================================
-                LEFT: SITE BRANDING & LOGO (Sitting gracefully towards the left)
+                LEFT: SITE BRANDING & LOGO (Prominent Left Placement)
                ========================================================= */}
             <a href="#/" className="flex items-center gap-3.5 group shrink-0">
               <div className="relative">
+                <div
+                  className={`absolute -inset-1 rounded-full blur-xs transition-opacity ${
+                    isHeroTransparent
+                      ? 'bg-white/20 opacity-70 group-hover:opacity-100'
+                      : 'bg-rose-500/10 opacity-0 group-hover:opacity-100'
+                  }`}
+                />
                 <img
                   src="/logo.png"
                   alt="City Grafix Kadapa"
-                  className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+                  className="relative h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
                 />
               </div>
 
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
-                  <span className="font-black text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-rose-600 transition-colors">
+                  <span
+                    className={`font-black text-lg sm:text-xl tracking-tight transition-colors ${
+                      isHeroTransparent
+                        ? 'text-white group-hover:text-rose-400'
+                        : 'text-slate-900 group-hover:text-rose-600'
+                    }`}
+                  >
                     CITY GRAFIX
                   </span>
-                  <span className="px-2 py-0.5 text-[9px] font-black uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 rounded">
+                  <span
+                    className={`px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded transition-colors ${
+                      isHeroTransparent
+                        ? 'bg-rose-600 text-white border border-rose-500/80 shadow-xs'
+                        : 'bg-rose-50 text-rose-700 border border-rose-200'
+                    }`}
+                  >
                     Kadapa
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-slate-500 font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <div
+                  className={`flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold transition-colors ${
+                    isHeroTransparent ? 'text-slate-300' : 'text-slate-500'
+                  }`}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span>Serving Kadapa Since 2014</span>
                 </div>
               </div>
             </a>
 
             {/* =========================================================
-                CENTER: AIRY HORIZONTAL PAGE TABS (Fully utilizes available width)
+                CENTER: AIRY HORIZONTAL PAGE TABS (Khoon Ka Rishta Aesthetic)
                ========================================================= */}
-            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               {navTabs.map((tab) => {
                 const isActive = currentView === tab.id;
                 return (
                   <a
                     key={tab.id}
                     href={tab.href}
-                    className={`relative px-3 xl:px-4 2xl:px-5 py-2 text-sm font-bold transition-all duration-200 flex items-center gap-1.5 group whitespace-nowrap ${
+                    className={`relative px-3 xl:px-4 2xl:px-5 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 group whitespace-nowrap ${
                       isActive
-                        ? 'text-rose-600 font-black'
-                        : 'text-slate-700 hover:text-rose-600 font-semibold'
+                        ? isHeroTransparent
+                          ? 'text-rose-400 font-black'
+                          : 'text-rose-600 font-black'
+                        : isHeroTransparent
+                        ? 'text-white/85 hover:text-white font-bold'
+                        : 'text-slate-700 hover:text-rose-600 font-bold'
                     }`}
                   >
                     {tab.icon === 'star' && (
-                      <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-400 shrink-0" />
+                      <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 shrink-0" />
                     )}
 
                     <span>{tab.label}</span>
 
                     {tab.badge && (
-                      <span className="text-[9px] font-black uppercase px-1.5 py-0.2 rounded-full bg-rose-100 text-rose-700 border border-rose-200">
+                      <span
+                        className={`text-[9px] font-black uppercase px-1.5 py-0.2 rounded-full transition-colors ${
+                          isHeroTransparent
+                            ? 'bg-rose-500/80 text-white border border-rose-400/50'
+                            : 'bg-rose-100 text-rose-700 border border-rose-200'
+                        }`}
+                      >
                         {tab.badge}
                       </span>
                     )}
@@ -102,8 +140,8 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                     <span
                       className={`absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-300 ${
                         isActive
-                          ? 'bg-rose-600 scale-x-100 opacity-100'
-                          : 'bg-rose-600 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'
+                          ? 'bg-rose-500 scale-x-100 opacity-100'
+                          : 'bg-rose-500 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'
                       }`}
                     />
                   </a>
@@ -118,14 +156,18 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
               <button
                 type="button"
                 onClick={() => onOpenContact && onOpenContact('all')}
-                className="flex items-center gap-2.5 px-4.5 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 text-white font-black text-xs sm:text-sm shadow-md shadow-rose-600/20 hover:shadow-lg hover:scale-105 active:scale-95 transition-all border border-rose-500/40 group"
+                className={`flex items-center gap-2.5 px-4.5 py-2.5 rounded-xl font-black text-xs sm:text-sm shadow-md transition-all active:scale-95 group ${
+                  isHeroTransparent
+                    ? 'bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-500 hover:to-red-600 text-white border border-rose-400/50 shadow-rose-600/30 hover:scale-105'
+                    : 'bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 text-white border border-rose-500/40 shadow-rose-600/20 hover:scale-105'
+                }`}
                 title="Call or WhatsApp our 3 direct lines"
               >
                 <div className="flex items-center -space-x-1">
                   <div className="w-5 h-5 rounded-md bg-white/20 flex items-center justify-center">
                     <Phone className="w-3 h-3 text-white" />
                   </div>
-                  <div className="w-5 h-5 rounded-md bg-emerald-400/90 text-slate-950 flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-md bg-emerald-400 text-slate-950 flex items-center justify-center">
                     <MessageCircle className="w-3 h-3" />
                   </div>
                 </div>
@@ -158,7 +200,11 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-700 hover:text-slate-900 bg-slate-100 border border-slate-200 rounded-xl focus:outline-none"
+                className={`p-2 rounded-xl focus:outline-none transition-colors ${
+                  isHeroTransparent
+                    ? 'text-white bg-white/10 hover:bg-white/20 border border-white/20'
+                    : 'text-slate-700 hover:text-slate-900 bg-slate-100 border border-slate-200'
+                }`}
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -171,7 +217,13 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
               MOBILE MENU ACCORDION DRAWER
              ========================================================= */}
           {mobileMenuOpen && (
-            <div className="lg:hidden mt-3 pt-3 pb-5 px-3 bg-white border border-slate-200 rounded-2xl shadow-xl space-y-3 animate-fadeIn">
+            <div
+              className={`lg:hidden mt-3 pt-3 pb-5 px-3 rounded-2xl shadow-2xl space-y-3 animate-fadeIn border ${
+                isHeroTransparent
+                  ? 'bg-slate-950/95 backdrop-blur-xl border-white/15 text-white'
+                  : 'bg-white border-slate-200 text-slate-800'
+              }`}
+            >
               <div className="flex flex-col space-y-1">
                 {navTabs.map((tab) => {
                   const isActive = currentView === tab.id;
@@ -182,7 +234,9 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                       onClick={() => setMobileMenuOpen(false)}
                       className={`px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between ${
                         isActive
-                          ? 'bg-rose-50 text-rose-700 border border-rose-200 font-black'
+                          ? 'bg-rose-600 text-white font-black shadow-md shadow-rose-600/30'
+                          : isHeroTransparent
+                          ? 'text-slate-200 hover:text-white hover:bg-white/10'
                           : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
                       }`}
                     >
@@ -191,7 +245,11 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                         <span>{tab.label}</span>
                       </div>
                       {tab.badge && (
-                        <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">
+                        <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${
+                          isHeroTransparent
+                            ? 'bg-rose-500/80 text-white border border-rose-400/40'
+                            : 'bg-rose-100 text-rose-700'
+                        }`}>
                           {tab.badge}
                         </span>
                       )}
@@ -201,22 +259,26 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
               </div>
 
               {/* Call & WhatsApp Official Numbers List inside Hamburger */}
-              <div className="pt-3 border-t border-slate-100 space-y-2">
+              <div className={`pt-3 border-t space-y-2 ${isHeroTransparent ? 'border-white/10' : 'border-slate-100'}`}>
                 <div className="flex items-center justify-between px-1">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-500">
+                  <span className={`text-[10px] font-black uppercase tracking-wider ${isHeroTransparent ? 'text-slate-400' : 'text-slate-500'}`}>
                     Official Support Lines
                   </span>
-                  <span className="text-[10px] text-emerald-700 font-extrabold">Instant Connect</span>
+                  <span className="text-[10px] text-emerald-400 font-extrabold">Instant Connect</span>
                 </div>
 
                 {CONTACT_NUMBERS.map((contact) => (
                   <div
                     key={contact.id}
-                    className="p-2.5 rounded-xl border border-slate-200/90 bg-slate-50 flex items-center justify-between gap-2"
+                    className={`p-2.5 rounded-xl border flex items-center justify-between gap-2 ${
+                      isHeroTransparent
+                        ? 'border-white/10 bg-white/5 text-white'
+                        : 'border-slate-200/90 bg-slate-50'
+                    }`}
                   >
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-xs font-black text-slate-900">{contact.display}</span>
+                        <span className={`text-xs font-black ${isHeroTransparent ? 'text-white' : 'text-slate-900'}`}>{contact.display}</span>
                         <span
                           className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded ${
                             contact.supportsCall
