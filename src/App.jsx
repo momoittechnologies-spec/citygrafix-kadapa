@@ -7,7 +7,6 @@ import GiftsCustomizer from './components/GiftsCustomizer';
 import PortfolioGallery from './components/PortfolioGallery';
 import WhyUs from './components/WhyUs';
 import Testimonials from './components/Testimonials';
-import InstagramShowcase from './components/InstagramShowcase';
 import PhotographyHubSection from './components/PhotographyHubSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -35,7 +34,6 @@ import {
   ExternalLink,
   ChevronRight
 } from 'lucide-react';
-import { InstagramIcon, YouTubeIcon } from './components/Icons';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState({ view: 'home', slug: null });
@@ -76,17 +74,13 @@ export default function App() {
           'portfolio',
           'why-us',
           'reviews',
-          'social',
-          'instagram',
           'photography',
           'gallery-hub',
           'contact'
         ].includes(cleanHash)
       ) {
         const view =
-          cleanHash === 'instagram'
-            ? 'social'
-            : cleanHash === 'gallery-hub'
+          cleanHash === 'gallery-hub'
             ? 'photography'
             : cleanHash;
         setCurrentRoute({ view, slug: null });
@@ -460,21 +454,7 @@ export default function App() {
         )}
 
         {/* ========================================================
-            PAGE 8: DEDICATED SOCIAL & VIDEOS HUB PAGE (3D Light Mode)
-           ======================================================== */}
-        {currentRoute.view === 'social' && (
-          <div>
-            <PageBreadcrumb
-              pageTitle="Instagram & YouTube Hub"
-              category="Social Media"
-              onBackHome={() => navigateTo('')}
-            />
-            <InstagramShowcase />
-          </div>
-        )}
-
-        {/* ========================================================
-            PAGE 9: DEDICATED CLIENT PHOTO GALLERIES PAGE
+            PAGE 8: DEDICATED CLIENT PHOTO GALLERIES PAGE
            ======================================================== */}
         {currentRoute.view === 'photography' && (
           <div>

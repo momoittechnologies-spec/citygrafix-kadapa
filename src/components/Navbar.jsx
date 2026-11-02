@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, Menu, X, Star, ChevronDown, Gift, Calculator, Sparkles } from 'lucide-react';
-import { InstagramIcon, YouTubeIcon } from './Icons';
 import { CONTACT_NUMBERS } from '../data/contactNumbers';
 
 export default function Navbar({ onOpenContact, currentView = 'home' }) {
@@ -24,7 +23,6 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
     { id: 'portfolio', label: 'Portfolio', href: '#/portfolio' },
     { id: 'why-us', label: 'Why Us', href: '#/why-us' },
     { id: 'reviews', label: 'Reviews', href: '#/reviews', icon: 'star' },
-    { id: 'social', label: 'Social Hub', href: '#/social' },
     { id: 'contact', label: 'Contact', href: '#/contact' },
   ];
 

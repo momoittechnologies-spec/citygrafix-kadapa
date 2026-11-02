@@ -34,7 +34,6 @@ export default function Footer({ onOpenContact }) {
     { label: 'Portfolio & Kadapa Projects', href: '#/portfolio' },
     { label: 'Why Choose Us & Machine Specs', href: '#/why-us' },
     { label: 'Google Reviews & Rating', href: '#/reviews', badge: '5.0 ★' },
-    { label: 'Social & Video Hub', href: '#/social' },
     { label: 'Store Location & Contact Form', href: '#/contact' },
     { label: 'Photographer Client Galleries', href: '#gallery-hub' },
   ];
