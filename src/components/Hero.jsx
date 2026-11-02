@@ -44,7 +44,7 @@ export default function Hero({ onOpenCalculator }) {
   }, []);
 
   return (
-    <section className="relative pt-28 sm:pt-32 md:pt-36 pb-12 sm:pb-16 md:pb-20 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900/5 to-slate-50">
+    <section className="relative pt-28 sm:pt-32 md:pt-36 pb-12 sm:pb-16 md:pb-20 overflow-hidden bg-gradient-to-b from-white via-slate-50/70 to-white">
       
       {/* ========================================================
           BACKGROUND VISUAL: HIGH-DEFINITION PRINTING & WORKSHOP ATMOSPHERE
@@ -54,42 +54,44 @@ export default function Hero({ onOpenCalculator }) {
         <img
           src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=2400&q=90"
           alt="Advanced Commercial Printing & CMYK Production Atmosphere"
-          className="w-full h-full object-cover object-center scale-105 opacity-[0.35] filter contrast-125 saturate-150 transition-transform duration-1000"
+          className="w-full h-full object-cover object-center scale-105 opacity-[0.20] filter contrast-125 saturate-150 transition-transform duration-1000"
           loading="eager"
         />
 
-        {/* Seamless Top Vignette for Transparent Header Integration (Khoon Ka Rishta Inspired) */}
-        <div className="absolute inset-x-0 top-0 h-56 sm:h-64 bg-gradient-to-b from-slate-950/85 via-slate-950/40 to-transparent z-0" />
-
         {/* Precision CAD / Halftone Matrix Grid */}
         <div 
-          className="absolute inset-0 opacity-[0.08] mix-blend-color-burn"
+          className="absolute inset-0 opacity-[0.06] mix-blend-color-burn"
           style={{
             backgroundImage: `radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.3) 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
 
-        {/* Luminous Light Overlay - Balances Rich Printing Colors with Crystal-Clear Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white/95 backdrop-blur-[0.5px]" />
+        {/* Luminous Light Spotlight - Eliminates Dark Shadows and Guarantees 100% Crisp Contrast */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 90% 70% at 50% 38%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.90) 50%, rgba(255, 255, 255, 0.65) 100%)'
+          }}
+        />
 
-        {/* CMYK Spectral Color Bleeds & Ambient Lighting Halos */}
-        <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[1100px] 2xl:w-[1500px] h-[550px] bg-gradient-to-r from-cyan-400/22 via-rose-500/20 via-amber-400/15 to-sky-500/22 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute top-1/4 -left-28 w-96 h-96 bg-cyan-400/25 rounded-full blur-[110px] pointer-events-none" />
-        <div className="absolute top-1/3 -right-28 w-96 h-96 bg-rose-400/25 rounded-full blur-[110px] pointer-events-none" />
+        {/* CMYK Spectral Ambient Color Lighting Halos at the Periphery */}
+        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[1100px] 2xl:w-[1500px] h-[550px] bg-gradient-to-r from-cyan-400/15 via-rose-500/12 via-amber-400/10 to-sky-500/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 w-96 h-96 bg-cyan-400/18 rounded-full blur-[110px] pointer-events-none" />
+        <div className="absolute top-1/3 -right-28 w-96 h-96 bg-rose-400/18 rounded-full blur-[110px] pointer-events-none" />
       </div>
 
       {/* Micro CMYK Calibration & Registration Marks (Subtle Industrial Printshop Accent) */}
-      <div className="absolute top-22 sm:top-24 left-6 lg:left-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-400/90 pointer-events-none select-none z-10">
-        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-cyan-400 shadow-xs" />C</span>
+      <div className="absolute top-22 sm:top-24 left-6 lg:left-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-500 pointer-events-none select-none z-10">
+        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-cyan-500 shadow-xs" />C</span>
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-rose-500 shadow-xs" />M</span>
-        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-400 shadow-xs" />Y</span>
+        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-500 shadow-xs" />Y</span>
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-slate-900 shadow-xs" />K</span>
         <span className="text-slate-300 ml-1">|</span>
-        <span className="tracking-widest uppercase">1440 DPI • HEAVY ROLL PLOTTERS</span>
+        <span className="tracking-widest uppercase text-slate-500">1440 DPI • HEAVY ROLL PLOTTERS</span>
       </div>
 
-      <div className="absolute top-22 sm:top-24 right-6 lg:right-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-400/90 pointer-events-none select-none z-10">
+      <div className="absolute top-22 sm:top-24 right-6 lg:right-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-500 pointer-events-none select-none z-10">
         <span className="tracking-widest uppercase">⊕ PRECISION REGISTRATION</span>
         <span className="text-slate-300">|</span>
         <span>JAPANESE UV INKS</span>
@@ -103,7 +105,7 @@ export default function Hero({ onOpenCalculator }) {
              ======================================================== */}
           <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xs mb-3 sm:mb-4 transition-all hover:border-rose-300 group">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-slate-800">
+            <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-slate-900">
               Serving Kadapa Since 2014
             </span>
             <span className="text-slate-300">•</span>
@@ -114,20 +116,20 @@ export default function Hero({ onOpenCalculator }) {
           </div>
 
           {/* ========================================================
-              MAIN HEADLINE: REFINED HIERARCHY (Strong Visual Anchor)
+              MAIN HEADLINE: MAXIMUM CONTRAST & CLEAR VISUAL HIERARCHY
              ======================================================== */}
-          <h1 className="max-w-4xl lg:max-w-5xl 2xl:max-w-6xl mx-auto font-black tracking-tight text-slate-900 mb-3 sm:mb-4">
+          <h1 className="max-w-4xl lg:max-w-5xl 2xl:max-w-6xl mx-auto font-black tracking-tight text-slate-950 mb-3 sm:mb-4">
             {/* Primary Anchor Headline - The Strongest Visual Importance */}
-            <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[66px] font-black tracking-tight text-slate-950 leading-[1.14] sm:leading-[1.10] drop-shadow-xs">
+            <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[66px] font-black tracking-tight text-slate-950 leading-[1.12] sm:leading-[1.08] drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
               High-Definition Printing & 3D Signage
             </span>
 
-            {/* Refined Secondary Supporting Line with Elegantly Integrated Rotating Capability */}
-            <span className="flex items-center justify-center flex-wrap gap-x-2.5 gap-y-1.5 mt-2.5 sm:mt-3 text-base sm:text-xl md:text-2xl lg:text-[26px] font-bold text-slate-600">
+            {/* Refined Secondary Supporting Line with High-Contrast Rotating Capability */}
+            <span className="flex items-center justify-center flex-wrap gap-x-2.5 gap-y-1.5 mt-2.5 sm:mt-3.5 text-base sm:text-xl md:text-2xl lg:text-[26px] font-extrabold text-slate-900">
               <span>Direct Kadapa Workshop For</span>
-              <span className="inline-flex items-center px-3 py-0.5 rounded-lg bg-white/90 backdrop-blur-xs border border-rose-200/80 shadow-2xs min-h-[1.4em]">
+              <span className="inline-flex items-center px-3.5 py-1 rounded-xl bg-gradient-to-r from-rose-50 to-pink-50 border-2 border-rose-300/90 shadow-xs min-h-[1.4em]">
                 <span
-                  className={`inline-block font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-red-600 to-sky-600 transition-all duration-300 transform ${
+                  className={`inline-block font-black text-rose-600 transition-all duration-300 transform ${
                     fadeState
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 -translate-y-1 scale-95'
@@ -139,15 +141,15 @@ export default function Hero({ onOpenCalculator }) {
             </span>
           </h1>
 
-          {/* Telugu Regional Tagline */}
-          <p className="text-xs sm:text-base md:text-lg text-slate-700 font-bold mb-2 sm:mb-2.5 flex items-center justify-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-            <span>కడపలో మీ నమ్మకమైన ప్రింటింగ్ & జంబో జిరాక్స్ పార్ట్నర్</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+          {/* Telugu Regional Tagline - High Contrast & Crisp Weight */}
+          <p className="text-xs sm:text-base md:text-lg text-slate-900 font-extrabold mb-2.5 sm:mb-3 flex items-center justify-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-rose-600 shadow-xs" />
+            <span className="tracking-wide">కడపలో మీ నమ్మకమైన ప్రింటింగ్ & జంబో జిరాక్స్ పార్ట్నర్</span>
+            <span className="w-2 h-2 rounded-full bg-rose-600 shadow-xs" />
           </p>
 
-          {/* Clear, Concise Service Description */}
-          <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-slate-600 max-w-2xl lg:max-w-3xl 2xl:max-w-4xl mx-auto mb-6 sm:mb-8 leading-relaxed font-medium">
+          {/* Clear, High-Contrast Service Description */}
+          <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-slate-700 max-w-2xl lg:max-w-3xl 2xl:max-w-4xl mx-auto mb-6 sm:mb-8 leading-relaxed font-semibold">
             City Grafix is Kadapa’s one-stop destination for high-definition commercial printing, wide-format CAD architectural drawings, illuminated 3D LED storefront signs, and personalized gifts. Bring your ready-to-print designs (CDR, PSD, PDF) for fast same-day turnaround at direct workshop wholesale rates.
           </p>
 
