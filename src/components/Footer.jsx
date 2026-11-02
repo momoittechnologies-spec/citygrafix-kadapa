@@ -64,13 +64,55 @@ export default function Footer({ onOpenContact }) {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-white via-slate-50 to-slate-100 border-t border-slate-200/90 text-slate-600 text-xs sm:text-sm relative overflow-hidden shadow-[0_-20px_40px_rgba(0,0,0,0.02)]">
+    <footer className="bg-gradient-to-b from-white via-slate-50 to-slate-100 border-t border-slate-200/90 text-slate-600 text-xs sm:text-sm relative overflow-hidden shadow-[0_-20px_40px_rgba(0,0,0,0.03)]">
       {/* Top CMYK calibration strip */}
       <div className="h-1.5 w-full cmyk-top-bar" />
 
-      {/* Subtle colorful ambient light accents (Light mode) */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-200/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-rose-200/20 rounded-full blur-3xl pointer-events-none" />
+      {/* Top Technical Printing Calibration Ribbon */}
+      <div className="w-full bg-slate-900 text-white text-[10px] font-mono py-1 px-4 sm:px-8 border-b border-slate-800 flex items-center justify-between overflow-x-auto scrollbar-none gap-4 select-none">
+        <div className="flex items-center gap-3 shrink-0">
+          <span className="flex items-center gap-1 font-bold text-cyan-400">● C:100%</span>
+          <span className="flex items-center gap-1 font-bold text-pink-500">■ M:100%</span>
+          <span className="flex items-center gap-1 font-bold text-amber-400">▲ Y:100%</span>
+          <span className="flex items-center gap-1 font-bold text-slate-300">◆ K:100%</span>
+          <span className="text-slate-600 hidden sm:inline">|</span>
+          <span className="text-slate-300 hidden sm:inline font-semibold">1200–2400 DPI WIDE-FORMAT CALIBRATION</span>
+        </div>
+        <div className="flex items-center gap-4 text-slate-400 shrink-0 font-medium text-[9px] uppercase tracking-wider">
+          <span>Kadapa Star Flex & 3D Signage Studio</span>
+          <span className="text-slate-600">•</span>
+          <span>Serving Since 2014</span>
+        </div>
+      </div>
+
+      {/* ========================================================
+          BACKGROUND VISUAL: CREATIVE PRINTING WAVES & WORKSHOP TEXTURE
+         ======================================================== */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* High-Resolution Creative CMYK Wave & Printing Texture */}
+        <img
+          src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=2000&q=85"
+          alt="Creative CMYK Printing Texture"
+          className="w-full h-full object-cover object-center scale-105 opacity-[0.11] mix-blend-multiply filter contrast-125 saturate-150 transition-transform duration-1000"
+          loading="lazy"
+        />
+
+        {/* Subtle Printing Halftone Screen Pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.06] mix-blend-color-burn"
+          style={{
+            backgroundImage: `radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.35) 1px, transparent 1px)`,
+            backgroundSize: '20px 20px'
+          }}
+        />
+
+        {/* Multi-Stop Light Glassmorphic Gradient Overlay (Guarantees 100% Text Readability) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/97 via-slate-50/92 to-slate-100/97 backdrop-blur-[1px]" />
+
+        {/* Ambient CMYK Lighting Halos */}
+        <div className="absolute top-0 left-1/4 w-[600px] h-[400px] bg-gradient-to-br from-cyan-300/15 via-sky-300/10 to-transparent rounded-full blur-[110px] pointer-events-none" />
+        <div className="absolute bottom-10 right-1/4 w-[600px] h-[400px] bg-gradient-to-tl from-rose-300/15 via-amber-300/10 to-transparent rounded-full blur-[110px] pointer-events-none" />
+      </div>
 
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 2xl:px-16 pt-14 pb-24 md:pb-14 relative z-10">
         
