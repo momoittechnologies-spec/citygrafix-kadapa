@@ -38,10 +38,10 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
       <div
         className={`w-full transition-all duration-300 ${
           isHeroTransparent
-            ? 'bg-transparent py-4 sm:py-5 border-b border-white/10'
+            ? 'bg-slate-950/30 backdrop-blur-sm py-3.5 sm:py-4 border-b border-white/10 shadow-xs'
             : isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 py-2.5 shadow-sm'
-            : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3.5 shadow-2xs'
+            : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3 shadow-2xs'
         }`}
       >
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 2xl:px-16">
@@ -108,7 +108,7 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                   <a
                     key={tab.id}
                     href={tab.href}
-                    className={`relative px-3 xl:px-4 2xl:px-5 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 group whitespace-nowrap ${
+                    className={`relative px-3 xl:px-4 2xl:px-4.5 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 group whitespace-nowrap ${
                       isActive
                         ? isHeroTransparent
                           ? 'text-rose-400 font-black'
@@ -118,6 +118,14 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                         : 'text-slate-700 hover:text-rose-600 font-bold'
                     }`}
                   >
+                    {/* Subtle Frosted Active Pill */}
+                    {isActive && isHeroTransparent && (
+                      <span className="absolute inset-0 bg-white/10 rounded-lg -z-10 border border-white/10 backdrop-blur-xs" />
+                    )}
+                    {isActive && !isHeroTransparent && (
+                      <span className="absolute inset-0 bg-rose-50/80 rounded-lg -z-10 border border-rose-200/60" />
+                    )}
+
                     {tab.icon === 'star' && (
                       <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 shrink-0" />
                     )}
@@ -138,9 +146,9 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
 
                     {/* Active & Hover Animated Bottom Accent Indicator */}
                     <span
-                      className={`absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-300 ${
+                      className={`absolute bottom-0 left-2.5 right-2.5 h-0.5 rounded-full transition-all duration-300 ${
                         isActive
-                          ? 'bg-rose-500 scale-x-100 opacity-100'
+                          ? 'bg-rose-500 scale-x-100 opacity-100 shadow-[0_0_8px_rgba(244,63,94,0.7)]'
                           : 'bg-rose-500 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'
                       }`}
                     />
@@ -150,13 +158,13 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
             </nav>
 
             {/* =========================================================
-                RIGHT: STANDOUT ACTION BUTTON (Positioned cleanly on the right)
+                RIGHT: STANDOUT ACTION BUTTON (Refined Proportion & Balance)
                ========================================================= */}
             <div className="hidden sm:flex items-center gap-3 shrink-0">
               <button
                 type="button"
                 onClick={() => onOpenContact && onOpenContact('all')}
-                className={`flex items-center gap-2.5 px-4.5 py-2.5 rounded-xl font-black text-xs sm:text-sm shadow-md transition-all active:scale-95 group ${
+                className={`flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl font-black text-xs shadow-md transition-all active:scale-95 group ${
                   isHeroTransparent
                     ? 'bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-500 hover:to-red-600 text-white border border-rose-400/50 shadow-rose-600/30 hover:scale-105'
                     : 'bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 text-white border border-rose-500/40 shadow-rose-600/20 hover:scale-105'
@@ -164,20 +172,20 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                 title="Call or WhatsApp our 3 direct lines"
               >
                 <div className="flex items-center -space-x-1">
-                  <div className="w-5 h-5 rounded-md bg-white/20 flex items-center justify-center">
-                    <Phone className="w-3 h-3 text-white" />
+                  <div className="w-4.5 h-4.5 rounded-md bg-white/20 flex items-center justify-center">
+                    <Phone className="w-2.5 h-2.5 text-white" />
                   </div>
-                  <div className="w-5 h-5 rounded-md bg-emerald-400 text-slate-950 flex items-center justify-center">
-                    <MessageCircle className="w-3 h-3" />
+                  <div className="w-4.5 h-4.5 rounded-md bg-emerald-400 text-slate-950 flex items-center justify-center">
+                    <MessageCircle className="w-2.5 h-2.5" />
                   </div>
                 </div>
 
                 <div className="text-left flex flex-col leading-tight">
-                  <span className="flex items-center gap-1 font-black">
+                  <span className="flex items-center gap-1 font-black text-xs text-white">
                     Call / WhatsApp
-                    <ChevronDown className="w-3 h-3 text-rose-200 group-hover:translate-y-0.5 transition-transform" />
+                    <ChevronDown className="w-2.5 h-2.5 text-rose-200 group-hover:translate-y-0.5 transition-transform" />
                   </span>
-                  <span className="text-[9px] text-rose-100 font-semibold">
+                  <span className="text-[9px] text-rose-100/90 font-semibold">
                     3 Direct Workshop Lines
                   </span>
                 </div>

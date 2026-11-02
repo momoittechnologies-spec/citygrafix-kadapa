@@ -44,54 +44,54 @@ export default function Hero({ onOpenCalculator }) {
   }, []);
 
   return (
-    <section className="relative pt-32 sm:pt-36 md:pt-40 pb-16 sm:pb-20 md:pb-24 overflow-hidden bg-gradient-to-b from-slate-950/90 via-slate-50 to-sky-50/40">
+    <section className="relative pt-28 sm:pt-32 md:pt-36 pb-12 sm:pb-16 md:pb-20 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900/5 to-slate-50">
       
       {/* ========================================================
-          BACKGROUND VISUAL: ADVANCED PRINTING & WORKSHOP ATMOSPHERE
+          BACKGROUND VISUAL: HIGH-DEFINITION PRINTING & WORKSHOP ATMOSPHERE
          ======================================================== */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-        {/* High-Resolution Commercial Offset & Wide Roll-to-Roll Plotter Machinery */}
+        {/* High-Definition CMYK Industrial Inks & Precision Flow Atmosphere */}
         <img
-          src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=2000&q=85"
-          alt="Advanced Commercial Printing Machinery & Workshop Floor"
-          className="w-full h-full object-cover object-center scale-105 opacity-[0.25] mix-blend-multiply filter contrast-125 saturate-125 transition-transform duration-1000"
+          src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=2400&q=90"
+          alt="Advanced Commercial Printing & CMYK Production Atmosphere"
+          className="w-full h-full object-cover object-center scale-105 opacity-[0.35] filter contrast-125 saturate-150 transition-transform duration-1000"
           loading="eager"
         />
 
-        {/* Top Dark Navigation Vignette (Khoon Ka Rishta Transparent Header Integration) */}
-        <div className="absolute inset-x-0 top-0 h-40 sm:h-48 bg-gradient-to-b from-slate-950/90 via-slate-950/55 to-transparent z-0" />
+        {/* Seamless Top Vignette for Transparent Header Integration (Khoon Ka Rishta Inspired) */}
+        <div className="absolute inset-x-0 top-0 h-56 sm:h-64 bg-gradient-to-b from-slate-950/85 via-slate-950/40 to-transparent z-0" />
 
         {/* Precision CAD / Halftone Matrix Grid */}
         <div 
-          className="absolute inset-0 opacity-[0.10] mix-blend-color-burn"
+          className="absolute inset-0 opacity-[0.08] mix-blend-color-burn"
           style={{
-            backgroundImage: `radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.2) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.3) 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
 
-        {/* Intelligent Multi-Stop Light Glassmorphism Overlays for Hero Content */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/88 to-white/98 backdrop-blur-[0.5px]" />
+        {/* Luminous Light Overlay - Balances Rich Printing Colors with Crystal-Clear Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white/95 backdrop-blur-[0.5px]" />
 
         {/* CMYK Spectral Color Bleeds & Ambient Lighting Halos */}
-        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[1100px] 2xl:w-[1500px] h-[550px] bg-gradient-to-r from-cyan-400/18 via-rose-500/16 via-amber-400/16 to-sky-500/18 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-400/20 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute top-1/3 -right-32 w-96 h-96 bg-rose-400/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[1100px] 2xl:w-[1500px] h-[550px] bg-gradient-to-r from-cyan-400/22 via-rose-500/20 via-amber-400/15 to-sky-500/22 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/4 -left-28 w-96 h-96 bg-cyan-400/25 rounded-full blur-[110px] pointer-events-none" />
+        <div className="absolute top-1/3 -right-28 w-96 h-96 bg-rose-400/25 rounded-full blur-[110px] pointer-events-none" />
       </div>
 
       {/* Micro CMYK Calibration & Registration Marks (Subtle Industrial Printshop Accent) */}
-      <div className="absolute top-24 left-6 lg:left-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-300/80 pointer-events-none select-none z-10">
+      <div className="absolute top-22 sm:top-24 left-6 lg:left-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-400/90 pointer-events-none select-none z-10">
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-cyan-400 shadow-xs" />C</span>
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-rose-500 shadow-xs" />M</span>
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-400 shadow-xs" />Y</span>
         <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-slate-900 shadow-xs" />K</span>
-        <span className="text-slate-400 ml-1">|</span>
+        <span className="text-slate-300 ml-1">|</span>
         <span className="tracking-widest uppercase">1440 DPI • HEAVY ROLL PLOTTERS</span>
       </div>
 
-      <div className="absolute top-24 right-6 lg:right-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-300/80 pointer-events-none select-none z-10">
+      <div className="absolute top-22 sm:top-24 right-6 lg:right-12 hidden md:flex items-center gap-2 text-[10px] font-mono font-bold text-slate-400/90 pointer-events-none select-none z-10">
         <span className="tracking-widest uppercase">⊕ PRECISION REGISTRATION</span>
-        <span className="text-slate-400">|</span>
+        <span className="text-slate-300">|</span>
         <span>JAPANESE UV INKS</span>
       </div>
 
@@ -99,9 +99,9 @@ export default function Hero({ onOpenCalculator }) {
         <div className="text-center max-w-5xl 2xl:max-w-6xl mx-auto">
           
           {/* ========================================================
-              TOP PRE-TITLE BADGE (Khoon Ka Rishta "Serving Since 2014" Style)
+              TOP PRE-TITLE BADGE (Crisp Glassmorphism & Status Pulse)
              ======================================================== */}
-          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-sm mb-4 sm:mb-6 transition-all hover:border-rose-300 group">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xs mb-3 sm:mb-4 transition-all hover:border-rose-300 group">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-slate-800">
               Serving Kadapa Since 2014
@@ -114,50 +114,51 @@ export default function Hero({ onOpenCalculator }) {
           </div>
 
           {/* ========================================================
-              MAIN HEADLINE WITH TYPING ROTATING KEYWORD (Optimized Responsive Scale)
+              MAIN HEADLINE: REFINED HIERARCHY (Strong Visual Anchor)
              ======================================================== */}
-          <h1 className="max-w-4xl lg:max-w-5xl mx-auto font-black tracking-tight text-slate-900 mb-4 sm:mb-6">
-            {/* Tier 1: Authoritative Anchor Line */}
-            <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-black tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12]">
+          <h1 className="max-w-4xl lg:max-w-5xl 2xl:max-w-6xl mx-auto font-black tracking-tight text-slate-900 mb-3 sm:mb-4">
+            {/* Primary Anchor Headline - The Strongest Visual Importance */}
+            <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[66px] font-black tracking-tight text-slate-950 leading-[1.14] sm:leading-[1.10] drop-shadow-xs">
               High-Definition Printing & 3D Signage
             </span>
 
-            {/* Tier 2: Dynamic Rotating Capability */}
-            <span className="flex items-center justify-center flex-wrap gap-x-2 gap-y-1 mt-2 sm:mt-3 text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-extrabold leading-[1.25]">
-              <span className="text-slate-600 font-bold">Direct Kadapa Workshop For</span>
-              <span className="inline-flex items-center relative min-h-[1.25em]">
+            {/* Refined Secondary Supporting Line with Elegantly Integrated Rotating Capability */}
+            <span className="flex items-center justify-center flex-wrap gap-x-2.5 gap-y-1.5 mt-2.5 sm:mt-3 text-base sm:text-xl md:text-2xl lg:text-[26px] font-bold text-slate-600">
+              <span>Direct Kadapa Workshop For</span>
+              <span className="inline-flex items-center px-3 py-0.5 rounded-lg bg-white/90 backdrop-blur-xs border border-rose-200/80 shadow-2xs min-h-[1.4em]">
                 <span
-                  className={`inline-block font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-sky-600 transition-all duration-300 transform ${
+                  className={`inline-block font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-red-600 to-sky-600 transition-all duration-300 transform ${
                     fadeState
                       ? 'opacity-100 translate-y-0 scale-100'
-                      : 'opacity-0 -translate-y-2 scale-95'
+                      : 'opacity-0 -translate-y-1 scale-95'
                   }`}
                 >
                   {ROTATING_CAPABILITIES[capabilityIndex]}
                 </span>
-                {/* Decorative CMYK highlight accent line */}
-                <span className="absolute -bottom-0.5 sm:-bottom-1 left-0 right-0 h-0.5 sm:h-1 rounded-full bg-gradient-to-r from-rose-500 via-purple-500 to-sky-500 opacity-75" />
               </span>
             </span>
           </h1>
 
-          {/* Telugu Tagline & Description */}
-          <p className="text-sm sm:text-lg md:text-xl text-slate-700 font-bold mb-2 sm:mb-3">
-            కడపలో మీ నమ్మకమైన ప్రింటింగ్ & జంబో జిరాక్స్ పార్ట్నర్
+          {/* Telugu Regional Tagline */}
+          <p className="text-xs sm:text-base md:text-lg text-slate-700 font-bold mb-2 sm:mb-2.5 flex items-center justify-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+            <span>కడపలో మీ నమ్మకమైన ప్రింటింగ్ & జంబో జిరాక్స్ పార్ట్నర్</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
           </p>
 
-          <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-slate-600 max-w-2xl lg:max-w-3xl 2xl:max-w-4xl mx-auto mb-8 sm:mb-10 leading-relaxed font-medium">
+          {/* Clear, Concise Service Description */}
+          <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-slate-600 max-w-2xl lg:max-w-3xl 2xl:max-w-4xl mx-auto mb-6 sm:mb-8 leading-relaxed font-medium">
             City Grafix is Kadapa’s one-stop destination for high-definition commercial printing, wide-format CAD architectural drawings, illuminated 3D LED storefront signs, and personalized gifts. Bring your ready-to-print designs (CDR, PSD, PDF) for fast same-day turnaround at direct workshop wholesale rates.
           </p>
 
           {/* ========================================================
-              DUAL CENTERED ACTION BUTTONS (Khoon Ka Rishta Layout)
+              REFINED CTA BUTTONS: CLEAR VISUAL HIERARCHY
              ======================================================== */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 mb-10 sm:mb-14 w-full">
-            {/* Primary Action Button */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 mb-8 sm:mb-10 w-full">
+            {/* Primary Action Button (Strongest) */}
             <a
               href="#/services"
-              className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-2xl font-black text-xs sm:text-sm text-white bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 shadow-xl shadow-rose-600/25 transition-all hover:scale-105 active:scale-95 border border-rose-500/40 group"
+              className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-7 py-3 sm:py-3.5 rounded-xl font-black text-xs sm:text-sm text-white bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-500 hover:to-red-600 shadow-lg shadow-rose-600/30 hover:shadow-xl hover:shadow-rose-600/40 transition-all hover:-translate-y-0.5 active:translate-y-0 active:scale-95 border border-rose-500/50 group"
             >
               <span>Explore All 11 Services & Specs</span>
               <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
@@ -166,17 +167,20 @@ export default function Hero({ onOpenCalculator }) {
             {/* Secondary Action Button (Custom Gifts Studio) */}
             <a
               href="#/custom-gifts"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-2xl font-bold text-xs sm:text-sm text-slate-800 bg-white/95 backdrop-blur-md hover:bg-slate-50 border-2 border-slate-200 hover:border-rose-400 shadow-sm transition-all hover:scale-105 active:scale-95"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-slate-800 bg-white/90 backdrop-blur-md hover:bg-white border border-slate-200/90 hover:border-rose-400 shadow-sm shadow-slate-200/50 transition-all hover:-translate-y-0.5 active:translate-y-0 active:scale-95 group"
             >
-              <Gift className="w-4 h-4 text-rose-600" />
-              <span>Launch 3D Gift Customizer (From ₹250/-)</span>
+              <Gift className="w-4 h-4 text-rose-600 group-hover:scale-110 transition-transform" />
+              <span>Launch 3D Gift Customizer</span>
+              <span className="px-1.5 py-0.5 text-[10px] font-black rounded-md bg-rose-50 text-rose-600 border border-rose-200/80">
+                From ₹250/-
+              </span>
             </a>
 
-            {/* Instant Estimator Button */}
+            {/* Tertiary Action Button (Instant Estimator) */}
             <a
               href="#/calculator"
               onClick={onOpenCalculator}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 sm:py-4 rounded-2xl font-bold text-xs sm:text-sm text-sky-800 bg-sky-50/90 backdrop-blur-md hover:bg-sky-100 border border-sky-200 transition-all active:scale-95"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4.5 sm:px-5 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-sky-800 bg-sky-50/80 backdrop-blur-md hover:bg-sky-100/90 border border-sky-200/70 transition-all hover:-translate-y-0.5 active:translate-y-0 active:scale-95"
             >
               <Calculator className="w-4 h-4 text-sky-600" />
               <span>Size Estimator</span>
@@ -184,55 +188,63 @@ export default function Hero({ onOpenCalculator }) {
           </div>
 
           {/* ========================================================
-              CLEAN 4-COLUMN COUNTERS & PROOF BAR (Expansive Wide Layout)
+              INTEGRATED FROSTED GLASS PROOF BAR (Seamless Hero Connection)
              ======================================================== */}
-          <div className="max-w-5xl 2xl:max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-5 rounded-3xl bg-white/90 backdrop-blur-xl border border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.07)]">
-            <div className="flex flex-col items-center p-3 text-center border-r border-slate-100 last:border-r-0 hover:bg-slate-50/50 rounded-2xl transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-2 shadow-xs">
-                <Award className="w-5 h-5" />
+          <div className="max-w-5xl 2xl:max-w-6xl mx-auto rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(255,255,255,0.8)_inset] p-2.5 sm:p-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-0 sm:divide-x sm:divide-slate-200/70">
+              
+              {/* Stat 1: Experience */}
+              <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
+                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
+                  <Award className="w-5 h-5" />
+                </div>
+                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
+                  10+ Years
+                </span>
+                <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
+                  Serving Kadapa Since 2014
+                </span>
               </div>
-              <span className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
-                10+ Years
-              </span>
-              <span className="text-[11px] text-slate-500 font-semibold">
-                Serving Kadapa Since 2014
-              </span>
-            </div>
 
-            <div className="flex flex-col items-center p-3 text-center border-r border-slate-100 last:border-r-0 hover:bg-slate-50/50 rounded-2xl transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-2 shadow-xs">
-                <Star className="w-5 h-5 fill-amber-500 text-amber-500" />
+              {/* Stat 2: Rating */}
+              <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
+                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
+                  <Star className="w-5 h-5 fill-amber-400 text-amber-500" />
+                </div>
+                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
+                  5.0 ★ Rating
+                </span>
+                <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
+                  Google Verified Feedback
+                </span>
               </div>
-              <span className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
-                5.0 ★ Rating
-              </span>
-              <span className="text-[11px] text-slate-500 font-semibold">
-                Google Verified Feedback
-              </span>
-            </div>
 
-            <div className="flex flex-col items-center p-3 text-center border-r border-slate-100 last:border-r-0 hover:bg-slate-50/50 rounded-2xl transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2 shadow-xs">
-                <Clock className="w-5 h-5" />
+              {/* Stat 3: Turnaround */}
+              <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
+                <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
+                  2 – 4 Hours
+                </span>
+                <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
+                  Same-Day Express Dispatch
+                </span>
               </div>
-              <span className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
-                2 – 4 Hours
-              </span>
-              <span className="text-[11px] text-slate-500 font-semibold">
-                Same-Day Express Dispatch
-              </span>
-            </div>
 
-            <div className="flex flex-col items-center p-3 text-center hover:bg-slate-50/50 rounded-2xl transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2 shadow-xs">
-                <ShieldCheck className="w-5 h-5" />
+              {/* Stat 4: Workshop */}
+              <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
+                  100% Direct
+                </span>
+                <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
+                  Workshop Wholesale Rates
+                </span>
               </div>
-              <span className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
-                100% Direct
-              </span>
-              <span className="text-[11px] text-slate-500 font-semibold">
-                Workshop Wholesale Rates
-              </span>
+
             </div>
           </div>
 
