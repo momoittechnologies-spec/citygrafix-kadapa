@@ -98,7 +98,7 @@ export default function Hero({ onOpenCalculator }) {
           {/* ========================================================
               TOP PRE-TITLE BADGE (Khoon Ka Rishta "Serving Since 2014" Style)
              ======================================================== */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-sm mb-6 transition-all hover:border-rose-300 group">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-sm mb-4 sm:mb-6 transition-all hover:border-rose-300 group">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-slate-800">
               Serving Kadapa Since 2014
@@ -111,36 +111,46 @@ export default function Hero({ onOpenCalculator }) {
           </div>
 
           {/* ========================================================
-              MAIN HEADLINE WITH TYPING ROTATING KEYWORD
+              MAIN HEADLINE WITH TYPING ROTATING KEYWORD (Optimized Responsive Scale)
              ======================================================== */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-black tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12] mb-5">
-            Every Print from City Grafix Delivers{' '}
-            <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-sky-600 min-h-[1.25em]">
-              <span
-                className={`inline-block transition-all duration-300 transform ${
-                  fadeState
-                    ? 'opacity-100 translate-y-0 scale-100'
-                    : 'opacity-0 -translate-y-2 scale-95'
-                }`}
-              >
-                {ROTATING_CAPABILITIES[capabilityIndex]}
+          <h1 className="max-w-4xl lg:max-w-5xl mx-auto font-black tracking-tight text-slate-900 mb-4 sm:mb-6">
+            {/* Tier 1: Authoritative Anchor Line */}
+            <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-black tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12]">
+              High-Definition Printing & 3D Signage
+            </span>
+
+            {/* Tier 2: Dynamic Rotating Capability */}
+            <span className="flex items-center justify-center flex-wrap gap-x-2 gap-y-1 mt-2 sm:mt-3 text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] font-extrabold leading-[1.25]">
+              <span className="text-slate-600 font-bold">Direct Kadapa Workshop For</span>
+              <span className="inline-flex items-center relative min-h-[1.25em]">
+                <span
+                  className={`inline-block font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-sky-600 transition-all duration-300 transform ${
+                    fadeState
+                      ? 'opacity-100 translate-y-0 scale-100'
+                      : 'opacity-0 -translate-y-2 scale-95'
+                  }`}
+                >
+                  {ROTATING_CAPABILITIES[capabilityIndex]}
+                </span>
+                {/* Decorative CMYK highlight accent line */}
+                <span className="absolute -bottom-0.5 sm:-bottom-1 left-0 right-0 h-0.5 sm:h-1 rounded-full bg-gradient-to-r from-rose-500 via-purple-500 to-sky-500 opacity-75" />
               </span>
             </span>
           </h1>
 
           {/* Telugu Tagline & Description */}
-          <p className="text-base sm:text-xl text-slate-700 font-bold mb-3">
+          <p className="text-sm sm:text-lg md:text-xl text-slate-700 font-bold mb-2 sm:mb-3">
             కడపలో మీ నమ్మకమైన ప్రింటింగ్ & జంబో జిరాక్స్ పార్ట్నర్
           </p>
 
-          <p className="text-xs sm:text-base 2xl:text-lg text-slate-600 max-w-3xl 2xl:max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
+          <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-slate-600 max-w-2xl lg:max-w-3xl 2xl:max-w-4xl mx-auto mb-8 sm:mb-10 leading-relaxed font-medium">
             City Grafix is Kadapa’s one-stop destination for high-definition commercial printing, wide-format CAD architectural drawings, illuminated 3D LED storefront signs, and personalized gifts. Bring your ready-to-print designs (CDR, PSD, PDF) for fast same-day turnaround at direct workshop wholesale rates.
           </p>
 
           {/* ========================================================
               DUAL CENTERED ACTION BUTTONS (Khoon Ka Rishta Layout)
              ======================================================== */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14 w-full">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 mb-10 sm:mb-14 w-full">
             {/* Primary Action Button */}
             <a
               href="#/services"
