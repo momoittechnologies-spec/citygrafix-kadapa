@@ -176,7 +176,7 @@ export default function App() {
 
             {/* 11 CORE WORKSHOP CAPABILITIES TEASER RIBBON (3D Light Mode) */}
             <section className="py-16 bg-white border-y border-slate-200/80 relative">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
                 <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-8">
                   <div>
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black mb-2 shadow-sm">
@@ -201,7 +201,7 @@ export default function App() {
                 </div>
 
                 {/* 11 Capability Badges Carousel Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
                   {[
                     { name: 'ARCH FLEX', telugu: 'ఆర్చ్ ఫ్లెక్స్', icon: '🏛️', tag: 'Weddings & Fests' },
                     { name: 'HOARDING FLEX', telugu: 'హోర్డింగ్ ఫ్లెక్స్', icon: '🏙️', tag: 'Highways & Billboards' },
@@ -246,9 +246,9 @@ export default function App() {
 
             {/* CUSTOM GIFTS 3D STUDIO TEASER SECTION (Rate card verified) */}
             <section className="py-20 bg-gradient-to-b from-slate-50 via-rose-50/20 to-white relative overflow-hidden">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
                 <div className="bg-gradient-to-br from-white via-rose-50/40 to-amber-50/40 rounded-3xl p-6 sm:p-10 border-2 border-rose-200/80 shadow-[0_20px_50px_-15px_rgba(244,63,94,0.08)] flex flex-col lg:flex-row items-center justify-between gap-8">
-                  <div className="max-w-2xl">
+                  <div className="max-w-3xl xl:max-w-4xl">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-300 text-xs font-black mb-3">
                       <Gift className="w-3.5 h-3.5 text-rose-600" />
                       <span>TheGifty & ImpressKart Style Studio</span>
@@ -290,11 +290,11 @@ export default function App() {
                   </div>
 
                   {/* Visual Gift Showcase Pill Card */}
-                  <div className="shrink-0 w-full lg:w-96 p-4 rounded-3xl bg-white border border-rose-200 shadow-lg text-center">
+                  <div className="shrink-0 w-full lg:w-96 xl:w-[420px] p-4 sm:p-5 rounded-3xl bg-white border border-rose-200 shadow-lg text-center">
                     <img
                       src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80"
                       alt="Personalized Mugs"
-                      className="w-full h-48 object-cover rounded-2xl mb-3 shadow-inner"
+                      className="w-full h-48 sm:h-56 object-cover rounded-2xl mb-3 shadow-inner"
                     />
                     <div className="flex items-center justify-between text-xs px-2 font-bold text-slate-700">
                       <span>✨ Instant Live Mockup</span>
@@ -307,7 +307,7 @@ export default function App() {
 
             {/* INSTANT SIZE & ESTIMATOR TEASER */}
             <section className="py-16 bg-white border-b border-slate-200/80">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
                 <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-sky-50/80 via-white to-blue-50/80 border-2 border-sky-200 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-2xl bg-sky-100 border border-sky-300 text-sky-700 flex items-center justify-center shrink-0">
@@ -341,7 +341,7 @@ export default function App() {
 
             {/* QUICK CONTACT BANNER */}
             <section className="py-16 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white relative">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                   <span className="text-[11px] font-black uppercase tracking-wider text-sky-400 block mb-1">
                     Direct Kadapa Workshop

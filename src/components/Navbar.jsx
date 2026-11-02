@@ -33,21 +33,21 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
       {/* CMYK Printing Industry Color Calibration Bar */}
       <div className="h-1 w-full cmyk-top-bar" />
 
-      {/* Main Header Bar inspired by Khoon Ka Rishta Desktop Layout */}
+      {/* Main Header Bar - Full Screen Width Layout with Balanced Padding */}
       <div
-        className={`transition-all duration-300 ${
+        className={`w-full transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 py-2.5 shadow-sm'
             : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3.5 shadow-2xs'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 2xl:px-16">
+          <div className="flex items-center justify-between gap-4 xl:gap-8">
             
             {/* =========================================================
-                LEFT: SITE BRANDING & LOGO (Khoon Ka Rishta Layout)
+                LEFT: SITE BRANDING & LOGO (Sitting gracefully towards the left)
                ========================================================= */}
-            <a href="#/" className="flex items-center gap-3 group shrink-0">
+            <a href="#/" className="flex items-center gap-3.5 group shrink-0">
               <div className="relative">
                 <img
                   src="/logo.png"
@@ -57,11 +57,11 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
               </div>
 
               <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-2">
                   <span className="font-black text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-rose-600 transition-colors">
                     CITY GRAFIX
                   </span>
-                  <span className="px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 rounded">
+                  <span className="px-2 py-0.5 text-[9px] font-black uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 rounded">
                     Kadapa
                   </span>
                 </div>
@@ -73,16 +73,16 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
             </a>
 
             {/* =========================================================
-                CENTER: AIRY HORIZONTAL PAGE TABS (Khoon Ka Rishta Aesthetic)
+                CENTER: AIRY HORIZONTAL PAGE TABS (Fully utilizes available width)
                ========================================================= */}
-            <nav className="hidden xl:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5">
               {navTabs.map((tab) => {
                 const isActive = currentView === tab.id;
                 return (
                   <a
                     key={tab.id}
                     href={tab.href}
-                    className={`relative px-3.5 py-2 text-sm font-bold transition-all duration-200 flex items-center gap-1.5 group ${
+                    className={`relative px-3 xl:px-4 2xl:px-5 py-2 text-sm font-bold transition-all duration-200 flex items-center gap-1.5 group whitespace-nowrap ${
                       isActive
                         ? 'text-rose-600 font-black'
                         : 'text-slate-700 hover:text-rose-600 font-semibold'
@@ -100,9 +100,9 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                       </span>
                     )}
 
-                    {/* Active & Hover Animated Bottom Accent Indicator (Khoon Ka Rishta Style) */}
+                    {/* Active & Hover Animated Bottom Accent Indicator */}
                     <span
-                      className={`absolute bottom-0 left-3 right-3 h-0.5 rounded-full transition-all duration-300 ${
+                      className={`absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-300 ${
                         isActive
                           ? 'bg-rose-600 scale-x-100 opacity-100'
                           : 'bg-rose-600 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'
@@ -114,13 +114,13 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
             </nav>
 
             {/* =========================================================
-                RIGHT: STANDOUT ACTION BUTTON (Khoon Ka Rishta Custom Button)
+                RIGHT: STANDOUT ACTION BUTTON (Positioned cleanly on the right)
                ========================================================= */}
             <div className="hidden sm:flex items-center gap-3 shrink-0">
               <button
                 type="button"
                 onClick={() => onOpenContact && onOpenContact('all')}
-                className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 text-white font-black text-xs sm:text-sm shadow-md shadow-rose-600/20 hover:shadow-lg hover:scale-105 active:scale-95 transition-all border border-rose-500/40 group"
+                className="flex items-center gap-2.5 px-4.5 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 text-white font-black text-xs sm:text-sm shadow-md shadow-rose-600/20 hover:shadow-lg hover:scale-105 active:scale-95 transition-all border border-rose-500/40 group"
                 title="Call or WhatsApp our 3 direct lines"
               >
                 <div className="flex items-center -space-x-1">
@@ -145,7 +145,7 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
             </div>
 
             {/* Mobile Header Toggle */}
-            <div className="flex sm:hidden items-center gap-2">
+            <div className="flex lg:hidden items-center gap-2">
               <button
                 type="button"
                 onClick={() => onOpenContact && onOpenContact('all')}
@@ -173,7 +173,7 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
               MOBILE MENU ACCORDION DRAWER
              ========================================================= */}
           {mobileMenuOpen && (
-            <div className="xl:hidden mt-3 pt-3 pb-5 px-3 bg-white border border-slate-200 rounded-2xl shadow-xl space-y-3 animate-fadeIn">
+            <div className="lg:hidden mt-3 pt-3 pb-5 px-3 bg-white border border-slate-200 rounded-2xl shadow-xl space-y-3 animate-fadeIn">
               <div className="flex flex-col space-y-1">
                 {navTabs.map((tab) => {
                   const isActive = currentView === tab.id;

@@ -67,8 +67,8 @@ export default function WhyUs() {
 
   return (
     <section id="why-us" className="py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100 border border-purple-300 text-purple-900 text-xs font-black mb-3 shadow-sm">
             <Award className="w-3.5 h-3.5 text-purple-600" />
             <span>The City Grafix Advantage</span>
@@ -84,7 +84,7 @@ export default function WhyUs() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
           {advantages.map((adv, idx) => {
             const Icon = adv.icon;
             return (

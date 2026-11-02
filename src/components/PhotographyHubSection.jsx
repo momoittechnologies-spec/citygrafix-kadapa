@@ -18,9 +18,9 @@ export default function PhotographyHubSection({ onOpenGallery, onOpenAdmin }) {
       {/* Decorative gradient glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-200/30 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100 border border-rose-300 text-rose-800 text-xs font-black mb-3 shadow-sm">
             <Camera className="w-3.5 h-3.5 text-rose-600" />
             <span>Photographer-Controlled Alternative to PhotoMall</span>

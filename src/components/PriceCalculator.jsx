@@ -103,9 +103,9 @@ export default function PriceCalculator() {
 
   return (
     <section id="calculator" className="py-20 bg-slate-100/70 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100 border border-sky-300 text-sky-800 text-xs font-bold mb-3 shadow-sm">
             <Sliders className="w-3.5 h-3.5 text-sky-600" />
             <span>Interactive Size & Spec Configurator</span>

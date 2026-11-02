@@ -78,7 +78,7 @@ export default function TextMarquee() {
       </div>
 
       {/* Subtle Separator Strip */}
-      <div className="my-2.5 mx-auto max-w-7xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="my-2.5 mx-auto max-w-[1600px] h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
       {/* ========================================================
           TRACK 2: CREDENTIALS & GUARANTEES (REVERSE SCROLL)

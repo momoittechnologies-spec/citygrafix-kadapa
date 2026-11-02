@@ -261,10 +261,10 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
       <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-rose-200/25 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-[500px] h-[350px] bg-sky-200/25 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black uppercase tracking-wider mb-4 shadow-sm backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-rose-500" />
             <span>Interactive 3D Gifting Studio (Light Theme)</span>

@@ -46,10 +46,10 @@ export default function Hero({ onOpenCalculator }) {
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-sky-50/30">
       {/* Subtle Ambient Light Glows */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-gradient-to-r from-rose-200/25 via-sky-200/30 to-amber-200/25 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[900px] 2xl:w-[1200px] h-[400px] bg-gradient-to-r from-rose-200/25 via-sky-200/30 to-amber-200/25 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
+        <div className="text-center max-w-5xl 2xl:max-w-6xl mx-auto">
           
           {/* ========================================================
               TOP PRE-TITLE BADGE (Khoon Ka Rishta "Serving Since 2014" Style)
@@ -68,7 +68,7 @@ export default function Hero({ onOpenCalculator }) {
           {/* ========================================================
               MAIN HEADLINE WITH TYPING ROTATING KEYWORD
              ======================================================== */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.14] mb-5">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-black tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12] mb-5">
             Every Print from City Grafix Delivers{' '}
             <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-sky-600 min-h-[1.25em]">
               <span
@@ -84,11 +84,11 @@ export default function Hero({ onOpenCalculator }) {
           </h1>
 
           {/* Telugu Tagline & Description */}
-          <p className="text-base sm:text-lg text-slate-700 font-bold mb-3">
+          <p className="text-base sm:text-xl text-slate-700 font-bold mb-3">
             కడపలో మీ నమ్మకమైన ప్రింటింగ్ & జంబో జిరాక్స్ పార్ట్నర్
           </p>
 
-          <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+          <p className="text-xs sm:text-base 2xl:text-lg text-slate-600 max-w-3xl 2xl:max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
             City Grafix is Kadapa’s one-stop destination for high-definition commercial printing, wide-format CAD architectural drawings, illuminated 3D LED storefront signs, and personalized gifts. Bring your ready-to-print designs (CDR, PSD, PDF) for fast same-day turnaround at direct workshop wholesale rates.
           </p>
 
@@ -126,9 +126,9 @@ export default function Hero({ onOpenCalculator }) {
           </div>
 
           {/* ========================================================
-              CLEAN 4-COLUMN COUNTERS & PROOF BAR (Khoon Ka Rishta Style)
+              CLEAN 4-COLUMN COUNTERS & PROOF BAR (Expansive Wide Layout)
              ======================================================== */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 p-4 rounded-3xl bg-white border border-slate-200/90 shadow-card-soft">
+          <div className="max-w-5xl 2xl:max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-5 rounded-3xl bg-white border border-slate-200/90 shadow-card-soft">
             <div className="flex flex-col items-center p-3 text-center border-r border-slate-100 last:border-r-0">
               <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-2 shadow-xs">
                 <Award className="w-5 h-5" />

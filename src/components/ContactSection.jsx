@@ -32,8 +32,8 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100 border border-sky-300 text-sky-800 text-xs font-bold mb-3 shadow-sm">
             <MapPin className="w-3.5 h-3.5 text-sky-600" />
             <span>Visit Us or Contact</span>

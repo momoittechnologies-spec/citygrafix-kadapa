@@ -15,9 +15,9 @@ export default function InstagramShowcase() {
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[350px] bg-rose-200/30 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[350px] bg-red-200/30 blur-[130px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-rose-100 via-purple-100 to-red-100 border border-rose-300 text-rose-800 text-xs font-black mb-3 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-rose-600" />
             <span>Official Social Media Hub</span>
@@ -36,7 +36,7 @@ export default function InstagramShowcase() {
         </div>
 
         {/* Dual Side-by-Side Channels Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10 mb-12">
           {/* =========================================
               CARD 1: OFFICIAL INSTAGRAM CHANNEL
              ========================================= */}

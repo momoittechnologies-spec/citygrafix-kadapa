@@ -3,8 +3,8 @@ import { Home, ChevronRight, ArrowLeft } from 'lucide-react';
 
 export default function PageBreadcrumb({ pageTitle, category, onBackHome }) {
   return (
-    <div className="bg-gradient-to-r from-sky-50/60 via-white to-rose-50/50 border-b border-slate-200/80 pt-24 pb-6 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div className="bg-gradient-to-r from-sky-50/60 via-white to-rose-50/50 border-b border-slate-200/80 pt-24 pb-6">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 2xl:px-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         {/* Breadcrumb Trail */}
         <div className="flex items-center flex-wrap gap-2 text-xs font-semibold text-slate-500">
           <a

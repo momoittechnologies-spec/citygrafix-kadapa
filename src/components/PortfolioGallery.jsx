@@ -21,9 +21,9 @@ export default function PortfolioGallery() {
 
   return (
     <section id="portfolio" className="py-24 bg-slate-100/60 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold mb-3 shadow-sm">
             <Camera className="w-3.5 h-3.5 text-amber-600" />
             <span>Showcase Gallery</span>
@@ -57,7 +57,7 @@ export default function PortfolioGallery() {
         </div>
 
         {/* Grid Showcase */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 xl:gap-8">
           {filteredItems.map(item => (
             <div
               key={item.id}

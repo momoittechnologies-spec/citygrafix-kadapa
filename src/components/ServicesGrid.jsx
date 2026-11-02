@@ -25,10 +25,10 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
 
   return (
     <section id="services" className="py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold mb-3 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-rose-500" />
             <span>Complete Printing & Advertising Studio</span>
@@ -50,7 +50,7 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-200/25 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 justify-between pb-8 mb-8 border-b border-slate-200">
-            <div className="max-w-2xl">
+            <div className="max-w-3xl xl:max-w-4xl">
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-rose-100 text-rose-700 border border-rose-300">
                   Official Workshop Capabilities
@@ -149,7 +149,7 @@ export default function ServicesGrid({ onSelectServiceForCalculator }) {
         </div>
 
         {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 xl:gap-8">
           {filteredServices.map((service) => (
             <div
               key={service.id}

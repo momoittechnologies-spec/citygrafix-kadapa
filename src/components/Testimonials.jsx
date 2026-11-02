@@ -7,9 +7,9 @@ export default function Testimonials() {
 
   return (
     <section id="reviews" className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold mb-3 shadow-sm">
             <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
             <span>Google Business Profile Verified</span>
@@ -29,7 +29,7 @@ export default function Testimonials() {
         </div>
 
         {/* Standout Google Business Profile Review Integration Banner */}
-        <div className="max-w-4xl mx-auto mb-16 rounded-3xl bg-gradient-to-r from-amber-500/10 via-sky-500/10 to-emerald-500/10 border-2 border-amber-300/80 p-6 sm:p-8 shadow-xl shadow-amber-500/5 relative overflow-hidden backdrop-blur-sm">
+        <div className="max-w-5xl 2xl:max-w-6xl mx-auto mb-16 rounded-3xl bg-gradient-to-r from-amber-500/10 via-sky-500/10 to-emerald-500/10 border-2 border-amber-300/80 p-6 sm:p-8 shadow-xl shadow-amber-500/5 relative overflow-hidden backdrop-blur-sm">
           {/* Subtle Google colors indicator strip */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853]" />
 
@@ -88,7 +88,7 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 mb-12">
           {TESTIMONIALS_DATA.map((t) => (
             <div
               key={t.id}

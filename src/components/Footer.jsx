@@ -73,7 +73,7 @@ export default function Footer({ onOpenContact }) {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-200/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-rose-200/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-24 md:pb-14 relative z-10">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 2xl:px-16 pt-14 pb-24 md:pb-14 relative z-10">
         
         {/* =========================================================
             TOP ROW: 3D BRAND BADGE, LIVE STATUS & GOOGLE RATING
@@ -131,7 +131,7 @@ export default function Footer({ onOpenContact }) {
         {/* =========================================================
             MAIN 5-COLUMN FOOTER NAVIGATION ARCHITECTURE
            ========================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 xl:gap-8 2xl:gap-12 mb-12">
           
           {/* COL 1: WORKSHOP & TRUST BADGE */}
           <div className="space-y-4">
