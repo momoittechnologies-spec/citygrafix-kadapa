@@ -32,7 +32,8 @@ import {
   Star,
   MapPin,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  MessageCircle
 } from 'lucide-react';
 
 export default function App() {
