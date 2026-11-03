@@ -34,11 +34,11 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
       {/* CMYK Printing Industry Color Calibration Bar */}
       <div className="h-1 w-full cmyk-top-bar" />
 
-      {/* Main Header Bar - Full-Width Frosted Glass Integration over Luminous Canvas */}
+      {/* Main Header Bar - Seamless Frosted Glass Integration */}
       <div
         className={`w-full transition-all duration-300 ${
           isHeroTransparent
-            ? 'bg-white/80 backdrop-blur-md py-3.5 sm:py-4 border-b border-slate-200/70 shadow-2xs'
+            ? 'bg-slate-950/80 backdrop-blur-md py-3.5 sm:py-4 border-b border-slate-800/80 shadow-md'
             : isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 py-2.5 shadow-sm'
             : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3 shadow-2xs'
@@ -52,7 +52,7 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                ========================================================= */}
             <a href="#/" className="flex items-center gap-3.5 group shrink-0">
               <div className="relative">
-                <div className="absolute -inset-1 rounded-full blur-xs bg-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute -inset-1 rounded-full blur-xs bg-rose-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <img
                   src="/logo.png"
                   alt="City Grafix Kadapa"
@@ -62,15 +62,19 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
 
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
-                  <span className="font-black text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-rose-600 transition-colors">
+                  <span className={`font-black text-lg sm:text-xl tracking-tight transition-colors ${
+                    isHeroTransparent ? 'text-white group-hover:text-rose-400' : 'text-slate-900 group-hover:text-rose-600'
+                  }`}>
                     CITY GRAFIX
                   </span>
                   <span className="px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded bg-rose-50 text-rose-700 border border-rose-200">
                     Kadapa
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-slate-500">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <div className={`flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold ${
+                  isHeroTransparent ? 'text-slate-400' : 'text-slate-500'
+                }`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span>Serving Kadapa Since 2014</span>
                 </div>
               </div>
@@ -88,17 +92,25 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                     href={tab.href}
                     className={`relative px-3 xl:px-4 2xl:px-4.5 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 group whitespace-nowrap ${
                       isActive
-                        ? 'text-rose-600 font-black'
+                        ? isHeroTransparent
+                          ? 'text-white font-black'
+                          : 'text-rose-600 font-black'
+                        : isHeroTransparent
+                        ? 'text-slate-300 hover:text-white font-bold'
                         : 'text-slate-700 hover:text-rose-600 font-bold'
                     }`}
                   >
                     {/* Subtle Frosted Active Pill */}
                     {isActive && (
-                      <span className="absolute inset-0 bg-rose-50/80 rounded-lg -z-10 border border-rose-200/70 shadow-2xs" />
+                      <span className={`absolute inset-0 rounded-lg -z-10 shadow-2xs ${
+                        isHeroTransparent
+                          ? 'bg-white/15 border border-white/20'
+                          : 'bg-rose-50/80 border border-rose-200/70'
+                      }`} />
                     )}
 
                     {tab.icon === 'star' && (
-                      <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
+                      <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 shrink-0" />
                     )}
 
                     <span>{tab.label}</span>
@@ -169,7 +181,11 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl focus:outline-none transition-colors text-slate-800 hover:text-slate-950 bg-slate-100 hover:bg-slate-200 border border-slate-200/90 shadow-2xs"
+                className={`p-2 rounded-xl focus:outline-none transition-colors border shadow-2xs ${
+                  isHeroTransparent
+                    ? 'text-white hover:text-white bg-white/10 hover:bg-white/20 border-white/20'
+                    : 'text-slate-800 hover:text-slate-950 bg-slate-100 hover:bg-slate-200 border-slate-200/90'
+                }`}
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

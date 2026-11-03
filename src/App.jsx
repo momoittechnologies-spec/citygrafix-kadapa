@@ -169,75 +169,8 @@ export default function App() {
             {/* Kinetic Text Marquee Ticker (CMYK Printing Capabilities & Guarantees) */}
             <TextMarquee />
 
-            {/* 11 CORE WORKSHOP CAPABILITIES TEASER RIBBON (3D Light Mode) */}
-            <section className="py-16 bg-white border-y border-slate-200/80 relative">
-              <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
-                <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-8">
-                  <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black mb-2 shadow-xs">
-                      <Sparkles className="w-3.5 h-3.5 text-rose-600" />
-                      <span>Official Workshop Capabilities</span>
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
-                      11 Core Printing & Outdoor Publicity Services
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
-                      Operating heavy roll plotters, welding fabrication & express finishing in Kadapa.
-                    </p>
-                  </div>
-
-                  <a
-                    href="#/services"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 group shrink-0"
-                  >
-                    <span>Explore All 11 Services & Full Specs</span>
-                    <ArrowRight className="w-4 h-4 text-rose-400 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-
-                {/* 11 Capability Badges Carousel Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
-                  {[
-                    { name: 'ARCH FLEX', telugu: 'ఆర్చ్ ఫ్లెక్స్', icon: '🏛️', tag: 'Weddings & Fests' },
-                    { name: 'HOARDING FLEX', telugu: 'హోర్డింగ్ ఫ్లెక్స్', icon: '🏙️', tag: 'Highways & Billboards' },
-                    { name: 'PAMPHLETS', telugu: 'పాంప్లెట్లు', icon: '📄', tag: 'Multi-Colour Offset' },
-                    { name: 'LIGHTING BOARD', telugu: 'లైటింగ్ బోర్డులు', icon: '💡', tag: 'LED Glow Boxes' },
-                    { name: 'BILL BOOKS', telugu: 'బిల్ బుక్స్', icon: '🧾', tag: 'Carbonless NCR' },
-                    { name: 'VISITING CARDS', telugu: 'విజిటింగ్ కార్డ్స్', icon: '💳', tag: '350 GSM Wholesale' },
-                    { name: 'PHOTO FRAMES', telugu: 'ఫోటో ఫ్రేమ్స్', icon: '🖼️', tag: 'From ₹250/-' },
-                    { name: 'MUG PRINTING', telugu: 'మగ్స్ ప్రింటింగ్', icon: '☕', tag: 'Plain / Magic ₹350' },
-                    { name: 'AUTO PUBLICITY', telugu: 'ఆటో పబ్లిసిటీ', icon: '🛺', tag: 'Mobile Branding' },
-                    { name: 'T-SHIRT PRINTING', telugu: 'టీ-షర్ట్ ప్రింటింగ్', icon: '👕', tag: 'DTF & Sublimation' },
-                    { name: 'PILLOW PRINTING', telugu: 'పిల్లో ప్రింటింగ్', icon: '🛋️', tag: 'Heart & Magic ₹450' },
-                    { name: 'JUMBO XEROX', telugu: 'జంబో జిరాక్స్', icon: '📐', tag: 'A0-A4 CAD Plans' },
-                  ].map((srv, idx) => (
-                    <a
-                      key={idx}
-                      href="#/services"
-                      className="p-3.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200/90 hover:border-rose-400 shadow-xs hover:shadow-card-hover transition-all duration-300 text-left flex flex-col justify-between group hover:-translate-y-1"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-xl">{srv.icon}</span>
-                          <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-white text-slate-600 border border-slate-200 group-hover:border-rose-200 group-hover:text-rose-700">
-                            Specs
-                          </span>
-                        </div>
-                        <h3 className="text-xs font-black text-slate-900 group-hover:text-rose-600 transition-colors">
-                          {srv.name}
-                        </h3>
-                        <span className="text-[10px] font-bold text-rose-600 block">
-                          {srv.telugu}
-                        </span>
-                      </div>
-                      <span className="text-[10px] text-slate-500 font-semibold mt-2 block">
-                        {srv.tag}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </section>
+            {/* 5-ZONE ASYMMETRICAL BENTO SHOWCASE (ELIMINATING CARD-FATIGUE) */}
+            <ServicesGrid onSelectServiceForCalculator={(id) => navigateTo('calculator')} />
 
             {/* CUSTOM GIFTS 3D STUDIO TEASER SECTION (Harmonious Light Studio) */}
             <section className="py-20 bg-gradient-to-b from-white via-slate-50/50 to-white relative overflow-hidden">

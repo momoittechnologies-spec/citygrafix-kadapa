@@ -124,3 +124,27 @@
 .animate-marquee-track-fast:hover {
   animation-play-state: paused;
 }
+
+/* Industrial Atelier Utilities */
+.shadow-atelier {
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
+}
+
+.shadow-glow-led {
+  box-shadow: 0 0 50px -10px rgba(225, 29, 72, 0.35), 0 0 20px -5px rgba(225, 29, 72, 0.2);
+}
+
+.shadow-glow-amber {
+  box-shadow: 0 0 50px -10px rgba(245, 158, 11, 0.35), 0 0 20px -5px rgba(245, 158, 11, 0.2);
+}
+
+.bg-blueprint-grid {
+  background-image: linear-gradient(to right, rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bg-dot-matrix {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.12) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
