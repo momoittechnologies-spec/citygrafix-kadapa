@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CursorTiltCard from './three/CursorTiltCard';
 import {
   Sparkles,
   Calculator,
@@ -190,65 +191,67 @@ export default function Hero({ onOpenCalculator }) {
           </div>
 
           {/* ========================================================
-              INTEGRATED FROSTED GLASS PROOF BAR (Seamless Hero Connection)
+              INTEGRATED FROSTED GLASS PROOF BAR (with 3D Cursor Tilt Rig)
              ======================================================== */}
-          <div className="max-w-5xl 2xl:max-w-6xl mx-auto rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(255,255,255,0.8)_inset] p-2.5 sm:p-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-0 sm:divide-x sm:divide-slate-200/70">
-              
-              {/* Stat 1: Experience */}
-              <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
-                  <Award className="w-5 h-5" />
+          <CursorTiltCard maxTilt={5} className="max-w-5xl 2xl:max-w-6xl mx-auto">
+            <div className="rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-xl border border-slate-200/80 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08),0_0_1px_1px_rgba(255,255,255,0.8)_inset] p-2.5 sm:p-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-0 sm:divide-x sm:divide-slate-200/70">
+                
+                {/* Stat 1: Experience */}
+                <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
+                  <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
+                    10+ Years
+                  </span>
+                  <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
+                    Serving Kadapa Since 2014
+                  </span>
                 </div>
-                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
-                  10+ Years
-                </span>
-                <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
-                  Serving Kadapa Since 2014
-                </span>
-              </div>
 
-              {/* Stat 2: Rating */}
-              <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
-                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
-                  <Star className="w-5 h-5 fill-amber-400 text-amber-500" />
+                {/* Stat 2: Rating */}
+                <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
+                    <Star className="w-5 h-5 fill-amber-400 text-amber-500" />
+                  </div>
+                  <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
+                    5.0 ★ Rating
+                  </span>
+                  <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
+                    Google Verified Feedback
+                  </span>
                 </div>
-                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
-                  5.0 ★ Rating
-                </span>
-                <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
-                  Google Verified Feedback
-                </span>
-              </div>
 
-              {/* Stat 3: Turnaround */}
-              <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
-                <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
-                  <Clock className="w-5 h-5" />
+                {/* Stat 3: Turnaround */}
+                <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
+                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
+                    <Clock className="w-5 h-5" />
+                  </div>
+                  <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
+                    2 – 4 Hours
+                  </span>
+                  <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
+                    Same-Day Express Dispatch
+                  </span>
                 </div>
-                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
-                  2 – 4 Hours
-                </span>
-                <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
-                  Same-Day Express Dispatch
-                </span>
-              </div>
 
-              {/* Stat 4: Workshop */}
-              <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
-                  <ShieldCheck className="w-5 h-5" />
+                {/* Stat 4: Workshop */}
+                <div className="flex flex-col items-center text-center p-3 sm:p-3.5 rounded-xl hover:bg-white/90 transition-all duration-200 group">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2 shadow-2xs group-hover:scale-110 transition-transform">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
+                    100% Direct
+                  </span>
+                  <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
+                    Workshop Wholesale Rates
+                  </span>
                 </div>
-                <span className="text-xl sm:text-2xl 2xl:text-3xl font-black text-slate-900 tracking-tight leading-none">
-                  100% Direct
-                </span>
-                <span className="text-[11px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider mt-1.5">
-                  Workshop Wholesale Rates
-                </span>
-              </div>
 
+              </div>
             </div>
-          </div>
+          </CursorTiltCard>
 
         </div>
       </div>

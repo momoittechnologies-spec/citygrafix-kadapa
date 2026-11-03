@@ -1,4 +1,6 @@
 import React, { useState, useRef, useMemo } from 'react';
+import ThreeMugViewer from './three/ThreeMugViewer';
+import ThreeSignageExploder from './three/ThreeSignageExploder';
 import {
   Heart,
   Flame,
@@ -44,6 +46,9 @@ export default function RealProductMockup3D({
   imageZoom = 100,
   imagePositionY = 0
 }) {
+  // Toggle for real WebGL 3D vs classic view
+  const [useWebGL, setUseWebGL] = useState(true);
+
   // 3D View Angle: 'front' (0 deg), 'perspective' (20 deg), 'side' (-25 deg)
   const [viewAngle, setViewAngle] = useState('perspective');
   // Studio Lighting Mode: 'day' | 'night'
@@ -81,15 +86,16 @@ export default function RealProductMockup3D({
   // Inner color hex helper
   const innerColorHex = useMemo(() => {
     return (
-      productConfig.innerColors?.find((c) => c.id === selectedInnerColor)?.hex ||
-      '#dc2626'
+      productConfig?.innerColors?.find((c) => c.id === selectedInnerColor)?.hex ||
+      productConfig?.acrylicColors?.find((c) => c.id === selectedInnerColor)?.hex ||
+      '#e11d48'
     );
   }, [productConfig, selectedInnerColor]);
 
   // Frame border hex helper
   const frameBorderObj = useMemo(() => {
     return (
-      productConfig.borderStyles?.find((b) => b.id === frameBorder) || {
+      productConfig?.borderStyles?.find((b) => b.id === frameBorder) || {
         hex: '#09090b',
         name: 'Matte Jet Black'
       }
@@ -99,20 +105,20 @@ export default function RealProductMockup3D({
   // T-Shirt color hex helper
   const tshirtColorHex = useMemo(() => {
     return (
-      productConfig.colors?.find((c) => c.id === tshirtColor)?.hex || '#0f172a'
+      productConfig?.colors?.find((c) => c.id === tshirtColor)?.hex || '#0f172a'
     );
   }, [productConfig, tshirtColor]);
 
   // Pillow color hex helper
   const pillowColorHex = useMemo(() => {
     return (
-      productConfig.colors?.find((c) => c.id === pillowColor)?.hex || '#dc2626'
+      productConfig?.colors?.find((c) => c.id === pillowColor)?.hex || '#dc2626'
     );
   }, [productConfig, pillowColor]);
 
   // Cap color hex helper
   const capColorHex = useMemo(() => {
-    return productConfig.colors?.find((c) => c.id === capColor)?.hex || '#ef4444';
+    return productConfig?.colors?.find((c) => c.id === capColor)?.hex || '#ef4444';
   }, [productConfig, capColor]);
 
   // Effective night ambiance for LED modes
@@ -121,8 +127,72 @@ export default function RealProductMockup3D({
     (activeCategory === 'frames' && selectedVariantId === 'led-12x18' && isFrameLedOn) ||
     (activeCategory === 'pillows' && selectedVariantId === 'led' && isPillowLedOn);
 
+  // ---------------------------------------------------------------
+  // 1. DEDICATED 3D ACRYLIC SIGNAGE EXPLODED VIEW (open-3d-skills)
+  // ---------------------------------------------------------------
+  if (activeCategory === 'signage') {
+    return (
+      <div className="flex flex-col gap-3">
+        <ThreeSignageExploder
+          acrylicColor={innerColorHex}
+          letterText={customText || 'CG'}
+        />
+      </div>
+    );
+  }
+
+  // ---------------------------------------------------------------
+  // 2. REAL-TIME 3D WEBGL MUG STUDIO (threejs-scene & procedural glaze)
+  // ---------------------------------------------------------------
+  if (activeCategory === 'cups' && useWebGL) {
+    return (
+      <div className="flex flex-col gap-3">
+        <ThreeMugViewer
+          selectedVariantId={selectedVariantId}
+          innerColorHex={innerColorHex}
+          sampleDisplayImage={sampleDisplayImage}
+          customText={customText}
+          fontFamily={fontFamily}
+          textColor={textColor}
+          imageZoom={imageZoom}
+          imagePositionY={imagePositionY}
+          isMagicHot={isMagicHot}
+          setIsMagicHot={setIsMagicHot}
+        />
+        <div className="flex items-center justify-between px-2 pt-1">
+          <span className="text-[11px] font-bold text-slate-400">
+            WebGL 3D Mode Active
+          </span>
+          <button
+            type="button"
+            onClick={() => setUseWebGL(false)}
+            className="text-[11px] font-black text-rose-600 hover:text-rose-700 underline flex items-center gap-1"
+          >
+            <span>Switch to Flat 2D View</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-3">
+      {activeCategory === 'cups' && (
+        <div className="flex items-center justify-between px-2">
+          <span className="text-[11px] font-bold text-slate-500">
+            Viewing Flat 2D Angles
+          </span>
+          <button
+            type="button"
+            onClick={() => setUseWebGL(true)}
+            className="text-[11px] font-black px-3 py-1 rounded-full bg-rose-50 text-rose-600 border border-rose-200 hover:bg-rose-100 transition-all flex items-center gap-1 shadow-xs"
+          >
+            <Sparkles className="w-3 h-3 text-rose-500" />
+            <span>Launch Real 3D WebGL Studio (360° Drag)</span>
+          </button>
+        </div>
+      )}
+
       {/* 3D Interactive Stage Canvas Container */}
       <div
         ref={containerRef}

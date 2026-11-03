@@ -3,6 +3,7 @@
 
 export const GIFT_CATEGORIES = [
   { id: 'cups', name: 'Cups & Mugs', emoji: '☕', shortLabel: 'Mugs' },
+  { id: 'signage', name: '3D LED Letters', emoji: '✨', shortLabel: '3D Signage' },
   { id: 'tshirts', name: 'Photo T-Shirts', emoji: '👕', shortLabel: 'T-Shirts' },
   { id: 'frames', name: 'Photo Frames', emoji: '🖼️', shortLabel: 'Frames' },
   { id: 'pillows', name: 'Photo Pillows', emoji: '🛋️', shortLabel: 'Pillows' },
@@ -10,6 +11,49 @@ export const GIFT_CATEGORIES = [
 ];
 
 export const GIFT_PRODUCTS = {
+  signage: {
+    id: 'signage',
+    title: '3D Acrylic LED Channel Letter Signage',
+    teluguTitle: '3D అక్రిలిక్ ఎల్ఈడీ లెటర్ సైనేజ్',
+    badge: 'Luxury Storefronts • Exploded 3D View',
+    tagline: 'Precision laser-cut channel letters with high-lumen waterproof LED modules',
+    description: 'Direct workshop fabrication of commercial 3D acrylic signs, halo-lit letters, and ACP storefronts. Use our 3D Exploded Inspector to view all 4 layers from acrylic to LEDs and mounting studs.',
+    defaultVariant: 'front-lit',
+    variants: [
+      {
+        id: 'front-lit',
+        name: 'Front-Lit Cast Acrylic',
+        telugu: 'ఫ్రంట్-లిట్ అక్రిలిక్',
+        price: 180,
+        badge: 'Top Seller',
+        desc: '3mm imported cast acrylic face with solid 2.5" aluminum returns and internal Samsung LEDs. Rate per inch height.'
+      },
+      {
+        id: 'halo-lit',
+        name: 'Halo Back-Lit Floating',
+        telugu: 'హాలో బ్యాక్-లిట్',
+        price: 220,
+        badge: 'Elite Luxury',
+        desc: 'Solid acrylic face with rear standoff studs casting a soft ambient halo glow onto the wall.'
+      },
+      {
+        id: 'full-glow',
+        name: 'Full Acrylic Glow Letter',
+        telugu: 'ఫుల్ గ్లో లెటర్స్',
+        price: 250,
+        badge: '360° Illumination',
+        desc: 'All-acrylic front and sides for seamless 3D neon radiance.'
+      }
+    ],
+    acrylicColors: [
+      { id: 'red', name: 'Radiant Crimson', hex: '#e11d48' },
+      { id: 'cyan', name: 'Vibrant Cyan', hex: '#0284c7' },
+      { id: 'gold', name: 'Golden Yellow', hex: '#f59e0b' },
+      { id: 'white', name: 'Crisp Daylight White', hex: '#ffffff' },
+      { id: 'green', name: 'Emerald Green', hex: '#16a34a' }
+    ]
+  },
+
   cups: {
     id: 'cups',
     title: 'Custom Photo Mugs & Magic Mugs',

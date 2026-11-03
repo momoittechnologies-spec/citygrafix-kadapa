@@ -149,7 +149,14 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
     let subOptions = [];
     let variantName = '';
 
-    if (activeCategory === 'cups') {
+    if (activeCategory === 'signage') {
+      const variant = productConfig.variants?.find((v) => v.id === selectedVariantId) || productConfig.variants?.[0];
+      price = (variant?.price || 180) * 12; // 12-inch standard letter sample
+      variantName = `${variant?.name || '3D Letter'} (12" Sample)`;
+      const col = productConfig.acrylicColors?.find((c) => c.id === selectedInnerColor);
+      subOptions.push(`Acrylic Color: ${col?.name || 'Radiant Crimson'}`);
+      subOptions.push('IP68 Samsung LED Modules Included');
+    } else if (activeCategory === 'cups') {
       const variant = productConfig.variants.find((v) => v.id === selectedVariantId) || productConfig.variants[0];
       price = variant.price;
       variantName = variant.name;
@@ -527,38 +534,135 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
 
               {/* CUPS VARIANTS */}
               {activeCategory === 'cups' && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {productConfig.variants.map((variant) => {
-                    const isSelected = selectedVariantId === variant.id;
-                    return (
-                      <div
-                        key={variant.id}
-                        onClick={() => setSelectedVariantId(variant.id)}
-                        className={`p-4 rounded-2xl border transition-all cursor-pointer relative flex flex-col justify-between ${
-                          isSelected
-                            ? 'bg-rose-50/80 border-2 border-rose-500 shadow-md'
-                            : 'bg-slate-50/70 border-slate-200 hover:border-slate-300 hover:bg-white'
-                        }`}
-                      >
-                        <div className="flex items-start justify-between gap-2 mb-2">
-                          <div>
-                            <h4 className="font-extrabold text-sm text-slate-900">
-                              {variant.name}
-                            </h4>
-                            <span className="text-[11px] font-bold text-rose-600 block">
-                              {variant.telugu}
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {productConfig.variants.map((variant) => {
+                      const isSelected = selectedVariantId === variant.id;
+                      return (
+                        <div
+                          key={variant.id}
+                          onClick={() => setSelectedVariantId(variant.id)}
+                          className={`p-4 rounded-2xl border transition-all cursor-pointer relative flex flex-col justify-between ${
+                            isSelected
+                              ? 'bg-rose-50/80 border-2 border-rose-500 shadow-md'
+                              : 'bg-slate-50/70 border-slate-200 hover:border-slate-300 hover:bg-white'
+                          }`}
+                        >
+                          <div className="flex items-start justify-between gap-2 mb-2">
+                            <div>
+                              <h4 className="font-extrabold text-sm text-slate-900">
+                                {variant.name}
+                              </h4>
+                              <span className="text-[11px] font-bold text-rose-600 block">
+                                {variant.telugu}
+                              </span>
+                            </div>
+                            <span className="text-base font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200">
+                              ₹{variant.price}/-
                             </span>
                           </div>
-                          <span className="text-base font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200">
-                            ₹{variant.price}/-
-                          </span>
+                          <p className="text-[11px] text-slate-600 leading-snug font-medium">
+                            {variant.desc}
+                          </p>
                         </div>
-                        <p className="text-[11px] text-slate-600 leading-snug font-medium">
-                          {variant.desc}
-                        </p>
+                      );
+                    })}
+                  </div>
+
+                  {selectedVariantId === 'inner-colour' && (
+                    <div className="pt-2 border-t border-slate-100">
+                      <label className="text-xs font-bold text-slate-700 block mb-2">
+                        Select Mug Interior Glaze Color:
+                      </label>
+                      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                        {productConfig.innerColors?.map((c) => (
+                          <button
+                            key={c.id}
+                            type="button"
+                            onClick={() => setSelectedInnerColor(c.id)}
+                            className={`py-2 px-1 rounded-xl border flex flex-col items-center gap-1 transition-all ${
+                              selectedInnerColor === c.id
+                                ? 'bg-white border-slate-900 ring-2 ring-rose-500 shadow-sm'
+                                : 'bg-slate-50 border-slate-200 hover:bg-white'
+                            }`}
+                          >
+                            <span
+                              className="w-4 h-4 rounded-full border border-slate-300"
+                              style={{ backgroundColor: c.hex }}
+                            />
+                            <span className="text-[9px] font-bold text-slate-700 truncate w-full text-center">
+                              {c.name}
+                            </span>
+                          </button>
+                        ))}
                       </div>
-                    );
-                  })}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* SIGNAGE VARIANTS (3D ACRYLIC LED LETTERS) */}
+              {activeCategory === 'signage' && (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {productConfig.variants?.map((variant) => {
+                      const isSelected = selectedVariantId === variant.id;
+                      return (
+                        <div
+                          key={variant.id}
+                          onClick={() => setSelectedVariantId(variant.id)}
+                          className={`p-4 rounded-2xl border transition-all cursor-pointer relative flex flex-col justify-between ${
+                            isSelected
+                              ? 'bg-rose-50/80 border-2 border-rose-500 shadow-md'
+                              : 'bg-slate-50/70 border-slate-200 hover:border-slate-300 hover:bg-white'
+                          }`}
+                        >
+                          <div className="flex items-start justify-between gap-1 mb-2">
+                            <div>
+                              <h4 className="font-extrabold text-xs sm:text-sm text-slate-900">
+                                {variant.name}
+                              </h4>
+                              <span className="text-[10px] font-bold text-rose-600 block">
+                                {variant.telugu}
+                              </span>
+                            </div>
+                            <span className="text-xs font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200 shrink-0">
+                              ₹{variant.price}/in
+                            </span>
+                          </div>
+                          <p className="text-[10px] text-slate-600 leading-snug font-medium">
+                            {variant.desc}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-100">
+                    <label className="text-xs font-bold text-slate-700 block mb-2">
+                      Cast Acrylic Face Color:
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {productConfig.acrylicColors?.map((c) => (
+                        <button
+                          key={c.id}
+                          type="button"
+                          onClick={() => setSelectedInnerColor(c.id)}
+                          className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all ${
+                            selectedInnerColor === c.id
+                              ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                              : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-white'
+                          }`}
+                        >
+                          <span
+                            className="w-3.5 h-3.5 rounded-full border border-black/20"
+                            style={{ backgroundColor: c.hex }}
+                          />
+                          <span>{c.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
 
