@@ -5,7 +5,7 @@
 @layer base {
   html {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    color: #1e293b;
+    color: #0f172a;
     background-color: #f8fafc;
     scroll-behavior: smooth;
   }
@@ -26,20 +26,20 @@
 .print-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .print-card:hover {
   transform: translateY(-4px);
-  border-color: #38bdf8;
-  box-shadow: 0 16px 32px -8px rgba(2, 132, 199, 0.15);
+  border-color: #f43f5e;
+  box-shadow: 0 20px 35px -8px rgba(225, 29, 72, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
 }
 
 /* CMYK Color Bar Header */
 .cmyk-top-bar {
   height: 4px;
-  background: linear-gradient(90deg, #00A3E0 0%, #00A3E0 25%, #EC008C 25%, #EC008C 50%, #FFD100 50%, #FFD100 75%, #1e293b 75%, #1e293b 100%);
+  background: linear-gradient(90deg, #0284c7 0%, #0284c7 25%, #e11d48 25%, #e11d48 50%, #f59e0b 50%, #f59e0b 75%, #0f172a 75%, #0f172a 100%);
 }
 
 /* Custom Scrollbar for Light Theme */
@@ -59,24 +59,24 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+  background: #e11d48;
 }
 
-/* Colorful gradient text */
+/* Sophisticated Brand Gradient Text */
 .text-gradient-cmyk {
-  background: linear-gradient(135deg, #0284c7 0%, #e11d48 50%, #d97706 100%);
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 50%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-blue {
-  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-magenta {
-  background: linear-gradient(135deg, #e11d48 0%, #db2777 100%);
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

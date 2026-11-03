@@ -106,17 +106,17 @@ export default function PriceCalculator() {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100 border border-sky-300 text-sky-800 text-xs font-bold mb-3 shadow-sm">
-            <Sliders className="w-3.5 h-3.5 text-sky-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold mb-3 shadow-xs">
+            <Sliders className="w-3.5 h-3.5 text-rose-600" />
             <span>Interactive Size & Spec Configurator</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight mb-4">
             Instant Flex & Printing{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-rose-700 to-slate-950">
               Order & Size Estimator
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
             Configure your exact dimensions, material grade, and finishing preferences. Instantly generate a formatted specification to receive our best direct wholesale quotation on WhatsApp.
           </p>
 
@@ -148,12 +148,12 @@ export default function PriceCalculator() {
                     }}
                     className={`flex flex-col text-left p-3.5 rounded-xl border-2 transition-all ${
                       selectedProductId === item.id
-                        ? 'bg-sky-50/90 border-sky-500 shadow-md shadow-sky-500/10'
+                        ? 'bg-rose-50/90 border-rose-500 shadow-md shadow-rose-500/10'
                         : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700'
                     }`}
                   >
                     <div className="flex items-center justify-between w-full mb-1">
-                      <span className={`text-sm font-bold ${selectedProductId === item.id ? 'text-sky-900' : 'text-slate-800'}`}>
+                      <span className={`text-sm font-bold ${selectedProductId === item.id ? 'text-rose-950 font-black' : 'text-slate-900'}`}>
                         {item.name.split(' (')[0]}
                       </span>
                       {item.popular && (
@@ -192,7 +192,7 @@ export default function PriceCalculator() {
                           }}
                           className={`text-xs px-3 py-1.5 rounded-lg border font-medium transition-all ${
                             width === p.w && height === p.h
-                              ? 'bg-sky-600 text-white font-bold border-sky-600 shadow-sm'
+                              ? 'bg-rose-600 text-white font-bold border-rose-600 shadow-xs'
                               : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                           }`}
                         >
@@ -215,7 +215,7 @@ export default function PriceCalculator() {
                           max="200"
                           value={width}
                           onChange={(e) => setWidth(Math.max(1, Number(e.target.value)))}
-                          className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
+                          className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
                         />
                         <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-bold">
                           ft
@@ -234,7 +234,7 @@ export default function PriceCalculator() {
                           max="100"
                           value={height}
                           onChange={(e) => setHeight(Math.max(1, Number(e.target.value)))}
-                          className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
+                          className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
                         />
                         <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-bold">
                           ft
@@ -252,12 +252,12 @@ export default function PriceCalculator() {
                         max="500"
                         value={quantity}
                         onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                        className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
+                        className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
                       />
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 p-3 bg-sky-50 border border-sky-200 rounded-xl text-xs text-sky-900 font-medium">
+                  <div className="flex items-center gap-2 p-3 bg-slate-100 border border-slate-200 rounded-xl text-xs text-slate-800 font-medium">
                     <Info className="w-4 h-4 text-sky-600 shrink-0" />
                     <span>
                       Total Calculated Area: <strong className="text-sky-700 font-bold">{specification.areaSqFt} sq. ft.</strong> across {quantity} banner{quantity > 1 ? 's' : ''}.
@@ -279,7 +279,7 @@ export default function PriceCalculator() {
                       max="100"
                       value={letterCount}
                       onChange={(e) => setLetterCount(Math.max(1, Number(e.target.value)))}
-                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
+                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
                     />
                   </div>
                   <div>
@@ -289,7 +289,7 @@ export default function PriceCalculator() {
                     <select
                       value={letterHeightInches}
                       onChange={(e) => setLetterHeightInches(Number(e.target.value))}
-                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
+                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
                     >
                       <option value="6">6 Inches (Small Storefront)</option>
                       <option value="8">8 Inches (Standard Shop Fascia)</option>
@@ -312,12 +312,16 @@ export default function PriceCalculator() {
                         onClick={() => setSelectedFixedIndex(idx)}
                         className={`flex items-center justify-between p-3.5 rounded-xl border-2 text-left transition-all ${
                           selectedFixedIndex === idx
-                            ? 'bg-sky-50 border-sky-500 text-sky-950 font-bold'
+                            ? 'bg-rose-50 border-rose-500 text-rose-950 font-bold shadow-xs'
                             : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
                         }`}
                       >
                         <span className="text-sm">{opt.label}</span>
-                        <span className="text-xs font-bold text-sky-700 uppercase tracking-wider bg-sky-100 px-2 py-0.5 rounded">
+                        <span className={`text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
+                          selectedFixedIndex === idx
+                            ? 'bg-rose-100 text-rose-700'
+                            : 'bg-slate-200 text-slate-700'
+                        }`}>
                           Selected
                         </span>
                       </button>
@@ -334,7 +338,7 @@ export default function PriceCalculator() {
                       max="1000"
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                      className="w-32 bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2 text-slate-900 font-bold text-base focus:outline-none"
+                      className="w-32 bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2 text-slate-900 font-bold text-base focus:outline-none"
                     />
                   </div>
                 </div>
@@ -353,7 +357,7 @@ export default function PriceCalculator() {
                       max="1000"
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                      className="w-full sm:w-48 bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
+                      className="w-full sm:w-48 bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
                     />
                   </div>
 
@@ -385,19 +389,19 @@ export default function PriceCalculator() {
                         onClick={() => toggleFinishing(finishKey)}
                         className={`flex items-start gap-3 p-3.5 rounded-xl border-2 cursor-pointer transition-all ${
                           isChecked
-                            ? 'bg-sky-50 border-sky-500 text-sky-950'
+                            ? 'bg-rose-50 border-rose-500 text-rose-950 shadow-2xs'
                             : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
                         }`}
                       >
                         <div className={`w-5 h-5 rounded-md flex items-center justify-center mt-0.5 border-2 transition-all ${
-                          isChecked ? 'bg-sky-600 border-sky-600 text-white' : 'border-slate-300 bg-white'
+                          isChecked ? 'bg-rose-600 border-rose-600 text-white' : 'border-slate-300 bg-white'
                         }`}>
                           {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between">
                             <span className="text-sm font-bold">{finish.name}</span>
-                            <span className="text-[10px] text-sky-800 font-bold uppercase tracking-wider bg-sky-100 px-2 py-0.5 rounded">
+                            <span className="text-[10px] text-rose-700 font-bold uppercase tracking-wider bg-rose-100 px-2 py-0.5 rounded">
                               Optional Addon
                             </span>
                           </div>
@@ -420,22 +424,22 @@ export default function PriceCalculator() {
                 placeholder="e.g., CDR file ready, urgent delivery needed today, with eyelets..."
                 value={customerNote}
                 onChange={(e) => setCustomerNote(e.target.value)}
-                className="w-full bg-slate-50 border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none"
+                className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none"
               />
             </div>
           </div>
 
           {/* Right Column: Order Specification Summary & WhatsApp Action */}
           <div className="lg:col-span-5 sticky top-28">
-            <div className="p-6 sm:p-7 rounded-3xl bg-white border-2 border-sky-300 shadow-xl shadow-sky-600/10 relative overflow-hidden">
+            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-slate-900/5 relative overflow-hidden">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
                 <div>
-                  <span className="text-xs font-black uppercase tracking-wider text-sky-600">
+                  <span className="text-xs font-black uppercase tracking-wider text-rose-600">
                     Live Specification
                   </span>
                   <h3 className="text-xl font-extrabold text-slate-900">Order Summary</h3>
                 </div>
-                <span className="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-300">
+                <span className="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-300">
                   Direct Workshop Quote
                 </span>
               </div>
@@ -468,7 +472,7 @@ export default function PriceCalculator() {
                 {specification.finishingAppliedNames.length > 0 && (
                   <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
                     <span className="text-slate-500 font-medium">Finishing:</span>
-                    <span className="font-bold text-amber-700 text-right max-w-[180px]">
+                    <span className="font-bold text-slate-900 text-right max-w-[180px]">
                       {specification.finishingAppliedNames.join(', ')}
                     </span>
                   </div>
@@ -482,15 +486,15 @@ export default function PriceCalculator() {
                 </div>
               </div>
 
-              {/* High-Impact WhatsApp Quote Box (Replaces price total) */}
-              <div className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white mb-6 text-center shadow-lg border border-slate-700">
+              {/* High-Impact WhatsApp Quote Box */}
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white mb-6 text-center shadow-md border border-slate-800">
                 <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-2">
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <h4 className="text-sm font-extrabold text-white">
                   Get Direct Best Wholesale Price
                 </h4>
-                <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">
+                <p className="text-[11px] text-slate-300 mt-1 leading-relaxed font-medium">
                   Send this exact specification to City Grafix on WhatsApp to receive the direct workshop rate with zero middlemen.
                 </p>
               </div>
@@ -498,13 +502,13 @@ export default function PriceCalculator() {
               {/* WhatsApp Action Button */}
               <button
                 onClick={handleSendWhatsApp}
-                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-sm sm:text-base text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-xl shadow-emerald-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-sm sm:text-base text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 transition-all hover:scale-[1.01] active:scale-[0.98]"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>Send Specs to WhatsApp for Best Quote</span>
               </button>
 
-              <p className="text-[10px] text-slate-500 text-center mt-3 leading-tight">
+              <p className="text-[10px] text-slate-500 text-center mt-3 leading-tight font-medium">
                 *City Grafix provides commercial printing and fabrication from customer-supplied ready design files (CDR, PSD, PDF, JPG).
               </p>
             </div>

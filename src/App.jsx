@@ -173,11 +173,11 @@ export default function App() {
               <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
                 <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 mb-8">
                   <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black mb-2 shadow-sm">
-                      <Sparkles className="w-3.5 h-3.5 text-rose-500" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black mb-2 shadow-xs">
+                      <Sparkles className="w-3.5 h-3.5 text-rose-600" />
                       <span>Official Workshop Capabilities</span>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
                       11 Core Printing & Outdoor Publicity Services
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
@@ -187,10 +187,10 @@ export default function App() {
 
                   <a
                     href="#/services"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all active:scale-95 group shrink-0"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 group shrink-0"
                   >
                     <span>Explore All 11 Services & Full Specs</span>
-                    <ArrowRight className="w-4 h-4 text-sky-400 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-rose-400 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
 
@@ -213,16 +213,16 @@ export default function App() {
                     <a
                       key={idx}
                       href="#/services"
-                      className="p-3.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-sky-400 shadow-sm hover:shadow-card-hover transition-all duration-300 text-left flex flex-col justify-between group hover:-translate-y-1"
+                      className="p-3.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200/90 hover:border-rose-400 shadow-xs hover:shadow-card-hover transition-all duration-300 text-left flex flex-col justify-between group hover:-translate-y-1"
                     >
                       <div>
                         <div className="flex items-center justify-between mb-1.5">
                           <span className="text-xl">{srv.icon}</span>
-                          <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-white text-slate-600 border border-slate-200 group-hover:border-sky-300 group-hover:text-sky-700">
+                          <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-white text-slate-600 border border-slate-200 group-hover:border-rose-200 group-hover:text-rose-700">
                             Specs
                           </span>
                         </div>
-                        <h3 className="text-xs font-black text-slate-900 group-hover:text-sky-700 transition-colors">
+                        <h3 className="text-xs font-black text-slate-900 group-hover:text-rose-600 transition-colors">
                           {srv.name}
                         </h3>
                         <span className="text-[10px] font-bold text-rose-600 block">
@@ -238,44 +238,44 @@ export default function App() {
               </div>
             </section>
 
-            {/* CUSTOM GIFTS 3D STUDIO TEASER SECTION (Rate card verified) */}
-            <section className="py-20 bg-gradient-to-b from-slate-50 via-rose-50/20 to-white relative overflow-hidden">
+            {/* CUSTOM GIFTS 3D STUDIO TEASER SECTION (Harmonious Light Studio) */}
+            <section className="py-20 bg-gradient-to-b from-white via-slate-50/50 to-white relative overflow-hidden">
               <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
-                <div className="bg-gradient-to-br from-white via-rose-50/40 to-amber-50/40 rounded-3xl p-6 sm:p-10 border-2 border-rose-200/80 shadow-[0_20px_50px_-15px_rgba(244,63,94,0.08)] flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div className="bg-white/95 rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.06)] flex flex-col lg:flex-row items-center justify-between gap-8 backdrop-blur-xl">
                   <div className="max-w-3xl xl:max-w-4xl">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-300 text-xs font-black mb-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-black mb-3 shadow-2xs">
                       <Gift className="w-3.5 h-3.5 text-rose-600" />
-                      <span>TheGifty & ImpressKart Style Studio</span>
+                      <span>3D WebGL Gifting & Signage Studio</span>
                     </div>
-                    <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">
+                    <h2 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight mb-3">
                       Personalized 3D Gifts Customizer Studio
                     </h2>
-                    <p className="text-xs sm:text-base text-slate-600 leading-relaxed font-medium mb-6">
+                    <p className="text-xs sm:text-base text-slate-700 leading-relaxed font-medium mb-6">
                       Customize photo mugs, DTF t-shirts, cushions, and LED frames with real workshop menu prices: Plain Mugs (₹350), Inner Colour (₹450), Heart Handle (₹500), Magic Reveal (₹550), DTF Collar T-Shirts (₹500), and LED Wall Frames (₹1,250).
                     </p>
 
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                      <div className="bg-white p-3 rounded-2xl border border-slate-200 text-center shadow-sm">
+                      <div className="bg-slate-50/80 p-3 rounded-2xl border border-slate-200 text-center shadow-2xs">
                         <span className="text-base font-black text-rose-600 block">₹350/-</span>
-                        <span className="text-[11px] font-bold text-slate-700">Photo Mugs</span>
+                        <span className="text-[11px] font-bold text-slate-800">Photo Mugs</span>
                       </div>
-                      <div className="bg-white p-3 rounded-2xl border border-slate-200 text-center shadow-sm">
+                      <div className="bg-slate-50/80 p-3 rounded-2xl border border-slate-200 text-center shadow-2xs">
                         <span className="text-base font-black text-rose-600 block">₹300 - ₹500</span>
-                        <span className="text-[11px] font-bold text-slate-700">DTF / Sub Tees</span>
+                        <span className="text-[11px] font-bold text-slate-800">DTF / Sub Tees</span>
                       </div>
-                      <div className="bg-white p-3 rounded-2xl border border-slate-200 text-center shadow-sm">
+                      <div className="bg-slate-50/80 p-3 rounded-2xl border border-slate-200 text-center shadow-2xs">
                         <span className="text-base font-black text-rose-600 block">₹450 - ₹850</span>
-                        <span className="text-[11px] font-bold text-slate-700">Photo Pillows</span>
+                        <span className="text-[11px] font-bold text-slate-800">Photo Pillows</span>
                       </div>
-                      <div className="bg-white p-3 rounded-2xl border border-slate-200 text-center shadow-sm">
+                      <div className="bg-slate-50/80 p-3 rounded-2xl border border-slate-200 text-center shadow-2xs">
                         <span className="text-base font-black text-rose-600 block">₹250 - ₹1,250</span>
-                        <span className="text-[11px] font-bold text-slate-700">Frames & LED</span>
+                        <span className="text-[11px] font-bold text-slate-800">Frames & LED</span>
                       </div>
                     </div>
 
                     <a
                       href="#/custom-gifts"
-                      className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-black text-xs sm:text-sm text-white bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-700 hover:to-red-800 shadow-xl shadow-rose-600/30 transition-all hover:scale-105 active:scale-95"
+                      className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-black text-xs sm:text-sm text-white bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-500 hover:to-red-600 shadow-lg shadow-rose-600/30 transition-all hover:scale-105 active:scale-95 border border-rose-500/40"
                     >
                       <Sparkles className="w-4 h-4 text-amber-300" />
                       <span>Launch 3D Customizer Studio & Order</span>
@@ -284,15 +284,15 @@ export default function App() {
                   </div>
 
                   {/* Visual Gift Showcase Pill Card */}
-                  <div className="shrink-0 w-full lg:w-96 xl:w-[420px] p-4 sm:p-5 rounded-3xl bg-white border border-rose-200 shadow-lg text-center">
+                  <div className="shrink-0 w-full lg:w-96 xl:w-[420px] p-4 sm:p-5 rounded-3xl bg-slate-50/60 border border-slate-200 shadow-sm text-center">
                     <img
                       src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80"
                       alt="Personalized Mugs"
-                      className="w-full h-48 sm:h-56 object-cover rounded-2xl mb-3 shadow-inner"
+                      className="w-full h-48 sm:h-56 object-cover rounded-2xl mb-3 shadow-sm"
                     />
                     <div className="flex items-center justify-between text-xs px-2 font-bold text-slate-700">
-                      <span>✨ Instant Live Mockup</span>
-                      <span className="text-emerald-700">🟢 WhatsApp Approval</span>
+                      <span>✨ Instant 3D WebGL Studio</span>
+                      <span className="text-emerald-700 font-extrabold">🟢 WhatsApp Proof Approval</span>
                     </div>
                   </div>
                 </div>
@@ -302,13 +302,13 @@ export default function App() {
             {/* INSTANT SIZE & ESTIMATOR TEASER */}
             <section className="py-16 bg-white border-b border-slate-200/80">
               <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
-                <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-sky-50/80 via-white to-blue-50/80 border-2 border-sky-200 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+                <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200/90 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-sky-100 border border-sky-300 text-sky-700 flex items-center justify-center shrink-0">
-                      <Calculator className="w-6 h-6" />
+                    <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 text-slate-800 flex items-center justify-center shrink-0 shadow-2xs">
+                      <Calculator className="w-6 h-6 text-slate-700" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-black text-slate-900">
+                      <h3 className="text-xl font-black text-slate-950">
                         Need Custom Banner or Board Sizing?
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
@@ -319,10 +319,10 @@ export default function App() {
 
                   <a
                     href="#/calculator"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all active:scale-95 shrink-0"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all active:scale-95 shrink-0"
                   >
                     <span>Open Size Estimator</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-rose-400" />
                   </a>
                 </div>
               </div>
@@ -334,10 +334,10 @@ export default function App() {
             <Testimonials />
 
             {/* QUICK CONTACT BANNER */}
-            <section className="py-16 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white relative">
+            <section className="py-16 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white relative">
               <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                  <span className="text-[11px] font-black uppercase tracking-wider text-sky-400 block mb-1">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-rose-400 block mb-1">
                     Direct Kadapa Workshop
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white">
@@ -351,16 +351,16 @@ export default function App() {
                 <div className="flex items-center gap-3 shrink-0">
                   <a
                     href="#/contact"
-                    className="px-5 py-3 rounded-2xl bg-white text-slate-900 font-bold text-xs sm:text-sm hover:bg-slate-100 shadow-md"
+                    className="px-5 py-3 rounded-xl bg-white text-slate-950 font-bold text-xs sm:text-sm hover:bg-slate-100 shadow-md transition-all active:scale-95"
                   >
                     Store Location & Map
                   </a>
                   <button
                     onClick={() => handleOpenContact('all')}
-                    className="px-5 py-3 rounded-2xl bg-emerald-600 text-white font-bold text-xs sm:text-sm hover:bg-emerald-700 shadow-md flex items-center gap-2"
+                    className="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 flex items-center gap-2 transition-all active:scale-95"
                   >
-                    <span>Connect Now</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp Workshop</span>
                   </button>
                 </div>
               </div>

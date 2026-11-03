@@ -34,17 +34,17 @@ export default function ContactSection() {
     <section id="contact" className="py-24 bg-white relative">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100 border border-sky-300 text-sky-800 text-xs font-bold mb-3 shadow-sm">
-            <MapPin className="w-3.5 h-3.5 text-sky-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold mb-3 shadow-xs">
+            <MapPin className="w-3.5 h-3.5 text-rose-600" />
             <span>Visit Us or Contact</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight mb-4">
             Get in Touch with{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-rose-600 to-amber-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-rose-700 to-slate-950">
               City Grafix
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
             Visit our printing studio opp. Tirumala Hospital, Kadapa or message us directly on WhatsApp. We are here to bring your visual branding and large format drawings to life.
           </p>
         </div>
@@ -55,11 +55,11 @@ export default function ContactSection() {
             {/* Address Card */}
             <div className="bg-slate-50 rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-sky-100 border border-sky-300 flex items-center justify-center text-sky-600 shrink-0 mt-1">
+                <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 shrink-0 mt-1">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-extrabold text-sky-700 uppercase tracking-wider block mb-1">
+                  <span className="text-xs font-extrabold text-rose-700 uppercase tracking-wider block mb-1">
                     Store Location & Workshop
                   </span>
                   <h3 className="text-lg font-extrabold text-slate-900 mb-2">
@@ -74,9 +74,9 @@ export default function ContactSection() {
                     href="https://maps.google.com/?q=City+Grafix+Kadapa+Opp+Tirumala+Hospital"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-sky-800 bg-sky-100 border border-sky-300 hover:bg-sky-200 transition-all shadow-sm"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-900 bg-white border border-slate-200 hover:bg-slate-100 transition-all shadow-2xs"
                   >
-                    <Navigation className="w-3.5 h-3.5" />
+                    <Navigation className="w-3.5 h-3.5 text-rose-600" />
                     <span>Get Google Map Directions</span>
                   </a>
                 </div>
@@ -86,7 +86,7 @@ export default function ContactSection() {
             {/* Direct Phone Numbers Card */}
             <div className="bg-slate-50 rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-100 border border-emerald-300 flex items-center justify-center text-emerald-600 shrink-0 mt-1">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 mt-1">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
@@ -108,13 +108,7 @@ export default function ContactSection() {
                             <span className="text-sm font-extrabold text-slate-900 tracking-wide">
                               {contact.display}
                             </span>
-                            <span
-                              className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${
-                                contact.supportsCall
-                                  ? 'bg-sky-100 text-sky-800 border border-sky-200'
-                                  : 'bg-amber-100 text-amber-800 border border-amber-200'
-                              }`}
-                            >
+                            <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                               {contact.badge}
                             </span>
                           </div>
@@ -129,7 +123,7 @@ export default function ContactSection() {
                               href={contact.callHref}
                               className="inline-flex items-center gap-1 px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-all shadow-sm"
                             >
-                              <Phone className="w-3 h-3 text-sky-400" />
+                              <Phone className="w-3 h-3 text-rose-400" />
                               <span>Call</span>
                             </a>
                           )}
@@ -149,7 +143,7 @@ export default function ContactSection() {
 
                   <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 font-semibold">
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-sky-600" />
+                      <Clock className="w-4 h-4 text-slate-600" />
                       <span>10:00 AM – 10:00 PM</span>
                     </div>
                     <a
@@ -221,7 +215,7 @@ export default function ContactSection() {
                     placeholder="e.g. Ramesh Reddy / Sri Sai Enterprises"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-white border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 font-medium focus:outline-none"
+                    className="w-full bg-white border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-3 text-sm text-slate-900 font-medium focus:outline-none"
                   />
                 </div>
 
@@ -234,7 +228,7 @@ export default function ContactSection() {
                     placeholder="e.g. +91 98765 43210"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-white border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 font-medium focus:outline-none"
+                    className="w-full bg-white border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-3 text-sm text-slate-900 font-medium focus:outline-none"
                   />
                 </div>
 
@@ -245,7 +239,7 @@ export default function ContactSection() {
                   <select
                     value={serviceRequired}
                     onChange={(e) => setServiceRequired(e.target.value)}
-                    className="w-full bg-white border-2 border-slate-200 focus:border-sky-500 rounded-xl px-4 py-3 text-sm text-slate-900 font-semibold focus:outline-none"
+                    className="w-full bg-white border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-3 text-sm text-slate-900 font-semibold focus:outline-none"
                   >
                     <optgroup label="1. Jumbo Xerox & Plans">
                       <option value="Jumbo Xerox (A0, A1, A2, A3, A4)">Jumbo Xerox - Colour & B/W (A0-A4)</option>
@@ -294,15 +288,15 @@ export default function ContactSection() {
                     placeholder="Mention dimensions (e.g. A0 map, 10x4 ft flex, 50 T-shirts), event date, etc."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-white border-2 border-slate-200 focus:border-sky-500 rounded-xl p-4 text-sm text-slate-900 font-medium focus:outline-none resize-none"
+                    className="w-full bg-white border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl p-4 text-sm text-slate-900 font-medium focus:outline-none resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-sm sm:text-base text-white bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 shadow-xl shadow-sky-600/25 transition-all hover:scale-[1.01] active:scale-[0.99]"
+                  className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-sm sm:text-base text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 transition-all hover:scale-[1.01] active:scale-[0.99]"
                 >
-                  <Send className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4" />
                   <span>Submit Inquiry to WhatsApp</span>
                 </button>
 

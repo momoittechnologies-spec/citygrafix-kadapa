@@ -10,33 +10,33 @@ export default function Testimonials() {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold mb-3 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold mb-3 shadow-xs">
             <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
             <span>Google Business Profile Verified</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight mb-4">
             Rated{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-600 to-slate-950">
               5.0 / 5.0
             </span>{' '}
             by Kadapa Clients
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
             Real feedback from Kadapa doctors, shop owners, event organizers, and families who rely on City Grafix for premium Star Flex, glowing sign boards, and fast delivery.
           </p>
         </div>
 
         {/* Standout Google Business Profile Review Integration Banner */}
-        <div className="max-w-5xl 2xl:max-w-6xl mx-auto mb-16 rounded-3xl bg-gradient-to-r from-amber-500/10 via-sky-500/10 to-emerald-500/10 border-2 border-amber-300/80 p-6 sm:p-8 shadow-xl shadow-amber-500/5 relative overflow-hidden backdrop-blur-sm">
+        <div className="max-w-5xl 2xl:max-w-6xl mx-auto mb-16 rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-sm relative overflow-hidden">
           {/* Subtle Google colors indicator strip */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853]" />
 
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
             <div className="flex flex-col sm:flex-row items-center gap-4">
               {/* Google G Logo Badge */}
-              <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200 shadow-md flex items-center justify-center shrink-0 p-3">
+              <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-200 shadow-2xs flex items-center justify-center shrink-0 p-3">
                 <svg viewBox="0 0 24 24" className="w-10 h-10">
                   <path
                     fill="#4285F4"
@@ -78,7 +78,7 @@ export default function Testimonials() {
               href={GOOGLE_REVIEW_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl font-extrabold text-xs sm:text-sm text-white bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl shadow-blue-600/30 transition-all hover:scale-105 active:scale-95 shrink-0"
+              className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl font-extrabold text-xs sm:text-sm text-white bg-slate-950 hover:bg-slate-800 shadow-md shadow-slate-900/10 transition-all hover:scale-105 active:scale-95 shrink-0"
             >
               <Star className="w-4 h-4 fill-amber-300 text-amber-300" />
               <span>Write a Google Review</span>
