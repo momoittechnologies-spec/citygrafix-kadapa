@@ -263,26 +263,29 @@ export default function GiftsCustomizer({ preselectedCategory = 'cups' }) {
   }, [uploadedImage, selectedPresetId]);
 
   return (
-    <section id="custom-gifts" className="py-20 sm:py-28 bg-gradient-to-b from-slate-50 via-white to-sky-50/40 text-slate-800 relative overflow-hidden border-y border-slate-200/80">
-      {/* 3D Soft Lighting Mesh Accents (Light Mode Only) */}
-      <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-rose-200/25 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-[500px] h-[350px] bg-sky-200/25 blur-[120px] rounded-full pointer-events-none" />
+    <section id="custom-gifts" className="py-20 sm:py-28 bg-stone-50 text-zinc-900 relative overflow-hidden border-b border-stone-200/80">
+      {/* 3D Soft Lighting Mesh Accents */}
+      <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-rose-500/5 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-[500px] h-[350px] bg-sky-500/5 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 2xl:px-16 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black uppercase tracking-wider mb-4 shadow-sm backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-rose-500" />
-            <span>Interactive 3D Gifting Studio (Light Theme)</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider mb-3.5 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+            <span>Interactive 3D Gifting Atelier</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          <h2 className="font-outfit text-3xl sm:text-5xl font-extrabold text-zinc-950 tracking-tight mb-3">
             Customize & Order{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-amber-500 to-sky-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-rose-700 to-amber-600">
               Personalized Gifts
             </span>
           </h2>
-          <p className="text-slate-600 text-xs sm:text-base leading-relaxed font-medium">
+          <p className="font-anek text-lg sm:text-xl font-bold text-rose-700 mb-3">
+            కస్టమైజ్డ్ ఫోటో మగ్స్, టీ-షర్ట్స్, కుషన్స్ మరియు ఫ్రేమ్స్
+          </p>
+          <p className="font-sans text-zinc-600 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto font-medium">
             Personalize photo mugs, DTF t-shirts, synthetic wood frames, plush cushions, and caps with your own pictures and names. Preview live on realistic 3D mockups with dynamic angles, calculate exact workshop prices, and submit your order directly to our WhatsApp!
           </p>
 

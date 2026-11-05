@@ -28,41 +28,36 @@ const TRACK_2_CREDENTIALS = [
 
 export default function TextMarquee() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-slate-50 via-white to-sky-50/30 border-y border-slate-200/90 py-5 select-none shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]">
+    <section className="relative overflow-hidden bg-stone-50 border-b border-stone-200/80 py-4 select-none">
       
-      {/* Edge Gradient Mask Overlays (Left & Right Smooth Fade) */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-20 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-20 pointer-events-none" />
+      {/* Edge Gradient Mask Overlays */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-stone-50 to-transparent z-20 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-stone-50 to-transparent z-20 pointer-events-none" />
 
       {/* ========================================================
           TRACK 1: PRIMARY SERVICES MARQUEE (FORWARD SCROLL)
          ======================================================== */}
       <div className="flex overflow-hidden py-1">
         <div className="animate-marquee-track flex items-center gap-3">
-          {/* Double the array for seamless infinite looping */}
           {[...TRACK_1_SERVICES, ...TRACK_1_SERVICES].map((item, idx) => (
             <a
               key={idx}
               href={item.href}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-sky-400 shadow-xs hover:shadow-md transition-all duration-300 group hover:-translate-y-0.5 shrink-0"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-2xl bg-white hover:bg-stone-50 border border-stone-200/90 hover:border-rose-300 shadow-2xs hover:shadow-xs transition-all duration-300 group shrink-0"
             >
-              {/* Service Emoji Icon */}
               <span className="text-base group-hover:scale-110 transition-transform">
                 {item.icon}
               </span>
 
-              {/* Service Name */}
-              <span className="text-xs font-black text-slate-900 group-hover:text-sky-700 tracking-tight transition-colors">
+              <span className="font-outfit text-xs font-bold text-zinc-900 group-hover:text-rose-600 tracking-tight transition-colors">
                 {item.name}
               </span>
 
-              {/* Telugu Tag */}
-              <span className="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-lg border border-rose-200/80">
+              <span className="font-anek text-[11px] font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-lg border border-rose-200/80">
                 {item.telugu}
               </span>
 
-              {/* Specification Badge */}
-              <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 bg-slate-100 px-2 py-0.5 rounded-lg group-hover:bg-sky-100 group-hover:text-sky-700 transition-colors">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 bg-stone-100 px-2 py-0.5 rounded-lg group-hover:bg-rose-50 group-hover:text-rose-700 transition-colors">
                 {item.badge}
               </span>
 
@@ -78,31 +73,30 @@ export default function TextMarquee() {
       </div>
 
       {/* Subtle Separator Strip */}
-      <div className="my-2.5 mx-auto max-w-[1600px] h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="my-2 mx-auto max-w-[1720px] h-px bg-stone-200/70" />
 
       {/* ========================================================
           TRACK 2: CREDENTIALS & GUARANTEES (REVERSE SCROLL)
          ======================================================== */}
       <div className="flex overflow-hidden py-1">
         <div className="animate-marquee-track-fast flex items-center gap-3">
-          {/* Double the array for seamless infinite looping */}
           {[...TRACK_2_CREDENTIALS, ...TRACK_2_CREDENTIALS].map((cred, idx) => {
             const Icon = cred.icon;
             return (
               <div
                 key={idx}
-                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xl bg-slate-100/80 border border-slate-200 text-slate-700 text-xs font-bold shrink-0 hover:bg-white hover:border-emerald-300 transition-all shadow-2xs"
+                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-xl bg-stone-100/90 border border-stone-200 text-zinc-700 text-xs font-bold shrink-0 hover:bg-white hover:border-emerald-300 transition-all shadow-2xs"
               >
                 <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
                   <Icon className="w-2.5 h-2.5" />
                 </div>
-                <span className="tracking-tight text-[11px] font-black text-slate-800">
+                <span className="font-outfit tracking-tight text-[11px] font-bold text-zinc-900">
                   {cred.text}
                 </span>
-                <span className="px-1.5 py-0.2 rounded text-[9px] font-black uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span className="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
                   {cred.highlight}
                 </span>
-                <span className="text-slate-300 ml-1">•</span>
+                <span className="text-stone-300 ml-1">•</span>
               </div>
             );
           })}

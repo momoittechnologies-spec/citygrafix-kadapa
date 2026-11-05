@@ -102,43 +102,52 @@ export default function PriceCalculator() {
   };
 
   return (
-    <section id="calculator" className="py-20 bg-slate-100/70 relative">
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
+    <section id="calculator" className="py-20 sm:py-28 bg-stone-50 relative border-b border-stone-200/80">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 2xl:px-16 relative z-10">
+        
         {/* Section Heading */}
-        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold mb-3 shadow-xs">
+        <div className="text-center max-w-4xl 2xl:max-w-5xl mx-auto mb-14 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold mb-3.5 shadow-2xs">
             <Sliders className="w-3.5 h-3.5 text-rose-600" />
             <span>Interactive Size & Spec Configurator</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight mb-4">
+
+          <h2 className="font-outfit text-3xl sm:text-5xl font-extrabold text-zinc-950 tracking-tight mb-3">
             Instant Flex & Printing{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-rose-700 to-slate-950">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-rose-700 to-amber-600">
               Order & Size Estimator
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+
+          <p className="font-anek text-lg sm:text-xl font-bold text-rose-700 mb-3">
+            సైజ్ సెలెక్ట్ చేసుకోండి • నేరుగా హోల్‌సేల్ కొటేషన్ పొందండి
+          </p>
+
+          <p className="font-sans text-zinc-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-medium">
             Configure your exact dimensions, material grade, and finishing preferences. Instantly generate a formatted specification to receive our best direct wholesale quotation on WhatsApp.
           </p>
 
           {/* Customer Ready-Design Notice Banner */}
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium">
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-medium shadow-2xs">
             <FileCheck className="w-4 h-4 text-amber-600 shrink-0" />
             <span>
-              <strong>Note:</strong> We print customer-provided ready designs (CDR, PSD, PDF, TIFF, or high-res JPG).
+              <strong>Note:</strong> We print customer-provided ready designs (<span className="font-mono font-bold">CDR, PSD, PDF, TIFF, JPG</span>).
             </span>
           </div>
         </div>
 
         {/* Calculator Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
           {/* Left Column: Product & Options Form */}
           <div className="lg:col-span-7 space-y-6">
+            
             {/* Step 1: Select Product Category */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-              <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3">
+            <div className="atelier-card p-6 sm:p-7 rounded-3xl bg-white border border-stone-200 shadow-atelier-sm">
+              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-3.5">
                 1. Select Item or Material
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {PRICING_CONFIG.products.map((item) => (
                   <button
                     key={item.id}
@@ -146,23 +155,23 @@ export default function PriceCalculator() {
                       setSelectedProductId(item.id);
                       setSelectedFixedIndex(0);
                     }}
-                    className={`flex flex-col text-left p-3.5 rounded-xl border-2 transition-all ${
+                    className={`flex flex-col text-left p-4 rounded-2xl border-2 transition-all min-h-[56px] ${
                       selectedProductId === item.id
-                        ? 'bg-rose-50/90 border-rose-500 shadow-md shadow-rose-500/10'
-                        : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700'
+                        ? 'bg-rose-50/80 border-rose-500 shadow-xs'
+                        : 'bg-white border-stone-200 hover:border-stone-300 text-zinc-700'
                     }`}
                   >
                     <div className="flex items-center justify-between w-full mb-1">
-                      <span className={`text-sm font-bold ${selectedProductId === item.id ? 'text-rose-950 font-black' : 'text-slate-900'}`}>
+                      <span className={`text-sm font-outfit font-extrabold ${selectedProductId === item.id ? 'text-rose-950' : 'text-zinc-900'}`}>
                         {item.name.split(' (')[0]}
                       </span>
                       {item.popular && (
-                        <span className="text-[10px] font-extrabold px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300">
+                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300">
                           Popular
                         </span>
                       )}
                     </div>
-                    <span className="text-[11px] text-slate-500 line-clamp-1">
+                    <span className="text-xs text-zinc-500 font-medium line-clamp-1">
                       {item.description}
                     </span>
                   </button>
@@ -171,8 +180,8 @@ export default function PriceCalculator() {
             </div>
 
             {/* Step 2: Dimensions & Quantity Inputs */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-              <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3">
+            <div className="atelier-card p-6 sm:p-7 rounded-3xl bg-white border border-stone-200 shadow-atelier-sm">
+              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-3.5">
                 2. Specify Size & Dimensions
               </label>
 
@@ -181,7 +190,7 @@ export default function PriceCalculator() {
                 <div className="space-y-4">
                   {/* Presets */}
                   <div>
-                    <span className="text-xs text-slate-500 font-semibold mb-2 block">Quick Standard Sizes:</span>
+                    <span className="text-xs text-zinc-600 font-bold mb-2 block">Quick Standard Sizes:</span>
                     <div className="flex flex-wrap gap-2">
                       {presets.map((p, idx) => (
                         <button
@@ -190,10 +199,10 @@ export default function PriceCalculator() {
                             setWidth(p.w);
                             setHeight(p.h);
                           }}
-                          className={`text-xs px-3 py-1.5 rounded-lg border font-medium transition-all ${
+                          className={`text-xs px-3.5 py-2 rounded-xl border font-bold transition-all min-h-[40px] ${
                             width === p.w && height === p.h
-                              ? 'bg-rose-600 text-white font-bold border-rose-600 shadow-xs'
-                              : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                              ? 'bg-rose-600 text-white border-rose-600 shadow-xs'
+                              : 'bg-stone-50 text-zinc-700 border-stone-200 hover:bg-stone-100'
                           }`}
                         >
                           {p.label}
@@ -205,7 +214,7 @@ export default function PriceCalculator() {
                   {/* Width & Height Inputs */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                      <label className="block text-xs font-bold text-zinc-700 mb-1.5">
                         Width (in Feet)
                       </label>
                       <div className="relative">
@@ -215,16 +224,16 @@ export default function PriceCalculator() {
                           max="200"
                           value={width}
                           onChange={(e) => setWidth(Math.max(1, Number(e.target.value)))}
-                          className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
+                          className="w-full bg-stone-50 border-2 border-stone-200 focus:border-rose-500 focus:bg-white rounded-xl px-4 py-2.5 text-zinc-900 font-bold text-base focus:outline-none transition-all"
                         />
-                        <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-bold">
+                        <span className="absolute right-3 top-2.5 text-xs text-zinc-400 font-bold">
                           ft
                         </span>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                      <label className="block text-xs font-bold text-zinc-700 mb-1.5">
                         Height (in Feet)
                       </label>
                       <div className="relative">
@@ -234,16 +243,16 @@ export default function PriceCalculator() {
                           max="100"
                           value={height}
                           onChange={(e) => setHeight(Math.max(1, Number(e.target.value)))}
-                          className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
+                          className="w-full bg-stone-50 border-2 border-stone-200 focus:border-rose-500 focus:bg-white rounded-xl px-4 py-2.5 text-zinc-900 font-bold text-base focus:outline-none transition-all"
                         />
-                        <span className="absolute right-3 top-2.5 text-xs text-slate-400 font-bold">
+                        <span className="absolute right-3 top-2.5 text-xs text-zinc-400 font-bold">
                           ft
                         </span>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                      <label className="block text-xs font-bold text-zinc-700 mb-1.5">
                         Quantity (Copies)
                       </label>
                       <input
@@ -252,15 +261,15 @@ export default function PriceCalculator() {
                         max="500"
                         value={quantity}
                         onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                        className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 focus:bg-white rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none transition-all"
+                        className="w-full bg-stone-50 border-2 border-stone-200 focus:border-rose-500 focus:bg-white rounded-xl px-4 py-2.5 text-zinc-900 font-bold text-base focus:outline-none transition-all"
                       />
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 p-3 bg-slate-100 border border-slate-200 rounded-xl text-xs text-slate-800 font-medium">
+                  <div className="flex items-center gap-2 p-3 bg-stone-100 border border-stone-200 rounded-xl text-xs text-zinc-800 font-medium">
                     <Info className="w-4 h-4 text-sky-600 shrink-0" />
                     <span>
-                      Total Calculated Area: <strong className="text-sky-700 font-bold">{specification.areaSqFt} sq. ft.</strong> across {quantity} banner{quantity > 1 ? 's' : ''}.
+                      Total Calculated Area: <strong className="text-sky-700 font-bold font-mono">{specification.areaSqFt} sq. ft.</strong> across {quantity} banner{quantity > 1 ? 's' : ''}.
                     </span>
                   </div>
                 </div>
@@ -270,7 +279,7 @@ export default function PriceCalculator() {
               {product.unitType === 'letters' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    <label className="block text-xs font-bold text-zinc-700 mb-1.5">
                       Number of Letters / Characters
                     </label>
                     <input
@@ -279,17 +288,17 @@ export default function PriceCalculator() {
                       max="100"
                       value={letterCount}
                       onChange={(e) => setLetterCount(Math.max(1, Number(e.target.value)))}
-                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
+                      className="w-full bg-stone-50 border-2 border-stone-200 focus:border-rose-500 rounded-xl px-4 py-2.5 text-zinc-900 font-bold text-base focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    <label className="block text-xs font-bold text-zinc-700 mb-1.5">
                       Letter Height (Inches)
                     </label>
                     <select
                       value={letterHeightInches}
                       onChange={(e) => setLetterHeightInches(Number(e.target.value))}
-                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
+                      className="w-full bg-stone-50 border-2 border-stone-200 focus:border-rose-500 rounded-xl px-4 py-2.5 text-zinc-900 font-bold text-base focus:outline-none"
                     >
                       <option value="6">6 Inches (Small Storefront)</option>
                       <option value="8">8 Inches (Standard Shop Fascia)</option>
@@ -304,23 +313,23 @@ export default function PriceCalculator() {
               {/* FIXED OPTIONS (Jumbo Xerox, Visiting Cards, Frames) */}
               {product.unitType === 'fixed' && (
                 <div className="space-y-3">
-                  <span className="text-xs text-slate-500 font-semibold block">Choose Size or Print Specification:</span>
+                  <span className="text-xs text-zinc-600 font-bold block">Choose Size or Print Specification:</span>
                   <div className="grid grid-cols-1 gap-2">
                     {product.fixedOptions.map((opt, idx) => (
                       <button
                         key={idx}
                         onClick={() => setSelectedFixedIndex(idx)}
-                        className={`flex items-center justify-between p-3.5 rounded-xl border-2 text-left transition-all ${
+                        className={`flex items-center justify-between p-4 rounded-xl border-2 text-left transition-all min-h-[48px] ${
                           selectedFixedIndex === idx
                             ? 'bg-rose-50 border-rose-500 text-rose-950 font-bold shadow-xs'
-                            : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                            : 'bg-stone-50 border-stone-200 text-zinc-700 hover:bg-stone-100'
                         }`}
                       >
-                        <span className="text-sm">{opt.label}</span>
-                        <span className={`text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
+                        <span className="text-sm font-medium">{opt.label}</span>
+                        <span className={`text-xs font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
                           selectedFixedIndex === idx
                             ? 'bg-rose-100 text-rose-700'
-                            : 'bg-slate-200 text-slate-700'
+                            : 'bg-stone-200 text-zinc-700'
                         }`}>
                           Selected
                         </span>
@@ -329,7 +338,7 @@ export default function PriceCalculator() {
                   </div>
 
                   <div className="pt-2">
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    <label className="block text-xs font-bold text-zinc-700 mb-1.5">
                       Order Quantity
                     </label>
                     <input
@@ -338,7 +347,7 @@ export default function PriceCalculator() {
                       max="1000"
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                      className="w-32 bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2 text-slate-900 font-bold text-base focus:outline-none"
+                      className="w-32 bg-stone-50 border-2 border-stone-200 focus:border-rose-500 rounded-xl px-4 py-2 text-zinc-900 font-bold text-base focus:outline-none"
                     />
                   </div>
                 </div>
@@ -348,7 +357,7 @@ export default function PriceCalculator() {
               {product.unitType === 'quantity' && (
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    <label className="block text-xs font-bold text-zinc-700 mb-1.5">
                       Order Quantity (Units)
                     </label>
                     <input
@@ -357,11 +366,11 @@ export default function PriceCalculator() {
                       max="1000"
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                      className="w-full sm:w-48 bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2.5 text-slate-900 font-bold text-base focus:outline-none"
+                      className="w-full sm:w-48 bg-stone-50 border-2 border-stone-200 focus:border-rose-500 rounded-xl px-4 py-2.5 text-zinc-900 font-bold text-base focus:outline-none"
                     />
                   </div>
 
-                  <div className="flex items-center gap-2 p-3 bg-amber-50 border border-amber-300 rounded-xl text-xs text-amber-800 font-medium">
+                  <div className="flex items-center gap-2 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-medium">
                     <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>
                       Bulk wholesale discounts available for event orders & corporate gifting.
@@ -373,8 +382,8 @@ export default function PriceCalculator() {
 
             {/* Step 3: Finishing & Add-ons */}
             {product.finishingAllowed && product.finishingAllowed.length > 0 && (
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3">
+              <div className="atelier-card p-6 sm:p-7 rounded-3xl bg-white border border-stone-200 shadow-atelier-sm">
+                <label className="block text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-3.5">
                   3. Optional Finishing & Framing
                 </label>
                 <div className="space-y-2.5">
@@ -387,14 +396,14 @@ export default function PriceCalculator() {
                       <div
                         key={finishKey}
                         onClick={() => toggleFinishing(finishKey)}
-                        className={`flex items-start gap-3 p-3.5 rounded-xl border-2 cursor-pointer transition-all ${
+                        className={`flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all min-h-[48px] ${
                           isChecked
                             ? 'bg-rose-50 border-rose-500 text-rose-950 shadow-2xs'
-                            : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
+                            : 'bg-white border-stone-200 text-zinc-700 hover:border-stone-300'
                         }`}
                       >
                         <div className={`w-5 h-5 rounded-md flex items-center justify-center mt-0.5 border-2 transition-all ${
-                          isChecked ? 'bg-rose-600 border-rose-600 text-white' : 'border-slate-300 bg-white'
+                          isChecked ? 'bg-rose-600 border-rose-600 text-white' : 'border-stone-300 bg-white'
                         }`}>
                           {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                         </div>
@@ -405,7 +414,7 @@ export default function PriceCalculator() {
                               Optional Addon
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 mt-0.5">{finish.description}</p>
+                          <p className="text-xs text-zinc-500 mt-0.5 font-medium">{finish.description}</p>
                         </div>
                       </div>
                     );
@@ -415,29 +424,29 @@ export default function PriceCalculator() {
             )}
 
             {/* Step 4: Custom Notes */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
-              <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-2">
+            <div className="atelier-card p-6 sm:p-7 rounded-3xl bg-white border border-stone-200 shadow-atelier-sm">
+              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-2">
                 4. Custom Notes & Ready Design Format (Optional)
               </label>
               <input
                 type="text"
-                placeholder="e.g., CDR file ready, urgent delivery needed today, with eyelets..."
+                placeholder="e.g., CDR file ready, urgent delivery needed today, with brass eyelets..."
                 value={customerNote}
                 onChange={(e) => setCustomerNote(e.target.value)}
-                className="w-full bg-slate-50 border-2 border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none"
+                className="w-full bg-stone-50 border-2 border-stone-200 focus:border-rose-500 rounded-xl px-4 py-2.5 text-sm text-zinc-900 focus:outline-none"
               />
             </div>
           </div>
 
           {/* Right Column: Order Specification Summary & WhatsApp Action */}
           <div className="lg:col-span-5 sticky top-28">
-            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-slate-900/5 relative overflow-hidden">
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
+            <div className="atelier-card p-6 sm:p-7 rounded-3xl bg-white border border-stone-200 shadow-atelier-md relative overflow-hidden">
+              <div className="flex items-center justify-between pb-4 border-b border-stone-200 mb-5">
                 <div>
-                  <span className="text-xs font-black uppercase tracking-wider text-rose-600">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-600">
                     Live Specification
                   </span>
-                  <h3 className="text-xl font-extrabold text-slate-900">Order Summary</h3>
+                  <h3 className="font-outfit text-xl font-extrabold text-zinc-900">Order Summary</h3>
                 </div>
                 <span className="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-300">
                   Direct Workshop Quote
@@ -446,40 +455,40 @@ export default function PriceCalculator() {
 
               {/* Itemized Specification Breakdown */}
               <div className="space-y-3 text-sm mb-6">
-                <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                  <span className="text-slate-500 font-medium">Selected Item:</span>
-                  <span className="font-bold text-slate-900 text-right max-w-[200px] truncate">
+                <div className="flex justify-between py-1.5 border-b border-stone-100 text-zinc-700">
+                  <span className="text-zinc-500 font-medium">Selected Item:</span>
+                  <span className="font-bold text-zinc-900 text-right max-w-[200px] truncate">
                     {product.name}
                   </span>
                 </div>
 
-                <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                  <span className="text-slate-500 font-medium">Size / Dimensions:</span>
-                  <span className="font-bold text-slate-900">
+                <div className="flex justify-between py-1.5 border-b border-stone-100 text-zinc-700">
+                  <span className="text-zinc-500 font-medium">Size / Dimensions:</span>
+                  <span className="font-bold text-zinc-900 font-mono">
                     {specification.dimensionStr}
                   </span>
                 </div>
 
                 {specification.areaSqFt > 0 && (
-                  <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                    <span className="text-slate-500 font-medium">Total Area:</span>
-                    <span className="font-extrabold text-sky-600">
+                  <div className="flex justify-between py-1.5 border-b border-stone-100 text-zinc-700">
+                    <span className="text-zinc-500 font-medium">Total Area:</span>
+                    <span className="font-extrabold text-sky-700 font-mono">
                       {specification.areaSqFt} sq. ft.
                     </span>
                   </div>
                 )}
 
                 {specification.finishingAppliedNames.length > 0 && (
-                  <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                    <span className="text-slate-500 font-medium">Finishing:</span>
-                    <span className="font-bold text-slate-900 text-right max-w-[180px]">
+                  <div className="flex justify-between py-1.5 border-b border-stone-100 text-zinc-700">
+                    <span className="text-zinc-500 font-medium">Finishing:</span>
+                    <span className="font-bold text-zinc-900 text-right max-w-[180px]">
                       {specification.finishingAppliedNames.join(', ')}
                     </span>
                   </div>
                 )}
 
-                <div className="flex justify-between py-1 border-b border-slate-100 text-slate-700">
-                  <span className="text-slate-500 font-medium">Design File:</span>
+                <div className="flex justify-between py-1.5 border-b border-stone-100 text-zinc-700">
+                  <span className="text-zinc-500 font-medium">Design File:</span>
                   <span className="font-bold text-emerald-700">
                     Customer Ready Design
                   </span>
@@ -487,14 +496,14 @@ export default function PriceCalculator() {
               </div>
 
               {/* High-Impact WhatsApp Quote Box */}
-              <div className="p-5 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white mb-6 text-center shadow-md border border-slate-800">
+              <div className="p-5 rounded-2xl bg-zinc-950 text-white mb-6 text-center shadow-md border border-zinc-800">
                 <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-2">
                   <MessageCircle className="w-5 h-5" />
                 </div>
-                <h4 className="text-sm font-extrabold text-white">
+                <h4 className="font-outfit text-sm font-extrabold text-white">
                   Get Direct Best Wholesale Price
                 </h4>
-                <p className="text-[11px] text-slate-300 mt-1 leading-relaxed font-medium">
+                <p className="font-sans text-[11px] text-zinc-300 mt-1 leading-relaxed font-medium">
                   Send this exact specification to City Grafix on WhatsApp to receive the direct workshop rate with zero middlemen.
                 </p>
               </div>
@@ -502,17 +511,18 @@ export default function PriceCalculator() {
               {/* WhatsApp Action Button */}
               <button
                 onClick={handleSendWhatsApp}
-                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-sm sm:text-base text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 transition-all hover:scale-[1.01] active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-bold text-sm sm:text-base text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 transition-all hover:scale-[1.01] active:scale-[0.98] min-h-[48px]"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>Send Specs to WhatsApp for Best Quote</span>
               </button>
 
-              <p className="text-[10px] text-slate-500 text-center mt-3 leading-tight font-medium">
+              <p className="text-[10px] text-zinc-500 text-center mt-3 leading-tight font-medium">
                 *City Grafix provides commercial printing and fabrication from customer-supplied ready design files (CDR, PSD, PDF, JPG).
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
