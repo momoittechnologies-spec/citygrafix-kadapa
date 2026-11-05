@@ -368,6 +368,18 @@ export default function Footer({ onOpenContact }) {
             <p className="font-anek text-xs text-rose-700 font-semibold mt-0.5">
               కడపలో మీ నమ్మకమైన ప్రింటింగ్ & జంబో జిరాక్స్ పార్ట్నర్ | Quality Printing • Wholesale Rates • On-Time Delivery
             </p>
+            <p className="text-[11px] text-zinc-500 font-medium mt-1.5 flex items-center justify-center sm:justify-start gap-1.5">
+              <span>Technology Partner:</span>
+              <a
+                href="https://www.momoittechnologies.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-zinc-800 hover:text-rose-600 transition-colors inline-flex items-center gap-1 underline underline-offset-2"
+              >
+                MOMO IT TECHNOLOGIES
+                <ExternalLink className="w-3 h-3 text-zinc-400" />
+              </a>
+            </p>
           </div>
 
           <button

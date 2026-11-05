@@ -56,7 +56,7 @@ export default function ContactMenuDropdown({
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-stone-200 bg-stone-50 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-rose-600 text-white flex items-center justify-center shadow-md shadow-rose-600/20">
+            <div className="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/20">
               <Phone className="w-5 h-5" />
             </div>
             <div>

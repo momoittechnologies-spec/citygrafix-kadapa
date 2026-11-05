@@ -117,14 +117,14 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
               <button
                 type="button"
                 onClick={() => onOpenContact && onOpenContact('all')}
-                className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl font-bold text-xs shadow-md shadow-rose-600/15 transition-all active:scale-95 group bg-rose-600 hover:bg-rose-700 text-white border border-rose-500 hover:shadow-lg hover:shadow-rose-600/25 min-h-[44px]"
+                className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl font-bold text-xs shadow-md shadow-emerald-600/20 transition-all active:scale-95 group bg-emerald-600 hover:bg-emerald-700 text-white border border-emerald-500 hover:shadow-lg hover:shadow-emerald-600/30 min-h-[44px]"
                 title="Call or WhatsApp our 3 direct lines"
               >
                 <div className="flex items-center -space-x-1">
-                  <div className="w-5 h-5 rounded-md bg-white/20 flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-md bg-zinc-950/25 flex items-center justify-center border border-white/20">
                     <Phone className="w-3 h-3 text-white" />
                   </div>
-                  <div className="w-5 h-5 rounded-md bg-emerald-500 text-white flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-md bg-white text-emerald-600 flex items-center justify-center shadow-xs">
                     <MessageCircle className="w-3 h-3" />
                   </div>
                 </div>
@@ -132,9 +132,9 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
                 <div className="text-left flex flex-col leading-tight">
                   <span className="flex items-center gap-1 font-extrabold text-xs text-white">
                     Call / WhatsApp
-                    <ChevronDown className="w-3 h-3 text-rose-200 group-hover:translate-y-0.5 transition-transform" />
+                    <ChevronDown className="w-3 h-3 text-emerald-100 group-hover:translate-y-0.5 transition-transform" />
                   </span>
-                  <span className="text-[10px] text-rose-100 font-medium">
+                  <span className="text-[10px] text-emerald-100/90 font-medium">
                     3 Direct Workshop Lines
                   </span>
                 </div>
@@ -146,7 +146,7 @@ export default function Navbar({ onOpenContact, currentView = 'home' }) {
               <button
                 type="button"
                 onClick={() => onOpenContact && onOpenContact('all')}
-                className="flex items-center gap-1.5 py-2 px-3 rounded-xl bg-rose-600 text-white text-xs font-bold shadow-sm active:scale-95 min-h-[44px] min-w-[44px] justify-center"
+                className="flex items-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm active:scale-95 min-h-[44px] min-w-[44px] justify-center border border-emerald-500"
                 aria-label="Call & WhatsApp Direct Lines"
               >
                 <Phone className="w-3.5 h-3.5" />
